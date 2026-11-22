@@ -151,7 +151,9 @@ document.addEventListener("pointermove",e=>{if(!SC.on)return;const dx=e.clientX-
 
 
 /* ---------------- petits bruitages synthétisés (aucun fichier son) ---------------- */
-function ac(){AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==="suspended")AC.resume();return AC}
+function ac(){AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state!=="running")try{AC.resume()}catch(_){}return AC}
+/* iPhone (Safari comme Chrome) : le son ne se débloque que pendant un vrai geste (fin de toucher ou clic) */
+let unlocked=false;["touchend","click"].forEach(t=>document.addEventListener(t,()=>{try{const a=ac();if(unlocked&&a.state==="running")return;const b=a.createBuffer(1,1,22050),s=a.createBufferSource();s.buffer=b;s.connect(a.destination);s.start(0);unlocked=true}catch(_){}},{passive:true,capture:true}));
 function tone(o){/* {f:[f0,f1,(f2)],dur,type,vol,at,vib,vibD,lp,bp,q} */
  const a=ac(),t=a.currentTime+0.02+(o.at||0),d=o.dur||.4,os=a.createOscillator(),g=a.createGain();os.type=o.type||"sine";
  const f=o.f;os.frequency.setValueAtTime(f[0],t);if(f.length===2)os.frequency.exponentialRampToValueAtTime(f[1],t+d);if(f.length===3){os.frequency.exponentialRampToValueAtTime(f[1],t+d*.4);os.frequency.exponentialRampToValueAtTime(f[2],t+d)}
@@ -201,8 +203,12 @@ function olé(){/* finale flamenca : rasgueado + palmas + castagnettes (pas de v
  }catch(_){}}
 /* les petits mariés de la frise : 3 appuis = ¡Olé! */
 /* iPhone : Safari n'envoie pas de « click » sur un simple dessin, on écoute donc le toucher lui-même (pointerup) */
-const tapOn=(sel,fn)=>{let st=null;document.addEventListener("pointerdown",e=>{const el=e.target.closest(sel);st=el?{el,x:e.clientX,y:e.clientY,t:Date.now()}:null},{passive:true});
- document.addEventListener("pointerup",e=>{if(!st)return;const s0=st;st=null;if(Math.hypot(e.clientX-s0.x,e.clientY-s0.y)>12||Date.now()-s0.t>700)return;if(e.target.closest(sel)!==s0.el)return;fn(e,s0.el)},{passive:true})};
+/* un toucher = touchend (seul geste qui débloque le son sur iPhone) ; à la souris = clic */
+const tapOn=(sel,fn)=>{let st=null,lastTouch=0;
+ document.addEventListener("touchstart",e=>{const t=e.changedTouches[0],el=e.target.closest&&e.target.closest(sel);st=el?{el,x:t.clientX,y:t.clientY,t:Date.now()}:null},{passive:true});
+ document.addEventListener("touchend",e=>{lastTouch=Date.now();if(!st)return;const s0=st;st=null;const t=e.changedTouches[0];
+  if(Math.hypot(t.clientX-s0.x,t.clientY-s0.y)>12||Date.now()-s0.t>700)return;fn({target:e.target,clientX:t.clientX,clientY:t.clientY},s0.el)},{passive:true});
+ document.addEventListener("click",e=>{if(Date.now()-lastTouch<1000)return;const el=e.target.closest(sel);if(el)fn(e,el)})};
 let ftaps=[];tapOn(".fme",()=>{const n=Date.now();ftaps=ftaps.filter(t=>n-t<1500);ftaps.push(n);
  if(ftaps.length>=3){ftaps=[];olé()}else{try{noise({dur:.06,bp:1800,q:1.2,vol:.8})}catch(_){}}});
 // 4. les petits dessins de la page Pratique parlent
