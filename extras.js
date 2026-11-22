@@ -191,9 +191,14 @@ const SFX={
  torero(){},flamenca(){}
 };
 const SPEAK=new Set(["maries","torero","flamenca","taureau"]);
-function olé(){try{castanets()}catch(_){}
- if(window.sayAloud)setTimeout(()=>{try{const u=new SpeechSynthesisUtterance("¡Oooooooooolé!");u.lang="es-ES";u.rate=.62;u.pitch=1.15;
-  const v=speechSynthesis.getVoices().find(v=>/^es/i.test(v.lang));if(v)u.voice=v;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(_){}} ,120)}
+function olé(){/* finale flamenca : rasgueado + palmas + castagnettes (pas de voix de synthèse) */
+ try{
+  const E=[82.4,123.5,164.8,207.7,246.9,329.6],F=[87.3,130.8,174.6,220,261.6,349.2];
+  [[F,0],[F,.12],[E,.36],[E,.44],[E,.52],[E,.6]].forEach(([ch,at],k)=>ch.forEach((f,i)=>pluck(f,at+(k%2?(5-i):i)*.012,.22)));
+  [.36,.66,.96,1.12,1.28].forEach(at=>noise({dur:.06,at,bp:1800,q:1.2,vol:.9}));
+  setTimeout(()=>{try{castanets()}catch(_){}},700);
+  [[0,659],[.14,698],[.28,659],[.5,880]].forEach(([at,f])=>tone({f:[f],dur:at>.4?.6:.16,type:"sawtooth",lp:2200,vol:.12,at:1.1+at,vib:at>.4?6:0,vibD:6}));
+ }catch(_){}}
 /* les petits mariés de la frise : 3 appuis = ¡Olé! */
 let ftaps=[];document.addEventListener("click",e=>{if(!e.target.closest(".fme"))return;const n=Date.now();ftaps=ftaps.filter(t=>n-t<1500);ftaps.push(n);if(ftaps.length>=3){ftaps=[];olé()}});
 // 4. les petits dessins de la page Pratique parlent
