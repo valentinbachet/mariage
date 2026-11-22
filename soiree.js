@@ -277,11 +277,9 @@ const Tour={
   const ph=S.get("champPhotoSent",false);
   render(`<div class="dend won"><img src="${head(Live.identity().team)}" alt=""><h2 class="sv-title">${t("champ")}</h2>
    <p class="muted">${ph?t("photoSent"):t("photoQ")}</p>
-   <label class="btn btn-gold filebtn">${t("photoBtn")}<input type="file" accept="image/*" id="chPh" hidden></label><p class="hint" id="chMsg"></p></div>`);
+   </div>`);
   if(!this.cel){this.cel=1;confetti()}
-  $("#chPh").addEventListener("change",async e=>{const f=e.target.files&&e.target.files[0];if(!f)return;$("#chMsg").textContent=t("photoSending");
-   try{const img=await shrink(f,1400,.8);const cn=(this.st&&this.st.champN)||Live.identity().n;await db.set("tour/photo",{img,n:cn,t:db.now()});S.set("champPhotoSent",true);applyHero({img,n:cn});$("#chMsg").textContent=t("photoSent");confetti()}
-   catch(err){$("#chMsg").textContent="⚠︎ "+(err&&err.message||err)}});
+  /* la photo est prise et publiée par les mariés depuis leur espace privé */
  }
 };
 function shrink(file,max,q){return new Promise((ok,ko)=>{const u=URL.createObjectURL(file),im=new Image();

@@ -17,7 +17,7 @@ const S={
   topSong:"La chanson la plus votée",bestRun:n=>`${n} signe le meilleur score de la Carrera`,capsule:n=>n>1?`${n} messages dorment dans la capsule jusqu'au 7 mai 2028`:"Un message dort dans la capsule jusqu'au 7 mai 2028",
   word:"Un mot de nous deux",allPhotos:"Voir tout l'album",
   install:"📲 Gardez le site sur votre écran d'accueil : il marche même sans réseau à l'hacienda.",installBtn:"Installer",iosSafari:"Ouvrez ce site dans Safari, puis Partager ⎋ › « Sur l'écran d'accueil ».",iosHow:"En bas de Safari, touchez Partager ⎋ (le carré avec la flèche), puis « Sur l'écran d'accueil ».",later:"Plus tard",
-  admK:"Espace des mariés",admVoices:"Livre d'or vocal",admCap:"La capsule",admCapLocked:(n,t)=>`🔒 ${n} message${n>1?"s":""} scellé${n>1?"s":""}. Ouverture le ${t}.`,listen:"▶ Écouter",admNone:"Rien pour l'instant.",admPhotos:n=>`${n} photos sur le mur`},
+  admK:"Espace des mariés",admChamp:"Photo du champion des duels",admChampOf:n=>`Champion·ne : ${n}`,admChampNone:"Pas encore de champion·ne",admChampOn:"En ligne en fond d'écran",admChampBtn:"Publier la photo avec le champion",admVoices:"Livre d'or vocal",admCap:"La capsule",admCapLocked:(n,t)=>`🔒 ${n} message${n>1?"s":""} scellé${n>1?"s":""}. Ouverture le ${t}.`,listen:"▶ Écouter",admNone:"Rien pour l'instant.",admPhotos:n=>`${n} photos sur le mur`},
  es:{signed:n=>`Firmado: ${n}`,profWhy:"Tu mensaje irá firmado con tu nombre: conéctate o crea tu perfil (e-mail + código de 4 cifras).",admProf:"Perfiles de los invitados",admNoPin:"sin código aún",admReset:"Restablecer el código",admResetOk:"Código borrado: el invitado elegirá uno nuevo al conectarse.",jjK:"El hilo del día",jjNow:"Ahora mismo",jjNext:"Siguiente",jjIn:d=>`dentro de ${d}`,jjDone:"terminado",
   busGo:"Autobús de ida",busBack:"Autobús de vuelta",scratch:"Se abre el rasca y gana",reveal:"Revelación de la carta ganadora",
   souvK:"Para los novios",voiceT:"El libro de firmas de voz",voiceD:"Dejadnos un mensaje de 30 segundos: los escucharemos todos después de la boda.",
@@ -30,7 +30,7 @@ const S={
   topSong:"La canción más votada",bestRun:n=>`${n} firma la mejor marca de la Carrera`,capsule:n=>n>1?`${n} mensajes duermen en la cápsula hasta el 7 de mayo de 2028`:"Un mensaje duerme en la cápsula hasta el 7 de mayo de 2028",
   word:"Unas palabras de los dos",allPhotos:"Ver todo el álbum",
   install:"📲 Guarda la web en tu pantalla de inicio: funciona incluso sin cobertura en la hacienda.",installBtn:"Instalar",iosSafari:"Abre esta web en Safari y luego Compartir ⎋ › «Añadir a pantalla de inicio».",iosHow:"Abajo en Safari, toca Compartir ⎋ (el cuadrado con la flecha) y luego «Añadir a pantalla de inicio».",later:"Más tarde",
-  admK:"Espacio de los novios",admVoices:"Libro de firmas de voz",admCap:"La cápsula",admCapLocked:(n,t)=>`🔒 ${n} mensaje${n>1?"s":""} sellado${n>1?"s":""}. Se abre el ${t}.`,listen:"▶ Escuchar",admNone:"Nada por ahora.",admPhotos:n=>`${n} fotos en el muro`},
+  admK:"Espacio de los novios",admChamp:"Foto del campeón de los duelos",admChampOf:n=>`Campeón/a: ${n}`,admChampNone:"Aún no hay campeón/a",admChampOn:"Publicada como fondo de la web",admChampBtn:"Publicar la foto con el campeón",admVoices:"Libro de firmas de voz",admCap:"La cápsula",admCapLocked:(n,t)=>`🔒 ${n} mensaje${n>1?"s":""} sellado${n>1?"s":""}. Se abre el ${t}.`,listen:"▶ Escuchar",admNone:"Nada por ahora.",admPhotos:n=>`${n} fotos en el muro`},
  en:{signed:n=>`Signed: ${n}`,profWhy:"Your message will be signed with your name: sign in or create your profile (email + 4-digit code).",admProf:"Guest profiles",admNoPin:"no code yet",admReset:"Reset code",admResetOk:"Code cleared: the guest will choose a new one next time they sign in.",jjK:"Today, step by step",jjNow:"Right now",jjNext:"Next up",jjIn:d=>`in ${d}`,jjDone:"done",
   busGo:"Shuttle there",busBack:"Shuttle back",scratch:"The scratch card opens",reveal:"Winning card revealed",
   souvK:"For the newlyweds",voiceT:"The voice guestbook",voiceD:"Leave us a 30-second message: we'll listen to them all after the wedding.",
@@ -43,7 +43,7 @@ const S={
   topSong:"Most-voted song",bestRun:n=>`${n} set the best score in the Race`,capsule:n=>n>1?`${n} messages are asleep in the capsule until 7 May 2028`:"One message is asleep in the capsule until 7 May 2028",
   word:"A word from us",allPhotos:"See the whole album",
   install:"📲 Keep the site on your home screen: it works even with no signal at the hacienda.",installBtn:"Install",iosSafari:"Open this site in Safari, then Share ⎋ › \"Add to Home Screen\".",iosHow:"At the bottom of Safari, tap Share ⎋ (the square with the arrow), then \"Add to Home Screen\".",later:"Later",
-  admK:"Newlyweds' corner",admVoices:"Voice guestbook",admCap:"The capsule",admCapLocked:(n,t)=>`🔒 ${n} sealed message${n>1?"s":""}. Opens on ${t}.`,listen:"▶ Listen",admNone:"Nothing yet.",admPhotos:n=>`${n} photos on the wall`}};
+  admK:"Newlyweds' corner",admChamp:"Duel champion's photo",admChampOf:n=>`Champion: ${n}`,admChampNone:"No champion yet",admChampOn:"Live as the site background",admChampBtn:"Post the photo with the champion",admVoices:"Voice guestbook",admCap:"The capsule",admCapLocked:(n,t)=>`🔒 ${n} sealed message${n>1?"s":""}. Opens on ${t}.`,listen:"▶ Listen",admNone:"Nothing yet.",admPhotos:n=>`${n} photos on the wall`}};
 const s=k=>(S[lang]||S.fr)[k]??S.fr[k];
 const T=k=>Date.parse(CONFIG[k]);
 const SOUV_AT=()=>Date.parse(CONFIG.SOUVENIRS_AT||CONFIG.PHOTOS_AT||"2027-05-06T18:00:00+02:00");
@@ -171,7 +171,9 @@ async function renderAdmin(){
  const d=await withDb(async db=>({v:await g(db,"voices")||{},c:await g(db,"capsule")||{},p:await g(db,"photos")||{},u:await g(db,"u")||{}}))||{v:{},c:{},p:{},u:{}};
  const vs=Object.entries(d.v).sort((a,b)=>a[1].t-b[1].t),cs=Object.values(d.c).sort((a,b)=>a.t-b.t),np=Object.values(d.p).filter(x=>x&&!x.hide).length;
  const capOpen=now()>=CAP_OPEN()||isTest();
- document.getElementById("admBody").innerHTML=`<p class="muted">${s("admPhotos")(np)}</p>
+ const champ=await withDb(async db=>({st:await g(db,"tour/state")||{},ph:await g(db,"tour/photo")}))||{st:{}};
+ document.getElementById("admBody").innerHTML=`<div class="admchamp"><h3>🏆 ${s("admChamp")}</h3><p class="muted">${champ.st.champN?s("admChampOf")(esc(champ.st.champN)):s("admChampNone")}${champ.ph?" · ✅ "+s("admChampOn"):""}</p>
+  <label class="btn btn-gold btn-sm filebtn">📸 ${s("admChampBtn")}<input type="file" accept="image/*" id="admChampIn" hidden></label><small id="admChampMsg"></small></div>
   <h3>🎙️ ${s("admVoices")} (${vs.length})</h3>${vs.length?`<ul class="admv">${vs.map(([k,x])=>`<li><b>${esc(x.n||"?")}</b><small>${new Date(x.t).toLocaleString(lang,{timeZone:"Europe/Madrid",day:"numeric",month:"short",hour:"2-digit",minute:"2-digit"})} · ${x.d||"?"} s</small><button type="button" class="btn btn-ghost btn-sm" data-listen="${k}">${s("listen")}</button></li>`).join("")}</ul>`:`<p class="muted">${s("admNone")}</p>`}
   <h3>👤 ${s("admProf")} (${Object.keys(d.u).length})</h3>${Object.keys(d.u).length?`<ul class="admv">${Object.entries(d.u).sort((a,b)=>String(a[1].n||"").localeCompare(String(b[1].n||""))).map(([k,u])=>`<li><b>${esc(u.n||"?")}</b><small>${u.pin?"🔒":s("admNoPin")} · ${Object.keys(u.eggs||{}).length}/7 🤫${u.team?" · Team "+esc(u.team):""}</small>${u.pin?`<button type="button" class="btn btn-ghost btn-sm" data-reset="${k}">${s("admReset")}</button>`:""}</li>`).join("")}</ul>`:`<p class="muted">${s("admNone")}</p>`}
   <h3>✉️ ${s("admCap")} (${cs.length})</h3>${!cs.length?`<p class="muted">${s("admNone")}</p>`:capOpen?`<div class="admc">${cs.map(x=>`<blockquote><p>${esc(x.m)}</p><cite>${esc(x.n||"?")}</cite></blockquote>`).join("")}</div>`:`<p>${s("admCapLocked")(cs.length,whenLabel(new Date(CAP_OPEN()).toISOString()))}</p>`}`;
@@ -180,6 +182,8 @@ document.addEventListener("click",async e=>{const b=e.target.closest("[data-list
  const src=await withDb(db=>db.get("voicesData/"+k));if(!src)return;const a=document.createElement("audio");a.controls=true;a.src=src;b.replaceWith(a);a.play().catch(()=>{})});
 document.addEventListener("click",async e=>{const b=e.target.closest("[data-reset]");if(!b)return;
  await withDb(db=>db.update("u/"+b.dataset.reset,{pin:null}));b.replaceWith(Object.assign(document.createElement("small"),{textContent:s("admResetOk")}))});
+document.addEventListener("change",async e=>{if(e.target.id!=="admChampIn"||!e.target.files.length)return;const f=e.target.files[0];e.target.value="";const msg=document.getElementById("admChampMsg");msg.textContent=" …";
+ try{const img=await shrinkImg(f,1400,0.8,false);const r=await withDb(async db=>{const st=await db.get("tour/state").catch(()=>null)||{};await db.set("tour/photo",{img,n:st.champN||"",t:db.now()});return 1});msg.textContent=r?" ✅ "+s("admChampOn"):" ✗"}catch(err){msg.textContent=" ✗"}});
 window.Souvenirs={admin:renderAdmin};
 
 /* ================= 5. APPLI INSTALLABLE ================= */
