@@ -1223,6 +1223,7 @@ const CONFIG = {
   SCRATCH_AT: "2027-05-07T23:00:00+02:00",
   /* La Carrera (Team Agathe contre Team Valentin) : se débloque 7 jours avant le mariage */
   RUN_AT: "2027-04-30T10:00:00+02:00",
+  PHOTO_WALL: false,   // mur photo en direct désactivé (pas de modération possible)
   PHOTOS_AT: "2027-05-07T18:00:00+02:00",   // ouverture du mur photo (soir du mariage ; invisible avant)
   /* Livre d'or vocal et capsule : ouverts pendant le week-end ; capsule lisible par vous seuls à CAPSULE_OPEN */
   SOUVENIRS_AT: "2027-05-06T18:00:00+02:00",
@@ -1490,7 +1491,7 @@ function friseStops(){
   {t:CONFIG.RUN_AT,jeu:true,go:"course",b:L3("La Carrera","La Carrera","The Race"),s:L3("Team Agathe contre Team Valentin","Team Agathe contra Team Valentin","Team Agathe vs Team Valentin")},
   {t:CONFIG.HUNT_FROM,jeu:true,go:"piste",b:L3("Jeu de piste","Búsqueda del tesoro","Photo hunt"),s:L3("Huit lieux à photographier dans Séville","Ocho lugares que fotografiar en Sevilla","Eight places to snap in Seville")},
   {t:ev("welcome").start,go:"ev-welcome",hour:true,b:ev("welcome").title,s:L3("Sur un rooftop · la capsule s'ouvre","En una azotea · se abre la cápsula","On a rooftop · the capsule opens")},
-  {t:ev("wedding").start,go:"ev-wedding",hour:true,b:ev("wedding").title,s:L3("Mur photo, grand écran et duels","Muro de fotos, pantalla gigante y duelos","Photo wall, big screen and duels")},
+  {t:ev("wedding").start,go:"ev-wedding",hour:true,b:ev("wedding").title,s:L3("Grand écran et duels","Pantalla gigante y duelos","Big screen and duels")},
   {t:ev("farewell").start,go:"ev-farewell",hour:true,b:ev("farewell").title,s:L3("Le cocktail du jeu de piste","El cóctel de la búsqueda","The photo hunt cocktail")},
   {t:CONFIG.RECAP_AT,go:"accueil",b:L3("Le récap","El resumen","The recap"),s:L3("Le week-end en chiffres et en photos","El fin de semana en cifras y fotos","The weekend in numbers and photos")}
  ].filter(x=>x.t&&!isNaN(Date.parse(x.t)));

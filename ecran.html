@@ -353,7 +353,7 @@ function renderStatic(){
  $("#testBadge").innerHTML=Live.test()?`<span class="badge">${t("test")}</span>`:"";
  const u=joinURL(),q=qrSVG(u,3);$("#qrS").innerHTML=q;$("#qrS").hidden=!q;$("#urlS").textContent=u.replace(/^https?:\/\//,"");
  $("#note").textContent=Live.kind()==="local"?t("local"):"";
- $("#ctrl").innerHTML=`<button type="button" data-k="start">${t("start")}</button><button type="button" data-k="board" aria-pressed="${board}">${board?t("bigBtn"):t("tourBtn")}</button><button type="button" data-k="scr">${t("scrBtn")}</button><button type="button" data-k="ph" aria-pressed="${PW.on}">${t("phBtn")}</button>`+["fr","es","en"].map(l=>`<button type="button" data-l="${l}" aria-pressed="${l===lang}">${l}</button>`).join("");
+ $("#ctrl").innerHTML=`<button type="button" data-k="start">${t("start")}</button><button type="button" data-k="board" aria-pressed="${board}">${board?t("bigBtn"):t("tourBtn")}</button><button type="button" data-k="scr">${t("scrBtn")}</button>`+["fr","es","en"].map(l=>`<button type="button" data-l="${l}" aria-pressed="${l===lang}">${l}</button>`).join("");
  renderTally(lastTally,null);renderHUD();renderOverlay();renderTour();
 }
 function renderTally(c,act){
@@ -554,7 +554,7 @@ addEventListener("keydown",e=>{
  if(e.code==="Space"||e.code==="Enter"){e.preventDefault();if(SCR.on)return;if(board)startTour();else start()}
  else if(e.key==="d"||e.key==="D"||e.key==="t"||e.key==="T"){if(SCR.on)toggleScr(false);toggleBoard()}
  else if(e.key==="g"||e.key==="G")toggleScr();
- else if(e.key==="p"||e.key==="P")togglePh();
+ /* mur photo désactivé (pas de modération) : touche P inactive */
  else if(PW.on&&(e.key==="x"||e.key==="X")){const k=PW.cur;if(k){db.update("photos/"+k,{hide:true});db.remove("photosFull/"+k);nextPh()}}
  else if(PW.on&&e.key==="ArrowRight"){nextPh()}
  else if(SCR.on&&(e.key==="v"||e.key==="V")){if(SCR.d&&SCR.d.golden&&db.now()>SCR.d.golden)db.update("scratch",{reveal:true});else if(SCR.d&&SCR.d.golden&&Live.test())db.update("scratch",{golden:db.now()-1000,reveal:true})}

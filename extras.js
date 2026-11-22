@@ -206,7 +206,7 @@ function paintSky(){
 
 /* ---------------- mur photo (côté invités) ---------------- */
 const PH={list:[],open:false,all:false,busy:false};
-const murOpen=()=>now()>=Date.parse(CONFIG.PHOTOS_AT||"2027-05-07T18:00:00+02:00")||(window.Live&&Live.test());
+const murOpen=()=>CONFIG.PHOTO_WALL!==false&&now()>=Date.parse(CONFIG.PHOTOS_AT||"2027-05-07T18:00:00+02:00")||(window.Live&&Live.test());
 function author(){const r=typeof R!=="undefined"?R:null;return (window.Profile&&Profile.name)||store.get("nick","")||store.get("photoName","")||(r&&r.people&&r.people[0]&&r.people[0].name)||(r&&r.household)||""}
 async function loadPhotos(){
  if(!window.Live||!murOpen())return;
