@@ -6,7 +6,8 @@
 const L3=(fr,es,en)=>({fr,es,en});
 const SPOTS=[
  {id:"plaza",name:"Plaza de España",map:"Plaza de España Sevilla",
-  task:L3("Posez devant le banc d'azulejos de votre province préférée.","Posad delante del banco de azulejos de vuestra provincia favorita.","Pose in front of the tiled bench of your favourite province.")},
+  ref:"img/p-2026.jpg",
+  task:L3("Faites exactement la même photo que les futurs mariés sur la Plaza de España : même cadrage, même pose, mêmes sourires.","Haced exactamente la misma foto que los futuros novios en la Plaza de España: mismo encuadre, misma pose, mismas sonrisas.","Recreate the future newlyweds' photo at the Plaza de España exactly: same framing, same pose, same smiles.")},
  {id:"giralda",name:"La Giralda",map:"La Giralda Sevilla",
   task:L3("Faites tenir la Giralda dans votre main. La perspective est autorisée.","Haced que la Giralda quepa en vuestra mano. Se vale el truco de perspectiva.","Hold the Giralda in your hand. Perspective tricks allowed.")},
  {id:"alcazar",name:"Real Alcázar",map:"Real Alcázar de Sevilla",
@@ -60,7 +61,7 @@ function render(){
  h+=`<ol class="spots">${SPOTS.map((s,i)=>{const d=done[s.id];
   return `<li class="spot${d?" got":""}">
    <div class="spot-ph">${d&&d.thumb?`<img src="${d.thumb}" alt="">`:`<span>${i+1}</span>`}${d?`<b class="visado">${t("visado")}</b>`:""}</div>
-   <div class="spot-body"><h3>${esc(s.name)}</h3><p>${esc(pick(s.task))}</p>
+   <div class="spot-body"><h3>${esc(s.name)}</h3><p>${esc(pick(s.task))}</p>${s.ref?`<img class="spot-ref" src="${s.ref}" alt="" loading="lazy">`:""}
     <div class="row"><a class="btn btn-ghost btn-sm" href="${gmap(s.map)}" target="_blank" rel="noopener">${tr("map")}</a>
     ${o?`<label class="btn ${d?"btn-ghost":"btn-primary"} btn-sm filebtn">${d?t("redo"):t("shoot")}<input type="file" accept="image/*" capture="environment" data-spot="${s.id}" hidden></label>`:""}
     ${d?`<span class="gsmall">${d.sent?t("sent"):(api.on()?t("sending"):t("saved"))}</span>`:""}</div></div></li>`}).join("")}</ol>`;

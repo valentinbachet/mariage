@@ -76,9 +76,9 @@ window.fiesta=fiesta;
 const EGGS=["photo","amp","sky","dessin","vinyle","nuit","langues"];
 /* la célébration n'arrive qu'à la première découverte ; l'animation du secret, elle, revient à chaque fois */
 const EGG_NAME={
- fr:{photo:"Les trois coups d'¡Olé !",vinyle:"Le vinyle qui scratche",amp:"Le « & » amoureux",sky:"Le ciel qui répond",dessin:"Les dessins qui parlent",date:"Le compte à rebours à la seconde",nuit:"Le hibou de 1 h du matin",langues:"Le polyglotte"},
- es:{photo:"Los tres toques de ¡Olé!",vinyle:"El vinilo que hace scratch",amp:"El «&» enamorado",sky:"El cielo que responde",dessin:"Los dibujos que hablan",date:"La cuenta atrás al segundo",nuit:"El búho de la 1 de la mañana",langues:"El políglota"},
- en:{photo:"Three taps for ¡Olé!",vinyle:"The scratching record",amp:"The loving \"&\"",sky:"The sky that answers",dessin:"The talking drawings",date:"The countdown to the second",nuit:"The 1 a.m. owl",langues:"The polyglot"}};
+ fr:{photo:"Les trois coups d'¡Olé !",vinyle:"Le vinyle qui scratche",amp:"La photo qui glisse",sky:"Le ciel qui répond",dessin:"Les dessins qui parlent",date:"Le compte à rebours à la seconde",nuit:"Le hibou de 1 h du matin",langues:"Le polyglotte"},
+ es:{photo:"Los tres toques de ¡Olé!",vinyle:"El vinilo que hace scratch",amp:"La foto que se desliza",sky:"El cielo que responde",dessin:"Los dibujos que hablan",date:"La cuenta atrás al segundo",nuit:"El búho de la 1 de la mañana",langues:"El políglota"},
+ en:{photo:"Three taps for ¡Olé!",vinyle:"The scratching record",amp:"The sliding photo",sky:"The sky that answers",dessin:"The talking drawings",date:"The countdown to the second",nuit:"The 1 a.m. owl",langues:"The polyglot"}};
 function chime(){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const t0=AC.currentTime+0.02;
  [659,784,988,1319].forEach((f,i)=>{const o=AC.createOscillator(),g=AC.createGain();o.type="triangle";o.frequency.value=f;g.gain.setValueAtTime(0,t0+i*0.09);g.gain.linearRampToValueAtTime(0.18,t0+i*0.09+0.02);g.gain.exponentialRampToValueAtTime(0.001,t0+i*0.09+0.5);o.connect(g);g.connect(AC.destination);o.start(t0+i*0.09);o.stop(t0+i*0.09+0.55)})}catch(e){}}
 function secretCard(id,n,t){
@@ -112,8 +112,20 @@ let ampT=null;
 function hearts(el){const r=el.getBoundingClientRect();for(let i=0;i<14;i++){const h=document.createElement("span");h.className="egg-heart";h.textContent=["💛","🤍","💚"][i%3];
  h.style.left=(r.left+r.width/2)+"px";h.style.top=(r.top+r.height/2+scrollY)+"px";h.style.setProperty("--dx",(Math.random()*240-120)+"px");h.style.setProperty("--dy",(-80-Math.random()*160)+"px");
  h.style.animationDelay=(i*0.04)+"s";document.body.appendChild(h);setTimeout(()=>h.remove(),1800)}}
-document.addEventListener("pointerdown",e=>{const a=e.target.closest(".hero .amp");if(!a)return;clearTimeout(ampT);ampT=setTimeout(()=>{hearts(a);found("amp");try{navigator.vibrate&&navigator.vibrate(30)}catch(_){}} ,600)});
-["pointerup","pointercancel","pointerleave"].forEach(t=>document.addEventListener(t,()=>clearTimeout(ampT)));
+/* 2. faire glisser la photo d'accueil : la même photo, en 2026 */
+let sw=null;
+document.addEventListener("pointerdown",e=>{const h=e.target.closest(".hero-img");if(!h||e.target.closest(".orb"))return;sw={x:e.clientX,y:e.clientY,h}});
+document.addEventListener("pointerup",e=>{if(!sw)return;const dx=e.clientX-sw.x,dy=e.clientY-sw.y,h=sw.h;sw=null;
+ if(Math.abs(dx)<60||Math.abs(dx)<Math.abs(dy)*1.5)return;
+ const im=h.querySelector("img:not(.orb)");if(!im)return;
+ if(!im.dataset.orig)im.dataset.orig=im.getAttribute("src");
+ const to2026=!im.src.includes("p-2026");
+ im.classList.add("fade");
+ setTimeout(()=>{im.src=to2026?"img/p-2026.jpg":im.dataset.orig;im.classList.remove("fade")},350);
+ let y=h.querySelector(".year");if(!y){y=document.createElement("span");y.className="year";h.appendChild(y)}
+ y.textContent=to2026?"2026":"";y.hidden=!to2026;
+ if(to2026){found("amp");try{navigator.vibrate&&navigator.vibrate(20)}catch(_){}}});
+document.addEventListener("pointercancel",()=>{sw=null});
 // 5. trois tapes sur le vinyle de la playlist (page Jeux) : il scratche
 function scratchSnd(){try{AC=AC||new (window.AudioContext||window.webkitAudioContext)();const t0=AC.currentTime+0.02,len=0.9,b=AC.createBuffer(1,AC.sampleRate*len,AC.sampleRate),d=b.getChannelData(0);
  for(let i=0;i<d.length;i++)d[i]=Math.random()*2-1;const src=AC.createBufferSource(),f=AC.createBiquadFilter(),g=AC.createGain();src.buffer=b;f.type="bandpass";f.Q.value=6;
