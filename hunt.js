@@ -6,7 +6,8 @@
 const L3=(fr,es,en)=>({fr,es,en});
 const SPOTS=[
  {id:"plaza",name:"Plaza de España",map:"Plaza de España Sevilla",
-  task:L3("Faites exactement la même photo que les futurs mariés en haut de la page d'accueil : même cadrage, même pose, mêmes sourires.","Haced exactamente la misma foto que los futuros novios en lo alto de la página de inicio: mismo encuadre, misma pose, mismas sonrisas.","Recreate the future newlyweds' photo at the top of the home page exactly: same framing, same pose, same smiles.")},
+  ghost:"img/p-plaza.jpg",
+  task:L3("Faites exactement la même photo que les futurs mariés : même cadrage, même pose, mêmes sourires.","Haced exactamente la misma foto que los futuros novios: mismo encuadre, misma pose, mismas sonrisas.","Recreate the future newlyweds' photo exactly: same framing, same pose, same smiles.")},
  {id:"giralda",name:"La Giralda",map:"La Giralda Sevilla",
   task:L3("Faites tenir la Giralda dans votre main. La perspective est autorisée.","Haced que la Giralda quepa en vuestra mano. Se vale el truco de perspectiva.","Hold the Giralda in your hand. Perspective tricks allowed.")},
  {id:"alcazar",name:"Real Alcázar",map:"Real Alcázar de Sevilla",
@@ -59,7 +60,7 @@ function render(){
  else h+=`<div class="field hunt-name"><label for="huntName">${t("who")}</label><input id="huntName" maxlength="40" value="${esc(name)}" placeholder="${t("whoPh")}"></div>`;
  h+=`<ol class="spots">${SPOTS.map((s,i)=>{const d=done[s.id];
   return `<li class="spot${d?" got":""}">
-   <div class="spot-ph">${d&&d.thumb?`<img src="${d.thumb}" alt="">`:`<span>${i+1}</span>`}${d?`<b class="visado">${t("visado")}</b>`:""}</div>
+   <div class="spot-ph">${d&&d.thumb?`<img src="${d.thumb}" alt="">`:`${s.ghost?`<img class="ghost" src="${s.ghost}" alt="" loading="lazy">`:""}<span>${i+1}</span>`}${d?`<b class="visado">${t("visado")}</b>`:""}</div>
    <div class="spot-body"><h3>${esc(s.name)}</h3><p>${esc(pick(s.task))}</p>${s.ref?`<img class="spot-ref" src="${s.ref}" alt="" loading="lazy">`:""}
     <div class="row"><a class="btn btn-ghost btn-sm" href="${gmap(s.map)}" target="_blank" rel="noopener">${tr("map")}</a>
     ${o?`<label class="btn ${d?"btn-ghost":"btn-primary"} btn-sm filebtn">${d?t("redo"):t("shoot")}<input type="file" accept="image/*" capture="environment" data-spot="${s.id}" hidden></label>`:""}
