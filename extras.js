@@ -177,12 +177,12 @@ const SFX={
  cigogne(){for(let i=0;i<12;i++)noise({dur:.03,at:i*.07,bp:1300,q:4,vol:.8})},
  paon(){[0,.55].forEach(at=>tone({f:[880,1500,760],dur:.45,type:"sawtooth",bp:1400,q:2,vol:.3,at,vib:9,vibD:20}))},
  caleche(){[0,.22,.5,.72,1,1.22].forEach((at,i)=>noise({dur:.05,at,bp:i%2?650:900,q:6,vol:1}));bells([1568,1568],.35)},
- cheval(){tone({f:[620,1250,520],dur:1,type:"sawtooth",bp:1200,q:1.5,vol:.35,vib:13,vibD:60})},
+ cheval(){tone({f:[620,1250,520],dur:1,type:"sawtooth",bp:1200,q:1.5,vol:.4,vib:13,vibD:60});[1.05,1.25,1.5,1.7].forEach((at,i)=>noise({dur:.05,at,bp:i%2?700:1000,q:5,vol:1}))},
  vespa(){tone({f:[70,128],dur:1.3,type:"sawtooth",lp:900,vol:.28,vib:28,vibD:6});noise({dur:1.3,lp:500,vol:.12,trem:30,shape:k=>Math.min(1,k*8)*(1-k)})},
  guitare(){[164.8,220,261.6,329.6,440].forEach((f,i)=>pluck(f,i*.035))},
  guitariste(){[[164.8,207.7,246.9,329.6],[174.6,220,261.6,349.2],[196,246.9,293.7,392],[174.6,220,261.6,349.2]].forEach((ch,j)=>ch.forEach((f,i)=>pluck(f,j*.42+i*.03,.28)))},
  maries(){bells([1047,1319,1568,2093],.16)},
- barque(){tone({f:[196],dur:.9,type:"sawtooth",lp:700,vol:.22});tone({f:[247],dur:.9,type:"sawtooth",lp:700,vol:.16});noise({dur:.9,lp:700,vol:.08,shape:k=>Math.sin(k*3.14)})},
+ barque(){[0,.7].forEach(at=>{noise({dur:.55,at,bp:1100,q:1.2,vol:.55,shape:k=>Math.sin(k*3.14)});tone({f:[560,420],dur:.32,type:"sawtooth",bp:900,q:3,vol:.22,at:at+.15})});tone({f:[1400,1900,1300],dur:.35,type:"triangle",vol:.12,at:1.4})},
  valises(){noise({dur:.9,lp:420,vol:.25,trem:18,shape:k=>Math.sin(k*3.14)});bells([784,988,1175],.18,"sine")},
  naranjo(){noise({dur:.5,hp:2500,vol:.25,shape:k=>Math.sin(k*3.14)*(.6+.4*Math.sin(k*40))});tone({f:[500,180],dur:.12,type:"sine",vol:.4,at:.55})},
  oiseaux(){[0,.18,.32,.6,.74].forEach(at=>tone({f:[2600,4200],dur:.09,type:"sine",vol:.18,at}))},
@@ -214,7 +214,7 @@ tapOn(".acc",(e,c)=>{
  if(e.target.closest("a,button,summary,input,select,textarea,label"))return;const r=c.getBoundingClientRect();
  if(e.clientY<r.bottom-r.width/3)return;
  const names=(c.dataset.acc||"").split("+"),xr=(e.clientX-r.left)/r.width;
- const who=names.length>1&&xr>0.5&&!/^(papillons|oiseaux|pigeons)$/.test(names[1])?names[1]:names[0];
+ const who=names.length>1&&xr>0.5?names[1]:names[0];
  const b=document.createElement("span");b.className="say";b.textContent=(SAY[lang]||SAY.fr)[who]||"¡Olé!";
  b.style.left=Math.min(r.width-20,Math.max(20,e.clientX-r.left))+"px";b.style.top=(e.clientY-r.top-14)+"px";c.appendChild(b);setTimeout(()=>b.remove(),2200);
  try{(SFX[who]||(()=>castanets()))()}catch(_){}
