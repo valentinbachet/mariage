@@ -156,7 +156,7 @@ function renderRecap(){
  const facts=[win&&`🏁 ${s("winTeam")(win)}`,RC.tr&&RC.tr.champN&&`⚔️ ${s("champ")(esc(RC.tr.champN))}`,sw&&sw.n&&`🎟️ ${s("scratchW")(esc(sw.n))}`,best&&`🏃 ${s("bestRun")(esc(best.n||"?"))}`,
   top&&`🎶 ${s("topSong")} : <b>${esc(top.title)}</b>${top.artist?" · "+esc(top.artist):""}`,nc&&`✉️ ${s("capsule")(nc)}`].filter(Boolean);
  box.innerHTML=`<div class="wrap"><div class="recap"><span class="eyebrow">${s("recK")}</span><h2>${s("recT")}</h2>
-  <div class="rnums"><div><b class="tabnum">${ph.length}</b><small>${s("photos")}</small></div>${nv?`<div><b class="tabnum">${nv}</b><small>${s("voices")}</small></div>`:""}<div><b class="tabnum">${Math.round(tot).toLocaleString(lang)}</b><small>${s("runs")}</small></div></div>
+  <div class="rnums">${CONFIG.PHOTO_WALL||ph.length?`<div><b class="tabnum">${ph.length}</b><small>${s("photos")}</small></div>`:""}${nv?`<div><b class="tabnum">${nv}</b><small>${s("voices")}</small></div>`:""}<div><b class="tabnum">${Math.round(tot).toLocaleString(lang)}</b><small>${s("runs")}</small></div></div>
   ${facts.length?`<ul class="rfacts">${facts.map(f=>`<li>${f}</li>`).join("")}</ul>`:""}
   ${pick6.length?`<div class="rgrid">${pick6.map(p=>`<button type="button" data-ph="${Object.keys(RC.p).find(k=>RC.p[k]===p)||""}" style="background-image:url(${p.th})"></button>`).join("")}</div><a class="btn btn-ghost btn-sm" href="#mur">${s("allPhotos")}</a>`:""}
   ${word?`<div class="rword"><small>${s("word")}</small><p>${esc(word)}</p><span class="sig">Agathe &amp; Valentin</span></div>`:""}</div></div>`;

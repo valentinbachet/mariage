@@ -40,14 +40,15 @@ function dot(){const n=plSeen?songs.filter(x=>!plSeen.includes(x.id)).length:0,b
  if(b)b.innerHTML=`Playlist${n?`<span class="pdot">${n}</span>`:""}`}
 
 function renderForm(){
- const ms=mySong(),me=mine(),s=ms&&songs.find(x=>x.id===ms);
- $("#plForm").hidden=!!ms;
+ const ms=mySong(),me=mine(),s=ms&&songs.find(x=>x.id===ms),cl=plClosed();
+ $("#plForm").hidden=!!ms||cl;const bn=$("#plBan");if(bn)bn.hidden=cl;
  $("#plMine").hidden=!ms;
  $("#plMine").innerHTML=ms?`<span class="lbl">${tr("plMine")}</span><b>${esc(s?s.title:"…")}</b>${s?`<small>${esc(s.artist)}</small>`:""}<p class="pllock">${tr("plLocked")}</p>
 `:"";
  $("#plWho").innerHTML=Profile.id?`${tr("plAs")(`<b>${esc(Profile.name||"?")}</b>`)} <button type="button" class="linkbtn inl" data-prof>${tr("plNotYou")}</button>`:`<button type="button" class="linkbtn inl" data-prof>${tr("plLogin")}</button>`;
+ if(cl){$("#plBudget").innerHTML=`<b>${tr("plClosed")}</b>`;return}
  const left=HEARTS-heartsUsed();
- $("#plBudget").innerHTML=`<span class="hearts">${"♥".repeat(Math.max(0,left))}<i>${"♥".repeat(Math.max(0,HEARTS-left))}</i></span> ${tr("plLeft")(Math.max(0,left),HEARTS)}
+ $("#plBudget").innerHTML=`<span class="hearts">${"♥".repeat(Math.max(0,left))}<i>${"♥".repeat(Math.max(0,HEARTS-left))}</i></span> ${tr("plLeft")(Math.max(0,left),HEARTS)} ${CONFIG.PLAYLIST_CLOSE?tr("plCloseOn")(whenLabel(CONFIG.PLAYLIST_CLOSE)):""}
   ${Profile.id?"":`<button type="button" class="linkbtn" data-prof>${tr("plRestore")}</button>`}`;
 }
 function render(){
@@ -55,15 +56,15 @@ function render(){
  const list=[...songs].sort((a,b)=>b.votes-a.votes||String(a.title).localeCompare(b.title)),mv=myVotes(),ms=mySong();
  if(!list.length){$("#songs").innerHTML=P.loaded?`<li class="muted" style="padding:14px 0">${tr("plEmpty")}</li>`:"";return}
  let h=plNew.size?`<li class="plnew">${tr("plNew")(plNew.size)}</li>`:"";
- h+=`<li class="topline">${partyMode()?tr("plLive"):tr("plTop")}</li>`;
- list.forEach((s,i)=>{const v=mv.includes(s.id),own=s.id===ms;
+ const cl=plClosed();h+=`<li class="topline">${cl?tr("plFinal"):partyMode()?tr("plLive"):tr("plTop")}</li>`;
+ (cl?list.slice(0,10):list).forEach((s,i)=>{const v=mv.includes(s.id),own=s.id===ms;
   h+=`<li class="song${i<10?" top":""}${plNew.has(s.id)?" isnew":""}"><span class="rk">${i+1}</span><span><b>${esc(s.title)}${plNew.has(s.id)?`<span class="ex nw">${tr("plNewTag")}</span>`:""}${own?`<span class="ex">${tr("plYours")}</span>`:""}</b><small>${esc(s.artist)}${s.by?` · ${esc(tr("plBy")(s.by))}`:""}</small></span>
-   <button type="button" class="heart" data-vote="${esc(s.id)}" aria-pressed="${v}"${own?" disabled":""}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span class="tabnum">${s.votes}</span></button></li>`;
-  if(i===9&&list.length>10)h+=`<li class="topline" style="opacity:.5">·</li>`});
+   <button type="button" class="heart" data-vote="${esc(s.id)}" aria-pressed="${v}"${own||cl?" disabled":""}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8"><path d="M12 20s-7-4.4-7-10a4 4 0 0 1 7-2.6A4 4 0 0 1 19 10c0 5.6-7 10-7 10z"/></svg><span class="tabnum">${s.votes}</span></button></li>`;
+  if(i===9&&list.length>10&&!cl)h+=`<li class="topline" style="opacity:.5">·</li>`});
  $("#songs").innerHTML=h;
 }
 async function vote(id,on){
- if(!(await needProfile()))return;const pid=P.pid,mv=myVotes();
+ if(plClosed())return;if(!(await needProfile()))return;const pid=P.pid,mv=myVotes();
  if(on){if(mv.includes(id))return;if(heartsUsed()>=HEARTS){toast(tr("plNoHeart"));return}
   (P.votes[pid]=P.votes[pid]||{})[id]=true;compute();render();await db(x=>x.set(`pl/votes/${pid}/${id}`,true))}
  else{if(!mv.includes(id)||id===mySong())return;delete P.votes[pid][id];compute();render();await db(x=>x.remove(`pl/votes/${pid}/${id}`))}
@@ -85,7 +86,7 @@ async function propose(t,a){
 $("#songs").addEventListener("click",e=>{const b=e.target.closest("[data-vote]");if(!b||b.disabled)return;vote(b.dataset.vote,b.getAttribute("aria-pressed")!=="true")});
 document.addEventListener("click",e=>{if(e.target.closest("[data-prof]"))Profile.open()});
 $("#plForm").addEventListener("submit",async e=>{e.preventDefault();
- if(mySong()||P.busy)return;
+ if(mySong()||P.busy||plClosed())return;
  const t=$("#plT").value.trim(),a=$("#plA").value.trim();$("#plErr").textContent="";
  if(!t||!a){$("#plErr").textContent=tr("plNeed");return}
  if(!(await needProfile()))return;if(mySong())return;
