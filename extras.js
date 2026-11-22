@@ -105,7 +105,7 @@ function renderSecrets(){
 let taps=[];
 document.addEventListener("click",e=>{
  if(e.target.closest(".hero-img")&&!e.target.closest(".orb")){const n=Date.now();taps=taps.filter(t=>n-t<1500);taps.push(n);
-  if(taps.length>=3){taps=[];found("photo");fiesta(x("ole"),"",true)}}
+  if(taps.length>=3){taps=[];found("photo");fiesta(x("ole"),"",true);olé()}}
 });
 // 2. appui long sur le « & »
 let ampT=null;
@@ -149,6 +149,53 @@ document.addEventListener("pointermove",e=>{if(!SC.on)return;const dx=e.clientX-
  SC.dir=d;SC.x=e.clientX});
 ["pointerup","pointercancel"].forEach(t=>document.addEventListener(t,()=>{SC.on=false}));
 
+
+/* ---------------- petits bruitages synthétisés (aucun fichier son) ---------------- */
+function ac(){AC=AC||new (window.AudioContext||window.webkitAudioContext)();if(AC.state==="suspended")AC.resume();return AC}
+function tone(o){/* {f:[f0,f1,(f2)],dur,type,vol,at,vib,vibD,lp,bp,q} */
+ const a=ac(),t=a.currentTime+0.02+(o.at||0),d=o.dur||.4,os=a.createOscillator(),g=a.createGain();os.type=o.type||"sine";
+ const f=o.f;os.frequency.setValueAtTime(f[0],t);if(f.length===2)os.frequency.exponentialRampToValueAtTime(f[1],t+d);if(f.length===3){os.frequency.exponentialRampToValueAtTime(f[1],t+d*.4);os.frequency.exponentialRampToValueAtTime(f[2],t+d)}
+ if(o.vib){const l=a.createOscillator(),lg=a.createGain();l.frequency.value=o.vib;lg.gain.value=o.vibD||8;l.connect(lg);lg.connect(os.frequency);l.start(t);l.stop(t+d)}
+ let n=os;if(o.lp){const fl=a.createBiquadFilter();fl.type="lowpass";fl.frequency.value=o.lp;n.connect(fl);n=fl}if(o.bp){const fl=a.createBiquadFilter();fl.type="bandpass";fl.frequency.value=o.bp;fl.Q.value=o.q||4;n.connect(fl);n=fl}
+ const v=o.vol||.25;g.gain.setValueAtTime(0,t);g.gain.linearRampToValueAtTime(v,t+Math.min(.05,d/4));g.gain.setValueAtTime(v,t+d*.7);g.gain.exponentialRampToValueAtTime(.001,t+d);
+ n.connect(g);g.connect(a.destination);os.start(t);os.stop(t+d+.05)}
+function noise(o){/* {dur,at,vol,lp,hp,bp,q,trem} */
+ const a=ac(),t=a.currentTime+0.02+(o.at||0),d=o.dur||.2,b=a.createBuffer(1,Math.ceil(a.sampleRate*d),a.sampleRate),x=b.getChannelData(0);
+ for(let i=0;i<x.length;i++){const k=i/x.length;x[i]=(Math.random()*2-1)*(o.shape?o.shape(k):Math.pow(1-k,3))*(o.trem?(.5+.5*Math.sin(i/a.sampleRate*o.trem*6.283)):1)}
+ const s=a.createBufferSource(),g=a.createGain();s.buffer=b;let n=s;
+ for(const [ty,fq] of [["lowpass",o.lp],["highpass",o.hp],["bandpass",o.bp]])if(fq){const fl=a.createBiquadFilter();fl.type=ty;fl.frequency.value=fq;if(ty==="bandpass")fl.Q.value=o.q||3;n.connect(fl);n=fl}
+ g.gain.value=o.vol||.4;n.connect(g);g.connect(a.destination);s.start(t)}
+function pluck(freq,at,vol){/* corde de guitare (Karplus-Strong) */
+ const a=ac(),dur=1.6,N=Math.round(a.sampleRate/freq),b=a.createBuffer(1,Math.ceil(a.sampleRate*dur),a.sampleRate),x=b.getChannelData(0);
+ for(let i=0;i<N;i++)x[i]=Math.random()*2-1;for(let i=N;i<x.length;i++)x[i]=.996*.5*(x[i-N]+x[i-N+1]);
+ const s=a.createBufferSource(),g=a.createGain();s.buffer=b;g.gain.value=vol||.35;s.connect(g);g.connect(a.destination);s.start(a.currentTime+.02+(at||0))}
+function bells(notes,step,type){notes.forEach((f,i)=>tone({f:[f],dur:.7,type:type||"triangle",vol:.16,at:i*(step||.12)}))}
+const SFX={
+ taureau(){tone({f:[118,92],dur:1.1,type:"sawtooth",lp:520,vol:.32,vib:5,vibD:3})},
+ chat(){tone({f:[520,880,560],dur:.75,type:"sawtooth",bp:1100,q:2.5,vol:.45,vib:6,vibD:10})},
+ chien(){[0,.26].forEach(at=>{tone({f:[330,190],dur:.16,type:"sawtooth",lp:1400,vol:.42,at});noise({dur:.12,at,bp:900,q:1.5,vol:.35})})},
+ cigogne(){for(let i=0;i<12;i++)noise({dur:.03,at:i*.07,bp:1300,q:4,vol:.8})},
+ paon(){[0,.55].forEach(at=>tone({f:[880,1500,760],dur:.45,type:"sawtooth",bp:1400,q:2,vol:.3,at,vib:9,vibD:20}))},
+ caleche(){[0,.22,.5,.72,1,1.22].forEach((at,i)=>noise({dur:.05,at,bp:i%2?650:900,q:6,vol:1}));bells([1568,1568],.35)},
+ cheval(){tone({f:[620,1250,520],dur:1,type:"sawtooth",bp:1200,q:1.5,vol:.35,vib:13,vibD:60})},
+ vespa(){tone({f:[70,128],dur:1.3,type:"sawtooth",lp:900,vol:.28,vib:28,vibD:6});noise({dur:1.3,lp:500,vol:.12,trem:30,shape:k=>Math.min(1,k*8)*(1-k)})},
+ guitare(){[164.8,220,261.6,329.6,440].forEach((f,i)=>pluck(f,i*.035))},
+ guitariste(){[[164.8,207.7,246.9,329.6],[174.6,220,261.6,349.2],[196,246.9,293.7,392],[174.6,220,261.6,349.2]].forEach((ch,j)=>ch.forEach((f,i)=>pluck(f,j*.42+i*.03,.28)))},
+ maries(){bells([1047,1319,1568,2093],.16)},
+ barque(){tone({f:[196],dur:.9,type:"sawtooth",lp:700,vol:.22});tone({f:[247],dur:.9,type:"sawtooth",lp:700,vol:.16});noise({dur:.9,lp:700,vol:.08,shape:k=>Math.sin(k*3.14)})},
+ valises(){noise({dur:.9,lp:420,vol:.25,trem:18,shape:k=>Math.sin(k*3.14)});bells([784,988,1175],.18,"sine")},
+ naranjo(){noise({dur:.5,hp:2500,vol:.25,shape:k=>Math.sin(k*3.14)*(.6+.4*Math.sin(k*40))});tone({f:[500,180],dur:.12,type:"sine",vol:.4,at:.55})},
+ oiseaux(){[0,.18,.32,.6,.74].forEach(at=>tone({f:[2600,4200],dur:.09,type:"sine",vol:.18,at}))},
+ pigeons(){[0,.7].forEach(at=>{tone({f:[420,360],dur:.28,type:"sine",vol:.3,at,vib:22,vibD:18});tone({f:[380,330],dur:.38,type:"sine",vol:.26,at:at+.3,vib:20,vibD:14})})},
+ papillons(){bells([2093,2637,3136,2349,2794].sort(()=>Math.random()-.5),.09,"sine")},
+ torero(){},flamenca(){}
+};
+const SPEAK=new Set(["maries","torero","flamenca","taureau"]);
+function olé(){try{castanets()}catch(_){}
+ if(window.sayAloud)setTimeout(()=>{try{const u=new SpeechSynthesisUtterance("¡Oooooooooolé!");u.lang="es-ES";u.rate=.62;u.pitch=1.15;
+  const v=speechSynthesis.getVoices().find(v=>/^es/i.test(v.lang));if(v)u.voice=v;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(_){}} ,120)}
+/* les petits mariés de la frise : 3 appuis = ¡Olé! */
+let ftaps=[];document.addEventListener("click",e=>{if(!e.target.closest(".fme"))return;const n=Date.now();ftaps=ftaps.filter(t=>n-t<1500);ftaps.push(n);if(ftaps.length>=3){ftaps=[];olé()}});
 // 4. les petits dessins de la page Pratique parlent
 const SAY={
  fr:{taureau:"Muuu… ¡olé !",torero:"¡Olé !",chat:"Miaou 🐾",cigogne:"Clac-clac-clac",paon:"Admirez ma roue 🦚",caleche:"Clip-clop 🐴",cheval:"Hiii ! 🐴",chien:"Ouaf ! 🐾",vespa:"Vroum vroum 🛵",guitariste:"♪ Sevillanas ♪",guitare:"♪ Tiriri ♪",maries:"Sí, quiero 💍",flamenca:"¡Arsa ! 💃",barque:"Ohé du bateau ⛵",valises:"Prêts pour Séville ✈️",naranjo:"Ne goûtez pas, elles sont amères 🍊",oiseaux:"Cui cui",pigeons:"Rou-rou",papillons:"✨"},
@@ -161,8 +208,9 @@ document.addEventListener("click",e=>{
  const who=names.length>1&&xr>0.5&&!/^(papillons|oiseaux|pigeons)$/.test(names[1])?names[1]:names[0];
  const b=document.createElement("span");b.className="say";b.textContent=(SAY[lang]||SAY.fr)[who]||"¡Olé!";
  b.style.left=Math.min(r.width-20,Math.max(20,e.clientX-r.left))+"px";b.style.top=(e.clientY-r.top-14)+"px";c.appendChild(b);setTimeout(()=>b.remove(),2200);
- if(who==="taureau"||who==="torero"||who==="flamenca")castanets();
- if(window.sayAloud)setTimeout(()=>sayAloud(b.textContent,/[¡¿]|^Sí|olé/i.test(b.textContent)?"es-ES":({fr:"fr-FR",es:"es-ES",en:"en-GB"}[lang]||"fr-FR")),who==="taureau"||who==="torero"||who==="flamenca"?450:0);
+ try{(SFX[who]||(()=>castanets()))()}catch(_){}
+ if(who==="torero"||who==="flamenca")castanets();
+ if(SPEAK.has(who)&&window.sayAloud){const say=who==="taureau"?"¡Olé!":b.textContent;setTimeout(()=>sayAloud(say,/[¡¿]|^Sí|olé/i.test(say)?"es-ES":({fr:"fr-FR",es:"es-ES",en:"en-GB"}[lang]||"fr-FR")),who==="taureau"?1000:who==="maries"?150:450)}
  found("dessin");
 });
 
