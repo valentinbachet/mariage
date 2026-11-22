@@ -18,7 +18,7 @@
 /* THÈME PAR DÉFAUT : "drape" (moodboard : blanc, sauge, drapé) ou "maestranza" (rouge almagra et ocre, la version d'origine).
    Un aperçu de l'autre thème est possible en bas de page, dans « Aperçu du jour J » (mémorisé sur ce téléphone seulement). */
 window.DEFAULT_THEME="drape";
-(function(){var t=null;try{t=JSON.parse(localStorage.getItem("av27_theme"))}catch(e){}
+(function(){var t=null,adm=false;try{t=JSON.parse(localStorage.getItem("av27_theme"));adm=JSON.parse(localStorage.getItem("av27_admin"))===true}catch(e){}if(!adm)t=null;
  document.documentElement.dataset.avstyle=(t==="drape"||t==="maestranza")?t:window.DEFAULT_THEME;
  /* illustrations : version sauge pour le thème Drapé */
  window.ART=function(p){return document.documentElement.dataset.avstyle==="drape"&&/^img\/[^/]+\.svg$/.test(p)?p.replace("img/","img/drape/"):p};})();
@@ -1175,7 +1175,7 @@ html[data-avstyle="drape"] .tabbar a.cta{color:var(--albero)}
   <div class="sig">Agathe &amp; Valentin</div>
   <div data-i18n="footer">Séville, 6 – 8 mai 2027</div>
   <div class="lang foot-lang" role="group" aria-label="Langue"><button type="button" data-lang="fr">FR</button><button type="button" data-lang="es">ES</button><button type="button" data-lang="en">EN</button></div>
-  <details class="sim"><summary data-i18n="simTitle">Aperçu du jour J</summary>
+  <details class="sim" hidden><summary data-i18n="simTitle">Aperçu du jour J</summary>
     <div class="choice" id="simBtns"></div>
   </details>
 </div></footer>
@@ -1867,7 +1867,7 @@ function renderSongs(){if(window.PL)PL.render()}
 
 /* ====================== SIMULATION JOUR J ====================== */
 const SIMS=[["real",null],["6/5 21:00","2027-05-06T21:00:00+02:00"],["7/5 12:00","2027-05-07T12:00:00+02:00"],["7/5 19:30","2027-05-07T19:30:00+02:00"],["8/5 01:00","2027-05-08T01:00:00+02:00"],["8/5 21:00","2027-05-08T21:00:00+02:00"],["10/5","2027-05-10T12:00:00+02:00"]];
-function renderSim(){const th=document.documentElement.dataset.avstyle;$("#simBtns").innerHTML=`<div class="themesw">${["drape","maestranza"].map(k=>`<button type="button" data-theme-set="${k}" aria-pressed="${th===k}">${k==="drape"?"Style Drapé":"Style Maestranza"}</button>`).join("")}</div>`+SIMS.map(([l,t])=>`<button type="button" data-sim="${t||""}" aria-pressed="${t?simOffset!=null&&Math.abs(Date.now()+simOffset-Date.parse(t))<120000:simOffset==null}">${l==="real"?tr("simReal"):l}</button>`).join("")
+function renderSim(){const sb=document.querySelector("footer .sim");if(sb)sb.hidden=!store.get("admin",false);if(!store.get("admin",false))return;const th=document.documentElement.dataset.avstyle;$("#simBtns").innerHTML=`<div class="themesw">${["drape","maestranza"].map(k=>`<button type="button" data-theme-set="${k}" aria-pressed="${th===k}">${k==="drape"?"Style Drapé":"Style Maestranza"}</button>`).join("")}</div>`+SIMS.map(([l,t])=>`<button type="button" data-sim="${t||""}" aria-pressed="${t?simOffset!=null&&Math.abs(Date.now()+simOffset-Date.parse(t))<120000:simOffset==null}">${l==="real"?tr("simReal"):l}</button>`).join("")
  +(window.Live?`<button type="button" class="livetest" data-livetest aria-pressed="${Live.test()}">${tr("liveTest")}</button>`:"")}
 $("#simBtns").addEventListener("click",e=>{const t=e.target.closest("[data-theme-set]");if(t){store.set("theme",t.dataset.themeSet);location.reload();return}});
 $("#simBtns").addEventListener("click",e=>{const b=e.target.closest("[data-livetest]");if(!b)return;e.stopPropagation();Live.setTest(!Live.test());renderSim();if(window.Carrera)Carrera.refresh();toast(Live.test()?tr("liveTestOn"):tr("liveTestOff"));if(Live.test()){showSub("course");go("jeux");setTimeout(()=>{const n=document.getElementById("tonight");n&&n.scrollIntoView({block:"start"})},80)}});
@@ -1896,7 +1896,7 @@ function go(id){
  const live=/^(manette|duels)(-test)?$/.exec(id||"");
  if(live&&window.Live&&window.Soiree){if(live[2])Live.setTest(true);Soiree.pick(live[1]==="manette"?"big":"duel");id="soiree"}
  const mt=/^mur(-test)?$/.exec(id||"");if(mt){if(mt[1]&&window.Live)Live.setTest(true);if(window.Extras)Extras.refresh();id="mur"}
- const mk=/^maries-(.+)$/.exec(id||"");if(mk){if(decodeURIComponent(mk[1])===CONFIG.MARIES_KEY&&window.Souvenirs){Souvenirs.admin();id="maries"}else id="accueil"}
+ const mk=/^maries-(.+)$/.exec(id||"");if(mk){if(decodeURIComponent(mk[1])===CONFIG.MARIES_KEY&&window.Souvenirs){store.set("admin",true);renderSim();Souvenirs.admin();id="maries"}else id="accueil"}
  let el=id&&document.getElementById(id),v=el&&el.closest(".view");
  if(!v||v.hidden){v=$("#accueil");el=v}
  document.querySelectorAll(".view").forEach(x=>x.classList.toggle("on",x===v));
