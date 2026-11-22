@@ -200,14 +200,18 @@ function olé(){/* finale flamenca : rasgueado + palmas + castagnettes (pas de v
   [[0,659],[.14,698],[.28,659],[.5,880]].forEach(([at,f])=>tone({f:[f],dur:at>.4?.6:.16,type:"sawtooth",lp:2200,vol:.12,at:1.1+at,vib:at>.4?6:0,vibD:6}));
  }catch(_){}}
 /* les petits mariés de la frise : 3 appuis = ¡Olé! */
-let ftaps=[];document.addEventListener("click",e=>{if(!e.target.closest(".fme"))return;const n=Date.now();ftaps=ftaps.filter(t=>n-t<1500);ftaps.push(n);if(ftaps.length>=3){ftaps=[];olé()}});
+/* iPhone : Safari n'envoie pas de « click » sur un simple dessin, on écoute donc le toucher lui-même (pointerup) */
+const tapOn=(sel,fn)=>{let st=null;document.addEventListener("pointerdown",e=>{const el=e.target.closest(sel);st=el?{el,x:e.clientX,y:e.clientY,t:Date.now()}:null},{passive:true});
+ document.addEventListener("pointerup",e=>{if(!st)return;const s0=st;st=null;if(Math.hypot(e.clientX-s0.x,e.clientY-s0.y)>12||Date.now()-s0.t>700)return;if(e.target.closest(sel)!==s0.el)return;fn(e,s0.el)},{passive:true})};
+let ftaps=[];tapOn(".fme",()=>{const n=Date.now();ftaps=ftaps.filter(t=>n-t<1500);ftaps.push(n);
+ if(ftaps.length>=3){ftaps=[];olé()}else{try{noise({dur:.06,bp:1800,q:1.2,vol:.8})}catch(_){}}});
 // 4. les petits dessins de la page Pratique parlent
 const SAY={
  fr:{taureau:"Muuu… ¡olé !",torero:"¡Olé !",chat:"Miaou 🐾",cigogne:"Clac-clac-clac",paon:"Admirez ma roue 🦚",caleche:"Clip-clop 🐴",cheval:"Hiii ! 🐴",chien:"Ouaf ! 🐾",vespa:"Vroum vroum 🛵",guitariste:"♪ Sevillanas ♪",guitare:"♪ Tiriri ♪",maries:"Sí, quiero 💍",flamenca:"¡Arsa ! 💃",barque:"Ohé du bateau ⛵",valises:"Prêts pour Séville ✈️",naranjo:"Ne goûtez pas, elles sont amères 🍊",oiseaux:"Cui cui",pigeons:"Rou-rou",papillons:"✨"},
  es:{taureau:"Muuu… ¡olé!",torero:"¡Olé!",chat:"Miau 🐾",cigogne:"Clac-clac-clac",paon:"Mirad mi cola 🦚",caleche:"Clop-clop 🐴",cheval:"¡Hiii! 🐴",chien:"¡Guau! 🐾",vespa:"Brum brum 🛵",guitariste:"♪ Sevillanas ♪",guitare:"♪ Tiriri ♪",maries:"Sí, quiero 💍",flamenca:"¡Arsa! 💃",barque:"¡Ah del barco! ⛵",valises:"¡Listos para Sevilla! ✈️",naranjo:"No las probéis, son amargas 🍊",oiseaux:"Pío pío",pigeons:"Cu-cú",papillons:"✨"},
  en:{taureau:"Mooo… ¡olé!",torero:"¡Olé!",chat:"Meow 🐾",cigogne:"Clack-clack-clack",paon:"Admire my tail 🦚",caleche:"Clip-clop 🐴",cheval:"Neigh! 🐴",chien:"Woof! 🐾",vespa:"Vroom vroom 🛵",guitariste:"♪ Sevillanas ♪",guitare:"♪ Strum ♪",maries:"Sí, quiero 💍",flamenca:"¡Arsa! 💃",barque:"Ahoy! ⛵",valises:"Ready for Seville ✈️",naranjo:"Don't taste them, they're bitter 🍊",oiseaux:"Tweet tweet",pigeons:"Coo-coo",papillons:"✨"}};
-document.addEventListener("click",e=>{
- const c=e.target.closest(".acc");if(!c||e.target.closest("a,button,summary,input"))return;const r=c.getBoundingClientRect();
+tapOn(".acc",(e,c)=>{
+ if(e.target.closest("a,button,summary,input,select,textarea,label"))return;const r=c.getBoundingClientRect();
  if(e.clientY<r.bottom-r.width/3)return;
  const names=(c.dataset.acc||"").split("+"),xr=(e.clientX-r.left)/r.width;
  const who=names.length>1&&xr>0.5&&!/^(papillons|oiseaux|pigeons)$/.test(names[1])?names[1]:names[0];
