@@ -1622,12 +1622,23 @@ function renderLive(){
 }
 
 
+/* ----- voix : lit un texte à voix haute (lexique, dessins qui parlent) ----- */
+window.sayAloud=function(text,lg){try{
+ const t=String(text).replace(/[\u{1F000}-\u{1FFFF}\u2600-\u27BF\u266A\u266B\uFE0F]/gu,"").replace(/…/g,", ").trim();if(!t||!window.speechSynthesis)return;
+ const u=new SpeechSynthesisUtterance(t);u.lang=lg;u.rate=.92;u.pitch=1.05;
+ const v=speechSynthesis.getVoices().filter(v=>v.lang&&v.lang.replace("_","-").toLowerCase().startsWith(lg.slice(0,2).toLowerCase()));
+ const best=v.find(v=>v.lang.replace("_","-").toLowerCase()===lg.toLowerCase())||v[0];if(best)u.voice=best;
+ speechSynthesis.cancel();speechSynthesis.speak(u)}catch(e){}};
+try{speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=()=>speechSynthesis.getVoices()}catch(e){}
+/* iPhone : jouer les sons même en mode silencieux (Safari 16.4+) */
+document.addEventListener("pointerdown",function once(){try{if(navigator.audioSession)navigator.audioSession.type="playback"}catch(e){}document.removeEventListener("pointerdown",once)},{once:true});
+
 /* ----- lexique ----- */
 function renderPhrases(){
  $("#phrases").innerHTML=PHRASES.map(([es,t],i)=>`<div class="phrase"><div><b lang="es">${es}</b><span>${esc(pick(t))}</span></div><button class="speak" type="button" data-say="${i}" aria-label="Écouter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></button></div>`).join("");
 }
 $("#phrases").addEventListener("click",e=>{const b=e.target.closest("[data-say]");if(!b)return;
- try{const u=new SpeechSynthesisUtterance(PHRASES[+b.dataset.say][0]);u.lang="es-ES";u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(err){}});
+ sayAloud(PHRASES[+b.dataset.say][0],"es-ES")});
 
 /* copier un code promo */
 document.addEventListener("click",async e=>{const b=e.target.closest("[data-copy]");if(!b)return;

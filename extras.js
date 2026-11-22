@@ -162,6 +162,7 @@ document.addEventListener("click",e=>{
  const b=document.createElement("span");b.className="say";b.textContent=(SAY[lang]||SAY.fr)[who]||"¡Olé!";
  b.style.left=Math.min(r.width-20,Math.max(20,e.clientX-r.left))+"px";b.style.top=(e.clientY-r.top-14)+"px";c.appendChild(b);setTimeout(()=>b.remove(),2200);
  if(who==="taureau"||who==="torero"||who==="flamenca")castanets();
+ if(window.sayAloud)setTimeout(()=>sayAloud(b.textContent,/[¡¿]|^Sí|olé/i.test(b.textContent)?"es-ES":({fr:"fr-FR",es:"es-ES",en:"en-GB"}[lang]||"fr-FR")),who==="taureau"||who==="torero"||who==="flamenca"?450:0);
  found("dessin");
 });
 
