@@ -167,7 +167,8 @@ async function renderAdmin(){
  let v=document.getElementById("maries");
  if(!v){v=document.createElement("section");v.className="view";v.id="maries";v.hidden=true;document.querySelector("main").appendChild(v)}
  v.hidden=false;v.innerHTML=`<div class="wrap"><div class="sec-head"><span class="eyebrow">${s("admK")}</span><h2>Agathe &amp; Valentin</h2></div><div id="admBody"><p class="muted">…</p></div></div>`;
- const d=await withDb(async db=>({v:await db.get("voices")||{},c:await db.get("capsule")||{},p:await db.get("photos")||{},u:await db.get("u")||{}}))||{v:{},c:{},p:{},u:{}};
+ const g=(db,k)=>db.get(k).catch(()=>null); /* la capsule reste illisible (règles Firebase) jusqu'au 7 mai 2028 */
+ const d=await withDb(async db=>({v:await g(db,"voices")||{},c:await g(db,"capsule")||{},p:await g(db,"photos")||{},u:await g(db,"u")||{}}))||{v:{},c:{},p:{},u:{}};
  const vs=Object.entries(d.v).sort((a,b)=>a[1].t-b[1].t),cs=Object.values(d.c).sort((a,b)=>a.t-b.t),np=Object.values(d.p).filter(x=>x&&!x.hide).length;
  const capOpen=now()>=CAP_OPEN()||isTest();
  document.getElementById("admBody").innerHTML=`<p class="muted">${s("admPhotos")(np)}</p>
