@@ -1939,7 +1939,9 @@ function renderSongs(){if(window.PL)PL.render()}
 
 /* ====================== SIMULATION JOUR J ====================== */
 const SIMS=[["real",null],["6/5 21:00","2027-05-06T21:00:00+02:00"],["7/5 12:00","2027-05-07T12:00:00+02:00"],["7/5 19:30","2027-05-07T19:30:00+02:00"],["8/5 01:00","2027-05-08T01:00:00+02:00"],["8/5 21:00","2027-05-08T21:00:00+02:00"],["10/5","2027-05-10T12:00:00+02:00"]];
-function renderSim(){const sb=document.querySelector("footer .sim");if(sb)sb.hidden=!store.get("admin",false);if(!store.get("admin",false))return;const th=document.documentElement.dataset.avstyle;$("#simBtns").innerHTML=`<div class="themesw">${["drape","maestranza"].map(k=>`<button type="button" data-theme-set="${k}" aria-pressed="${th===k}">${k==="drape"?"Style Drapé":"Style Maestranza"}</button>`).join("")}</div>`+SIMS.map(([l,t])=>`<button type="button" data-sim="${t||""}" aria-pressed="${t?simOffset!=null&&Math.abs(Date.now()+simOffset-Date.parse(t))<120000:simOffset==null}">${l==="real"?tr("simReal"):l}</button>`).join("")
+/* « Aperçu du jour J » : jamais pour les invités ; pour les mariés, seulement dans leur espace privé (ou pendant une simulation, pour pouvoir en sortir) */
+function simVisible(){if(!store.get("admin",false))return false;const v=document.querySelector(".view.on");return (v&&v.id==="maries")||simOffset!=null||!!(window.Live&&Live.test())}
+function renderSim(){const sb=document.querySelector("footer .sim");const vis=simVisible();if(sb)sb.hidden=!vis;if(!vis)return;const th=document.documentElement.dataset.avstyle;$("#simBtns").innerHTML=`<div class="themesw">${["drape","maestranza"].map(k=>`<button type="button" data-theme-set="${k}" aria-pressed="${th===k}">${k==="drape"?"Style Drapé":"Style Maestranza"}</button>`).join("")}</div>`+SIMS.map(([l,t])=>`<button type="button" data-sim="${t||""}" aria-pressed="${t?simOffset!=null&&Math.abs(Date.now()+simOffset-Date.parse(t))<120000:simOffset==null}">${l==="real"?tr("simReal"):l}</button>`).join("")
  +(window.Live?`<button type="button" class="livetest" data-livetest aria-pressed="${Live.test()}">${tr("liveTest")}</button>`:"")}
 $("#simBtns").addEventListener("click",e=>{const t=e.target.closest("[data-theme-set]");if(t){store.set("theme",t.dataset.themeSet);location.reload();return}});
 $("#simBtns").addEventListener("click",e=>{const b=e.target.closest("[data-livetest]");if(!b)return;e.stopPropagation();Live.setTest(!Live.test());renderSim();if(window.Carrera)Carrera.refresh();toast(Live.test()?tr("liveTestOn"):tr("liveTestOff"));if(Live.test()){showSub("course");go("jeux");setTimeout(()=>{const n=document.getElementById("tonight");n&&n.scrollIntoView({block:"start"})},80)}});
@@ -1978,6 +1980,7 @@ function go(id){
  if(v.id==="jeux")showSub(el.dataset&&el.dataset.subp?el.dataset.subp:curSub);
  if(el.dataset&&el.dataset.subp)el=v;
  if(el===v)scrollTo(0,0);else requestAnimationFrame(()=>el.scrollIntoView({block:"start"}));
+ try{renderSim()}catch(e){}
 }
 addEventListener("hashchange",()=>go(location.hash.slice(1)));
 document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute("href").slice(1);e.preventDefault();
