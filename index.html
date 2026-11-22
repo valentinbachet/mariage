@@ -126,7 +126,7 @@ section{padding:46px 0 10px}
 
 /* programme */
 .days{display:grid;gap:14px}
-.card.stay{margin-top:16px;display:grid;gap:10px}.card.stay h3{margin:0}.card.stay .field input,.card.stay .field select{width:100%}.card.stay .btn{justify-self:start}
+.card.stay{margin-top:16px;display:grid;gap:10px}.card.stay h3{margin:0}.card.stay .field input,.card.stay .field select{width:100%}.card.stay .btn{justify-self:start}.card.stay.mini{display:block;padding-top:12px;padding-bottom:12px}.card.stay.mini p{margin:0}
 .bfnote{margin:0 0 12px;padding:10px 14px;border:1px solid var(--albero);background:var(--ivory,#fff);border-radius:14px;font-size:14.5px;line-height:1.45}
 .tag.bf{background:var(--ink);color:var(--ivory,#fff);border-color:var(--ink)}
 /* ----- frise du temps : fêtes + jeux, avec les mariés qui avancent ----- */
@@ -1303,7 +1303,7 @@ deadline:d=>`Réponse souhaitée avant le ${d}`,rsvpEyebrow:"Répondez en 2 minu
 s1:"Qui êtes-vous ?",fName:"Nom du foyer",fNameHint:"Ex. Famille Martin, ou Julie & Thomas",fEmail:"E-mail",fPin:"Code à 4 chiffres de votre choix",fPinHint:"Il crée votre profil : avec votre e-mail, il vous permet de retrouver votre prénom, votre chanson, vos jeux et vos secrets sur n'importe quel appareil.",fPinLogged:n=>`Profil connecté : ${n}`,ePin:"Choisissez un code à 4 chiffres.",ePinWrong:"Ce code ne correspond pas au profil de cet e-mail.",fEmailHint:"Pour vous envoyer la confirmation et modifier votre réponse.",fPhone:"Téléphone (facultatif)",
 comeQ:"Vous venez ?",yes:"Avec joie",yesSub:"On ne raterait ça pour rien",no:"À regret",noSub:"On sera là par la pensée",
 s2:"Qui vient ?",person:"Invité",pName:"Prénom et nom",adult:"Adulte",child:"Enfant",diet:"Régime",dietNone:"Aucun",veg:"Végétarien",vegan:"Vegan",gf:"Sans gluten",allergy:"Allergie",allergyQ:"Précisez l'allergie",addP:"+ Ajouter une personne",remove:"Retirer",
-s3:"Vous serez là pour…",s4:"Logistique",arrive:"Arrivée à Séville",hotel:"Où dormez-vous ?",hotelPick:"Choisir…",hotelOther:"Autre hébergement (préciser)",hotelUndecided:"Pas encore décidé",hotelOtherPh:"Nom de l'hôtel ou adresse",hotelWhy:"Pour organiser au mieux le passage des navettes le jour du mariage.",stayT:"Vous avez déjà réservé votre hébergement ?",stayD:"Dites-nous où vous dormez : on organisera au mieux le passage des navettes le jour du mariage.",stayEmail:"Votre e-mail",stayName:"Prénom(s)",staySend:"Envoyer",stayOk:"Merci ! C'est noté.",stayErr:"Indiquez votre e-mail et votre hébergement.",stayOff:"Disponible dès la mise en ligne du formulaire.",other:"Autre / pas encore décidé",busGo:"Navette aller depuis l'hôtel Only You ?",busBack:"Retour envisagé",early:"Tôt",mid:"Milieu de soirée",late:"Jusqu'au bout",taxi:"Taxi / Uber",
+s3:"Vous serez là pour…",s4:"Logistique",arrive:"Arrivée à Séville",hotel:"Où dormez-vous ?",hotelPick:"Choisir…",hotelOther:"Autre hébergement (préciser)",hotelUndecided:"Pas encore décidé",hotelOtherPh:"Nom de l'hôtel ou adresse",hotelWhy:"Pour organiser au mieux le passage des navettes le jour du mariage.",stayT:"Vous avez déjà réservé votre hébergement ?",stayD:"Dites-nous où vous dormez : on organisera au mieux le passage des navettes le jour du mariage.",stayEmail:"Votre e-mail",stayName:"Prénom(s)",staySend:"Envoyer",stayOk:"Merci ! C'est noté.",stayErr:"Indiquez votre e-mail et votre hébergement.",stayOff:"Disponible dès la mise en ligne du formulaire.",stayNoted:"Hébergement noté :",stayEdit:"modifier",other:"Autre / pas encore décidé",busGo:"Navette aller depuis l'hôtel Only You ?",busBack:"Retour envisagé",early:"Tôt",mid:"Milieu de soirée",late:"Jusqu'au bout",taxi:"Taxi / Uber",
 yesW:"Oui",noW:"Non",s5:"Le mot de la fin",song:"La chanson qui vous fera danser",songHint:"On la transmet au DJ.",msg:"Un mot pour nous",msgNo:"Un mot pour nous (facultatif)",
 back:"Retour",next:"Continuer",send:"Envoyer ma réponse",sending:"Envoi…",
 eName:"Indiquez un nom.",eEmail:"Vérifiez l'adresse e-mail.",ePeople:"Indiquez le nom de chaque invité.",eEvt:"Choisissez au moins un moment.",eSend:"L'envoi a échoué. Vérifiez votre connexion et réessayez.",
@@ -1338,7 +1338,7 @@ deadline:d=>`Respuesta antes del ${d}`,rsvpEyebrow:"Responde en 2 minutos",
 s1:"¿Quiénes sois?",fName:"Nombre de la familia o grupo",fNameHint:"Ej. Familia García, o Lucía y Pablo",fEmail:"Correo electrónico",fPin:"Código de 4 cifras a tu elección",fPinHint:"Crea tu perfil: con tu e-mail, te permite recuperar tu nombre, tu canción, tus juegos y tus secretos en cualquier dispositivo.",fPinLogged:n=>`Perfil conectado: ${n}`,ePin:"Elige un código de 4 cifras.",ePinWrong:"Este código no corresponde al perfil de este e-mail.",fEmailHint:"Para enviaros la confirmación y poder cambiar la respuesta.",fPhone:"Teléfono (opcional)",
 comeQ:"¿Venís?",yes:"¡Claro que sí!",yesSub:"No nos lo perdemos",no:"No podemos",noSub:"Estaremos con vosotros en el pensamiento",
 s2:"¿Quién viene?",person:"Invitado",pName:"Nombre y apellido",adult:"Adulto",child:"Niño/a",diet:"Dieta",dietNone:"Ninguna",veg:"Vegetariana",vegan:"Vegana",gf:"Sin gluten",allergy:"Alergia",allergyQ:"¿Qué alergia?",addP:"+ Añadir una persona",remove:"Quitar",
-s3:"Estaréis en…",s4:"Logística",arrive:"Llegada a Sevilla",hotel:"¿Dónde os alojáis?",hotelPick:"Elegir…",hotelOther:"Otro alojamiento (indicar)",hotelUndecided:"Aún no lo sé",hotelOtherPh:"Nombre del hotel o dirección",hotelWhy:"Para organizar mejor el recorrido del autobús el día de la boda.",stayT:"¿Ya habéis reservado el alojamiento?",stayD:"Decidnos dónde dormís: así organizaremos mejor el recorrido del autobús el día de la boda.",stayEmail:"Vuestro e-mail",stayName:"Nombre(s)",staySend:"Enviar",stayOk:"¡Gracias! Apuntado.",stayErr:"Indicad vuestro e-mail y vuestro alojamiento.",stayOff:"Disponible en cuanto el formulario esté en línea.",other:"Otro / aún no lo sé",busGo:"¿Autobús de ida desde el hotel Only You?",busBack:"Vuelta prevista",early:"Pronto",mid:"A media noche",late:"Hasta el final",taxi:"Taxi / Uber",
+s3:"Estaréis en…",s4:"Logística",arrive:"Llegada a Sevilla",hotel:"¿Dónde os alojáis?",hotelPick:"Elegir…",hotelOther:"Otro alojamiento (indicar)",hotelUndecided:"Aún no lo sé",hotelOtherPh:"Nombre del hotel o dirección",hotelWhy:"Para organizar mejor el recorrido del autobús el día de la boda.",stayT:"¿Ya habéis reservado el alojamiento?",stayD:"Decidnos dónde dormís: así organizaremos mejor el recorrido del autobús el día de la boda.",stayEmail:"Vuestro e-mail",stayName:"Nombre(s)",staySend:"Enviar",stayOk:"¡Gracias! Apuntado.",stayErr:"Indicad vuestro e-mail y vuestro alojamiento.",stayOff:"Disponible en cuanto el formulario esté en línea.",stayNoted:"Alojamiento apuntado:",stayEdit:"cambiar",other:"Otro / aún no lo sé",busGo:"¿Autobús de ida desde el hotel Only You?",busBack:"Vuelta prevista",early:"Pronto",mid:"A media noche",late:"Hasta el final",taxi:"Taxi / Uber",
 yesW:"Sí",noW:"No",s5:"Para terminar",song:"La canción que os hará bailar",songHint:"Se la pasamos al DJ.",msg:"Unas palabras para nosotros",msgNo:"Unas palabras para nosotros (opcional)",
 back:"Atrás",next:"Continuar",send:"Enviar respuesta",sending:"Enviando…",
 eName:"Indica un nombre.",eEmail:"Revisa el correo electrónico.",ePeople:"Indica el nombre de cada invitado.",eEvt:"Elige al menos un momento.",eSend:"No se ha podido enviar. Revisa la conexión e inténtalo de nuevo.",
@@ -1373,7 +1373,7 @@ deadline:d=>`Please reply by ${d}`,rsvpEyebrow:"Reply in 2 minutes",
 s1:"Who are you?",fName:"Household name",fNameHint:"E.g. The Smiths, or Julia & Tom",fEmail:"Email",fPin:"4-digit code of your choice",fPinHint:"It creates your profile: with your email, it lets you get your name, song, games and secrets back on any device.",fPinLogged:n=>`Profile signed in: ${n}`,ePin:"Choose a 4-digit code.",ePinWrong:"This code doesn't match this email's profile.",fEmailHint:"To send your confirmation and let you change your reply.",fPhone:"Phone (optional)",
 comeQ:"Are you coming?",yes:"Joyfully",yesSub:"Wouldn't miss it",no:"Sadly not",noSub:"We'll be there in spirit",
 s2:"Who's coming?",person:"Guest",pName:"First and last name",adult:"Adult",child:"Child",diet:"Diet",dietNone:"None",veg:"Vegetarian",vegan:"Vegan",gf:"Gluten-free",allergy:"Allergy",allergyQ:"Which allergy?",addP:"+ Add a person",remove:"Remove",
-s3:"You'll join us for…",s4:"Logistics",arrive:"Arriving in Seville",hotel:"Where are you staying?",hotelPick:"Choose…",hotelOther:"Other accommodation (please specify)",hotelUndecided:"Not decided yet",hotelOtherPh:"Hotel name or address",hotelWhy:"So we can plan the shuttle route on the wedding day.",stayT:"Already booked your accommodation?",stayD:"Tell us where you're staying so we can plan the shuttle route on the wedding day.",stayEmail:"Your email",stayName:"First name(s)",staySend:"Send",stayOk:"Thank you! Noted.",stayErr:"Please give your email and accommodation.",stayOff:"Available once the form is live.",other:"Other / not decided yet",busGo:"Shuttle from the Only You hotel?",busBack:"Planning to head back",early:"Early",mid:"Mid-party",late:"Till the end",taxi:"Taxi / Uber",
+s3:"You'll join us for…",s4:"Logistics",arrive:"Arriving in Seville",hotel:"Where are you staying?",hotelPick:"Choose…",hotelOther:"Other accommodation (please specify)",hotelUndecided:"Not decided yet",hotelOtherPh:"Hotel name or address",hotelWhy:"So we can plan the shuttle route on the wedding day.",stayT:"Already booked your accommodation?",stayD:"Tell us where you're staying so we can plan the shuttle route on the wedding day.",stayEmail:"Your email",stayName:"First name(s)",staySend:"Send",stayOk:"Thank you! Noted.",stayErr:"Please give your email and accommodation.",stayOff:"Available once the form is live.",stayNoted:"Accommodation noted:",stayEdit:"change",other:"Other / not decided yet",busGo:"Shuttle from the Only You hotel?",busBack:"Planning to head back",early:"Early",mid:"Mid-party",late:"Till the end",taxi:"Taxi / Uber",
 yesW:"Yes",noW:"No",s5:"Last words",song:"The song that gets you dancing",songHint:"We'll pass it to the DJ.",msg:"A note for us",msgNo:"A note for us (optional)",
 back:"Back",next:"Continue",send:"Send my reply",sending:"Sending…",
 eName:"Please enter a name.",eEmail:"Please check the email address.",ePeople:"Please enter each guest's name.",eEvt:"Pick at least one moment.",eSend:"Sending failed. Check your connection and try again.",
@@ -1636,8 +1636,12 @@ try{speechSynthesis.getVoices();speechSynthesis.onvoiceschanged=()=>speechSynthe
 document.addEventListener("pointerdown",function once(){try{if(navigator.audioSession)navigator.audioSession.type="playback"}catch(e){}document.removeEventListener("pointerdown",once)},{once:true});
 
 /* ----- « Où dormez-vous ? » (pour ceux qui ont déjà répondu au RSVP) ----- */
-const ST={sel:"",txt:"",sent:store.get("staySent",false)};
+const ST={sel:"",txt:"",edit:false,sent:store.get("staySent",false)};
+const stayDone=()=>{const h=store.get("stayHotel","");return h&&h!=="Pas encore décidé"?h:""};
 function renderStay(){const b=$("#ou-dormir");if(!b)return;
+ const dn=stayDone();
+ if(dn&&!ST.edit){b.classList.add("mini");b.innerHTML=`<p>🛏️ ✓ ${tr("stayNoted")} <b>${esc(dn.replace(/^Autre : /,""))}</b> · <button class="linkbtn inl" type="button" id="st-edit">${tr("stayEdit")}</button></p>`;return}
+ b.classList.remove("mini");
  const em=store.get("profE","")||"",nm=(window.Profile&&Profile.state&&Profile.state.name)||"";
  b.innerHTML=`<h3>🛏️ ${tr("stayT")}</h3><p class="muted">${tr("stayD")}</p>
   <div class="field"><label for="st-e">${tr("stayEmail")}</label><input id="st-e" type="email" autocomplete="email" value="${esc(em)}"></div>
@@ -1647,10 +1651,13 @@ function renderStay(){const b=$("#ou-dormir");if(!b)return;
   <button class="btn btn-gold" type="button" id="st-go">${tr("staySend")}</button> <small id="st-msg" class="muted">${ST.sent?"✓ "+tr("stayOk"):""}</small>`}
 document.addEventListener("change",e=>{if(e.target.id==="st-h"){ST.sel=e.target.value;const em=$("#st-e").value,nm=$("#st-n").value;renderStay();$("#st-e").value=em;$("#st-n").value=nm}});
 document.addEventListener("input",e=>{if(e.target.id==="st-o")ST.txt=e.target.value});
+document.addEventListener("click",e=>{if(e.target.id!=="st-edit")return;ST.edit=true;ST.sent=false;const h=stayDone();
+ if(h.startsWith("Autre : ")){ST.sel="__other";ST.txt=h.slice(8)}else if(HOTEL_OPTS.includes(h))ST.sel=h;renderStay()});
 document.addEventListener("click",async e=>{if(e.target.id!=="st-go")return;const m=$("#st-msg"),em=$("#st-e").value.trim().toLowerCase(),nm=$("#st-n").value.trim();
  if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(em)||!ST.sel||(ST.sel==="__other"&&!ST.txt.trim())){m.textContent=tr("stayErr");return}
  if(!api.on()){m.textContent=tr("stayOff");return}
- e.target.disabled=true;try{await api.post({type:"hotel",lang,email:em,n:nm,hotel:hotelValue(ST.sel,ST.txt)});ST.sent=true;store.set("staySent",true);store.set("profE",em);m.textContent="✓ "+tr("stayOk")}catch(err){m.textContent="✗";e.target.disabled=false}});
+ e.target.disabled=true;try{await api.post({type:"hotel",lang,email:em,n:nm,hotel:hotelValue(ST.sel,ST.txt)});ST.sent=true;store.set("staySent",true);store.set("profE",em);const hv=hotelValue(ST.sel,ST.txt);store.set("stayHotel",hv);m.textContent="✓ "+tr("stayOk");
+  if(hv!=="Pas encore décidé")setTimeout(()=>{ST.edit=false;renderStay()},1800)}catch(err){m.textContent="✗";e.target.disabled=false}});
 
 /* ----- lexique ----- */
 function renderPhrases(){
@@ -1737,7 +1744,7 @@ async function submit(btn){
  try{
   if(CONFIG.RSVP_ENDPOINT){await fetch(CONFIG.RSVP_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)})}
   else{await new Promise(r=>setTimeout(r,500))}
-  submitted=data;store.set("rsvpDone",data);renderRsvp();if(data.coming){window.Extras?Extras.rsvpYes():confetti()}
+  submitted=data;store.set("rsvpDone",data);if(data.hotel){store.set("stayHotel",data.hotel);store.set("profE",data.email);ST.edit=false;renderStay()}renderRsvp();if(data.coming){window.Extras?Extras.rsvpYes():confetti()}
  }catch(err){$("#rErr").textContent=tr("eSend");btn.disabled=false;btn.textContent=tr("send")}
 }
 function doneView(){
