@@ -18,6 +18,8 @@
 /* THÈME PAR DÉFAUT : "drape" (moodboard : blanc, sauge, drapé) ou "maestranza" (rouge almagra et ocre, la version d'origine).
    Un aperçu de l'autre thème est possible en bas de page, dans « Aperçu du jour J » (mémorisé sur ce téléphone seulement). */
 window.DEFAULT_THEME="drape";
+/* statistiques : arrivée par le bouton d'un e-mail (lien personnel ?g=…), noté avant que profile.js nettoie l'adresse */
+window.__src=/[?&]g=/.test(location.search)?"mail"+(location.hash||""):"";
 (function(){var t=null,adm=false;try{t=JSON.parse(localStorage.getItem("av27_theme"));adm=JSON.parse(localStorage.getItem("av27_admin"))===true}catch(e){}if(!adm)t=null;
  document.documentElement.dataset.avstyle=(t==="drape"||t==="maestranza")?t:window.DEFAULT_THEME;
  /* illustrations : version sauge pour le thème Drapé */
@@ -1056,6 +1058,13 @@ html[data-avstyle="drape"] .tabbar a{font-family:var(--caps);font-weight:600;fon
 html[data-avstyle="drape"] .tabbar a.active{color:var(--sage-d)}
 html[data-avstyle="drape"] .tabbar a.active::before{content:none}
 html[data-avstyle="drape"] .tabbar a.cta{color:var(--albero)}
+/* fréquentation (espace privé) */
+#admStats{margin:0 0 26px}#admStats h4{font:600 11px/1.4 var(--caps,var(--body));letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);margin:18px 0 8px}
+.stk{display:grid;grid-template-columns:repeat(auto-fit,minmax(90px,1fr));gap:8px;margin:10px 0 14px}.stk div{background:var(--paper,#fbf8f2);border:1px solid var(--line);border-radius:12px;padding:10px 8px;text-align:center}
+.stk b{display:block;font-size:24px;line-height:1.1}.stk small{font-size:11px;color:var(--ink-soft)}
+.stdays{display:flex;align-items:flex-end;gap:2px;height:70px;padding:4px;border-bottom:1px solid var(--line)}.stdays i{flex:1;min-height:2px;background:var(--sage,#6b7a4b);border-radius:2px 2px 0 0;opacity:.85}
+.stcap{display:flex;justify-content:space-between;font-size:11px;color:var(--ink-soft);margin:4px 0 0}
+.stb{display:grid;grid-template-columns:minmax(110px,40%) 1fr auto;align-items:center;gap:8px;margin:5px 0;font-size:14px}.stb i{height:8px;border-radius:4px;background:var(--albero,#b39663)}.stb b{min-width:24px;text-align:right}
 </style>
 </head>
 <body>
@@ -2014,6 +2023,7 @@ setInterval(()=>{renderDays();renderScratch(false);if(now()>=Date.parse(CONFIG.S
 <script src="soiree.js"></script>
 <script src="extras.js"></script>
 <script src="souvenirs.js"></script>
+<script src="stats.js"></script>
 <script>
 /* illustrations des bandeaux statiques selon le thème */
 document.querySelectorAll('[style*="img/jeu-"]').forEach(el=>el.setAttribute("style",el.getAttribute("style").replace(/url\((img\/[^)]+\.svg)\)/g,(m,p)=>`url(${ART(p)})`)));
