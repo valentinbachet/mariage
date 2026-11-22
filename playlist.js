@@ -24,7 +24,8 @@ function compute(){
  songs=Object.entries(P.songs).filter(([id,s])=>s&&!s.hide).map(([id,s])=>({id,title:s.title,artist:s.artist,by:s.by||"",votes:count[id]||0}));
 }
 async function load(){
- const d=await db(x=>x.get("pl"));if(d===null&&!window.Live)return;
+ if(!window.Live)return;let d=null;
+ try{await Live.hold();d=await Live.db.get("pl")}catch(e){clearTimeout(load.t);load.t=setTimeout(load,4000);render();return}finally{try{Live.release()}catch(_){}}
  P.songs=(d&&d.songs)||{};P.votes=(d&&d.votes)||{};P.people=(d&&d.people)||{};P.loaded=true;
  compute();
  if(plVisible())markSeen0();else{render();dot()}
@@ -54,7 +55,7 @@ function renderForm(){
 function render(){
  renderForm();
  const list=[...songs].sort((a,b)=>b.votes-a.votes||String(a.title).localeCompare(b.title)),mv=myVotes(),ms=mySong();
- if(!list.length){$("#songs").innerHTML=P.loaded?`<li class="muted" style="padding:14px 0">${tr("plEmpty")}</li>`:"";return}
+ if(!list.length){$("#songs").innerHTML=`<li class="muted" style="padding:14px 0">${P.loaded?tr("plEmpty"):tr("plLoading")}</li>`;return}
  let h=plNew.size?`<li class="plnew">${tr("plNew")(plNew.size)}</li>`:"";
  const cl=plClosed();h+=`<li class="topline">${cl?tr("plFinal"):partyMode()?tr("plLive"):tr("plTop")}</li>`;
  (cl?list.slice(0,10):list).forEach((s,i)=>{const v=mv.includes(s.id),own=s.id===ms;

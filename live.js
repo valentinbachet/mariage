@@ -29,6 +29,7 @@ function makeFirebase(conf){
     db.ref(".info/serverTimeOffset").on("value",s=>{offset=s.val()||0});
     db.ref(".info/connected").on("value",s=>{connected=!!s.val();connCbs.forEach(f=>f(connected))});
    })();
+   ready.catch(()=>{ready=null});   /* échec (réseau) : on retentera au prochain appel */
    await ready;db.goOnline();
   },
   close(){if(db)db.goOffline()},
@@ -91,7 +92,8 @@ const Live={did,dev,S,
  async connect(){
   if(!opening)opening=(async()=>{
    const conf=cfg().firebase;
-   if(conf&&conf.databaseURL){try{const fb=makeFirebase(conf);await Promise.race([fb.open(),new Promise((_,ko)=>setTimeout(()=>ko(new Error("timeout")),9000))]);raw=fb}catch(e){console.warn("Firebase indisponible, démo locale",e);raw=makeLocal();Live.fallback=true}}
+   /* jamais de bascule silencieuse en démo locale : sur un réseau lent, on attend puis on réessaie (sinon la playlist paraît vide et les ajouts restent sur le téléphone) */
+   if(conf&&conf.databaseURL){const fb=raw&&raw.kind==="firebase"?raw:makeFirebase(conf);try{await Promise.race([fb.open(),new Promise((_,ko)=>setTimeout(()=>ko(new Error("timeout")),20000))]);raw=fb}catch(e){console.warn("Firebase indisponible, nouvel essai bientôt",e);opening=null;throw e}}
    else raw=makeLocal();
   })();
   await opening;await raw.open();return Live.db;
