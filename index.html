@@ -1,0 +1,1955 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex">
+<meta name="theme-color" content="#fbf8f2">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="img/icon-180.png">
+<link rel="icon" type="image/png" sizes="192x192" href="img/icon-192.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="A &amp; V">
+<title>Agathe &amp; Valentin · Séville 2027</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400;1,6..96,500&family=Jost:wght@300;400;500;600&family=Antonio:wght@200;300;400&family=Lora:ital,wght@0,400;0,500;1,400&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Pinyon+Script&display=swap" rel="stylesheet">
+<script>
+/* THÈME PAR DÉFAUT : "drape" (moodboard : blanc, sauge, drapé) ou "maestranza" (rouge almagra et ocre, la version d'origine).
+   Un aperçu de l'autre thème est possible en bas de page, dans « Aperçu du jour J » (mémorisé sur ce téléphone seulement). */
+window.DEFAULT_THEME="drape";
+(function(){var t=null;try{t=JSON.parse(localStorage.getItem("av27_theme"))}catch(e){}
+ document.documentElement.dataset.avstyle=(t==="drape"||t==="maestranza")?t:window.DEFAULT_THEME;
+ /* illustrations : version sauge pour le thème Drapé */
+ window.ART=function(p){return document.documentElement.dataset.avstyle==="drape"&&/^img\/[^/]+\.svg$/.test(p)?p.replace("img/","img/drape/"):p};})();
+</script>
+<style>
+/* Plan : les arènes de la Maestranza. Rouge almagra de la barrera, ocre de l'albero, blanc de chaux, filets dorés.
+   Mise en page : appli mobile d'abord, barre d'onglets en bas, sections empilées. Thème unique assumé. */
+:root{
+  --cal:#faf6ee;        /* blanc de chaux */
+  --cal-2:#efe6d6;
+  --azul:#9b2a22;       /* rouge almagra de la barrera */
+  --azul-deep:#5a1712;  /* lie-de-vin */
+  --albero:#e2a13c;     /* ocre de l'albero */
+  --buganvilla:#b5741c; /* ocre profond, pour les surtitres */
+  --ink:#2a1d18;
+  --ink-soft:#6e6058;
+  --line:#e2d6c2;
+  --ok:#2f7d4f;
+  --display:"Bodoni Moda", "Didot", "Bodoni 72", Georgia, serif;
+  --body:"Jost", "Futura", system-ui, -apple-system, "Segoe UI", sans-serif;
+  --r:3px;
+  color-scheme:light;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth;scroll-padding-top:12px}
+@media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}*{animation:none!important;transition:none!important}}
+body{margin:0;background:var(--cal);color:var(--ink);font:400 16.5px/1.6 var(--body);padding-bottom:84px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block}
+a{color:var(--azul)}
+h1,h2,h3{font-family:var(--display);font-weight:400;text-wrap:balance;margin:0;line-height:1.1}
+h2{font-size:clamp(32px,8vw,48px);color:var(--azul-deep);letter-spacing:-.005em}
+h2::after{content:"";display:block;width:56px;height:1px;background:var(--albero);margin-top:16px}
+.rsvp h2::after{background:var(--albero)}
+h3{font-size:22px}
+button,input,select,textarea{font:inherit;color:inherit}
+:focus-visible{outline:3px solid var(--albero);outline-offset:2px;border-radius:6px}
+.wrap{max-width:720px;margin:0 auto;padding:0 18px}
+.eyebrow{font:500 11.5px/1 var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--buganvilla)}
+.muted{color:var(--ink-soft)}
+.tabnum{font-variant-numeric:tabular-nums}
+
+/* frise d'azulejos */
+.tiles{height:22px;background:linear-gradient(180deg,var(--albero) 0 5px,var(--cal) 5px 6px,var(--azul) 6px 18px,var(--cal) 18px 19px,var(--azul-deep) 19px 22px)}
+.tiles-old{height:26px;background-color:var(--azul);
+  background-image:
+   radial-gradient(circle at 50% 50%, var(--cal) 0 4px, transparent 5px),
+   radial-gradient(circle at 0 0, var(--albero) 0 6px, transparent 7px),
+   radial-gradient(circle at 100% 100%, var(--albero) 0 6px, transparent 7px),
+   radial-gradient(circle at 100% 0, var(--albero) 0 6px, transparent 7px),
+   radial-gradient(circle at 0 100%, var(--albero) 0 6px, transparent 7px),
+   conic-gradient(from 45deg at 50% 50%, transparent 0 25%, rgba(255,255,255,.14) 0 50%, transparent 0 75%, rgba(255,255,255,.14) 0);
+  background-size:26px 26px}
+
+/* barre de langue */
+.topbar{position:absolute;top:0;left:0;right:0;z-index:5;display:flex;justify-content:flex-end;padding:12px 14px}
+.lang{display:flex;background:rgba(90,23,18,.5);backdrop-filter:blur(8px);-webkit-backdrop-filter:blur(8px);border-radius:999px;padding:3px}
+.lang button{border:0;background:none;color:#fff;font:500 11px/1 var(--body);letter-spacing:.18em;padding:8px 11px;border-radius:999px;cursor:pointer}
+.lang button[aria-pressed="true"]{background:#fff;color:var(--azul-deep)}
+
+/* hero */
+.hero{position:relative;color:#fff;background:var(--azul-deep)}
+.hero-img{position:relative;height:min(78vh,620px);min-height:440px;overflow:hidden}
+.hero-img img{width:100%;height:100%;object-fit:cover;object-position:50% 40%}
+.hero-img::after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(90,23,18,.3) 0%,rgba(90,23,18,0) 28%,rgba(90,23,18,.3) 58%,rgba(90,23,18,.94) 100%)}
+.hero-text{position:absolute;left:0;right:0;bottom:0;z-index:2;padding:0 18px 26px;max-width:720px;margin:0 auto}
+.hero h1{font-size:clamp(40px,11.4vw,86px);font-style:italic;font-weight:400;letter-spacing:-.01em}
+.hero h1 .amp{font-style:normal;color:var(--albero);padding:0 .08em}
+.hero .when{margin-top:14px;padding-top:14px;border-top:1px solid rgba(226,161,60,.6);display:inline-block;font:400 13px/1.3 var(--body);letter-spacing:.32em;text-transform:uppercase}
+.hero .when span{color:var(--albero)}
+
+/* carte d'état en direct */
+.live{position:relative;margin:-2px 0 0;background:var(--azul-deep);color:#fff;padding:0 0 26px}
+.live-card{background:var(--cal);color:var(--ink);border-radius:var(--r);padding:20px 18px 18px;box-shadow:0 14px 34px rgba(40,8,6,.35);outline:1px solid var(--albero);outline-offset:-7px}
+.live-label{display:flex;align-items:center;gap:8px;font:500 11px/1 var(--body);letter-spacing:.26em;text-transform:uppercase;color:var(--buganvilla)}
+.live-label .dot{width:7px;height:7px;border-radius:50%;background:var(--azul)}
+.live-label.on .dot{animation:pulse 1.4s infinite}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(155,42,34,.6)}100%{box-shadow:0 0 0 10px rgba(155,42,34,0)}}
+.live-title{font-family:var(--display);font-style:italic;font-size:28px;margin:8px 0 2px;color:var(--azul-deep)}
+.count{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;margin-top:12px}
+.count div{border-top:1px solid var(--albero);border-bottom:1px solid var(--albero);padding:10px 4px;text-align:center}
+.count b{display:block;font:400 32px/1 var(--display);color:var(--azul)}
+.count small{font-size:10px;letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+.live-next{margin-top:12px;padding-top:12px;border-top:1px dashed var(--line);font-size:14px}
+.live-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;border:0;border-radius:2px;padding:13px 20px;font:500 12px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;cursor:pointer;text-decoration:none;transition:transform .15s}
+.btn:active{transform:scale(.97)}
+.btn-primary{background:var(--azul);color:#fff}
+.btn-gold{background:var(--albero);color:var(--azul-deep);font-weight:600}
+.btn-ghost{background:transparent;color:var(--azul);box-shadow:inset 0 0 0 1px var(--azul)}
+.btn-sm{padding:10px 13px;font-size:10.5px}
+
+section{padding:46px 0 10px}
+.sec-head{display:grid;gap:8px;margin-bottom:22px}
+
+/* histoire / photos */
+.story{display:grid;grid-template-columns:1.1fr 1fr;gap:12px;align-items:start}
+.polaroid{background:#fff;padding:8px 8px 10px;border-radius:1px;box-shadow:0 8px 22px rgba(60,20,10,.14);margin:0;outline:1px solid var(--line)}
+.polaroid img{aspect-ratio:4/5;object-fit:cover;width:100%;border-radius:2px}
+.polaroid figcaption{font:italic 500 15px/1.2 var(--display);text-align:center;padding-top:8px;color:var(--ink-soft)}
+.story .p1{transform:rotate(-2.2deg)}
+.story .p2{transform:rotate(1.8deg);margin-top:34px}
+.story .p3{grid-column:1/-1;transform:rotate(-.8deg);max-width:78%;justify-self:center}
+.story .p3 img{aspect-ratio:3/2;object-position:50% 45%}
+
+/* programme */
+.days{display:grid;gap:14px}
+.bfnote{margin:0 0 12px;padding:10px 14px;border:1px solid var(--albero);background:var(--ivory,#fff);border-radius:14px;font-size:14.5px;line-height:1.45}
+.tag.bf{background:var(--ink);color:var(--ivory,#fff);border-color:var(--ink)}
+/* ----- frise du temps : fêtes + jeux, avec les mariés qui avancent ----- */
+.frise{margin:0 0 22px}
+.frise .fhead{display:flex;justify-content:space-between;align-items:baseline;gap:10px;margin-bottom:4px}
+.frise .flg{display:flex;gap:12px;font-size:12px;color:var(--ink-soft)}
+.frise .flg i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:5px;vertical-align:0}
+.frise .flg .fe{background:var(--azul-deep)}.frise .flg .je{background:var(--ivory);box-shadow:inset 0 0 0 2px var(--albero)}
+.frail{overflow-x:auto;scroll-snap-type:x proximity;-webkit-overflow-scrolling:touch;margin:0 -18px;padding:0 18px 6px;scrollbar-width:none}
+.frail::-webkit-scrollbar{display:none}
+.ftrack{position:relative;display:grid;grid-auto-flow:column;grid-auto-columns:138px;padding-top:88px;width:max-content}
+.ftrack::before{content:"";position:absolute;left:69px;right:69px;top:95px;height:2px;background:var(--line)}
+.ftrack .fdone{position:absolute;left:69px;top:95px;height:2px;background:var(--azul-deep);transition:width .8s ease}
+.fstop{position:relative;display:flex;flex-direction:column;align-items:center;text-align:center;padding:0 8px;color:inherit;text-decoration:none;scroll-snap-align:center}
+.fstop .dot{width:16px;height:16px;border-radius:50%;margin:0 0 12px;background:var(--azul-deep);box-shadow:0 0 0 4px var(--cal);position:relative;z-index:1}
+.fstop.jeu .dot{background:var(--ivory);box-shadow:0 0 0 4px var(--cal),inset 0 0 0 3px var(--albero)}
+.fstop.todo .dot{opacity:.45}
+.fstop.todo.jeu .dot{opacity:.7}
+.fstop time{font:600 11px/1.2 var(--caps,var(--body));letter-spacing:.14em;text-transform:uppercase;color:var(--albero)}
+.fstop b{font:500 17px/1.15 var(--display);margin-top:4px}
+.fstop span{font-size:12.5px;line-height:1.35;color:var(--ink-soft);margin-top:4px}
+.fstop.cur b{color:var(--azul-deep)}
+.fme{position:absolute;top:0;width:76px;margin-left:-38px;height:80px;z-index:2;pointer-events:none;transition:left .8s ease}
+.fme img{position:absolute;top:0;width:42px;height:77px;object-fit:contain;filter:drop-shadow(0 3px 4px rgba(60,40,20,.2));animation:fhop 2.4s ease-in-out infinite}
+.fme img:first-child{left:2px;transform:rotate(-4deg)}.fme img:last-child{right:2px;transform:rotate(4deg);animation-delay:.3s}
+.fme::after{content:"";position:absolute;left:50%;bottom:-6px;width:2px;height:8px;margin-left:-1px;background:var(--albero)}
+@keyframes fhop{0%,100%{translate:0 0}50%{translate:0 -4px}}
+@media (prefers-reduced-motion:reduce){.fme img{animation:none}.fme,.ftrack .fdone{transition:none}}
+.frise .fhint{font-size:12px;color:var(--ink-soft);text-align:center;margin-top:4px}
+.day{background:#fff;border-radius:var(--r);overflow:hidden;border:1px solid var(--line)}
+.day.now{border-color:var(--albero);box-shadow:0 0 0 2px var(--albero)}
+.day.past{opacity:.6}
+.day-top{display:grid;grid-template-columns:76px 1fr;gap:0}
+.day-date{background:var(--azul);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;padding:14px 4px}
+.day.main .day-date{background:var(--albero);color:var(--azul-deep)}
+.day.main{border-color:var(--albero)}
+.day-date small{font:500 10px/1 var(--body);letter-spacing:.24em;text-transform:uppercase;opacity:.85}
+.day-date b{font:400 42px/1 var(--display);margin:4px 0}
+.day-body{padding:14px 16px}
+.day-body h3{color:var(--azul-deep)}
+/* fond photo du lieu */
+.day.ph .day-body{position:relative;color:#fff;padding:22px 16px 16px;min-height:220px;
+ background:linear-gradient(180deg,rgba(50,12,8,.55) 0,rgba(55,14,9,.68) 110px,rgba(90,23,18,.92) 210px,var(--azul-deep) 250px) top/100% 250px no-repeat,var(--img) top/100% 250px no-repeat,var(--azul-deep);background-size:100% 250px,cover,auto}
+.day.ph .day-body{background-size:100% 250px,100% 250px,auto}
+.day.ph .day-body h3,.day.ph .day-meta{text-shadow:0 1px 8px rgba(30,8,5,.6)}
+.day.ph .day-body h3{color:#fff;text-shadow:0 1px 12px rgba(0,0,0,.35)}
+.day.ph .day-meta{color:rgba(255,255,255,.88)}
+.day.ph .day-meta b{color:#fff;font-weight:600;border-bottom:1px solid var(--albero)}
+.day.ph .chip{background:var(--albero);color:var(--azul-deep);border-color:var(--albero);font-weight:600;text-shadow:none}
+.day.ph .steps li{border-top-color:rgba(255,255,255,.18)}
+.day.ph .steps li time{color:var(--albero)}
+.day.ph .btn-ghost{color:#fff;box-shadow:inset 0 0 0 1px rgba(255,255,255,.7)}
+.day.ph .btn-primary{background:var(--albero);color:var(--azul-deep)}
+.day-meta{font-size:14px;color:var(--ink-soft);margin-top:4px}
+.chip{display:inline-block;font:500 9.5px/1 var(--body);letter-spacing:.22em;text-transform:uppercase;background:none;color:var(--buganvilla);border:1px solid var(--albero);border-radius:1px;padding:5px 7px;margin-left:6px;vertical-align:middle}
+.steps{list-style:none;margin:12px 0 0;padding:0;display:grid;gap:0}
+.steps li{display:grid;grid-template-columns:64px 1fr;gap:10px;padding:8px 0;border-top:1px solid var(--cal-2);font-size:15px}
+.steps li time{font-weight:500;color:var(--azul)}
+.steps li.now-step{color:var(--buganvilla);font-weight:700}
+.day-actions{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+
+/* navettes */
+#days2:not(:empty){margin-top:14px}
+.shuttle{background:linear-gradient(180deg,rgba(90,23,18,.05) 0,rgba(90,23,18,.15) 90px,rgba(90,23,18,.85) 150px,var(--azul-deep) 175px),url(img/navette.svg) top center/100% 175px no-repeat,var(--azul-deep);color:#fff;border-radius:var(--r);padding:18px;padding-top:120px;margin-top:14px}
+.shuttle h3{text-shadow:0 1px 10px rgba(30,8,5,.7)}
+.shuttle-col{background:rgba(90,23,18,.75)}
+.shuttle h3{color:#fff}
+.shuttle-grid{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-top:12px}
+.shuttle-col{border:1px solid rgba(226,161,60,.45);border-radius:2px;padding:12px}
+.shuttle-col h4{margin:0 0 6px;font:500 10.5px/1.2 var(--body);letter-spacing:.26em;text-transform:uppercase;color:var(--albero)}
+.shuttle-col ul{list-style:none;margin:0;padding:0;display:grid;gap:6px}
+.shuttle-col li{display:flex;justify-content:space-between;gap:8px;font-size:15px}
+.shuttle-col li.next{color:var(--albero);font-weight:700}
+.shuttle-col li.gone{opacity:.45;text-decoration:line-through}
+.shuttle p{font-size:14px;margin:12px 0 0;opacity:.9}
+.shuttle-col li.soon{color:#fff;opacity:.7}
+html[data-avstyle="drape"] .shuttle-col li.soon{color:var(--ink-soft);opacity:1}
+html[data-avstyle="drape"] .shuttle-col li.next{color:var(--sage-d)}
+
+/* cartes génériques */
+.cards{display:grid;gap:12px}
+.card{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px}
+.card h3{font-size:20px;color:var(--azul-deep)}
+.card .row{display:flex;flex-wrap:wrap;gap:8px;margin-top:10px;align-items:center}
+.tag{display:inline-block;font:500 10px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--azul);background:none;border-bottom:1px solid var(--albero);border-radius:0;padding:4px 0;margin-right:6px}
+.code{display:inline-flex;align-items:center;gap:8px;background:var(--cal);border:1px dashed var(--albero);border-radius:2px;padding:6px 6px 6px 10px;font:700 14px/1 ui-monospace,Menlo,monospace;letter-spacing:.04em}
+.code button{border:0;background:var(--albero);color:var(--azul-deep);font:600 10.5px/1 var(--body);letter-spacing:.16em;text-transform:uppercase;border-radius:1px;padding:7px 9px;cursor:pointer}
+.star{border-left:3px solid var(--azul)}
+
+/* FAQ */
+details{background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:0 16px;margin-bottom:10px}
+summary{cursor:pointer;list-style:none;padding:16px 28px 16px 0;font-weight:500;position:relative}
+summary::-webkit-details-marker{display:none}
+summary::after{content:"+";position:absolute;right:0;top:11px;font:400 26px/1 var(--display);color:var(--albero)}
+details[open] summary::after{content:"–"}
+details .in{padding:0 0 16px;font-size:15px}
+details .in ul{padding-left:18px;margin:6px 0}
+
+/* jeux */
+.phrases{display:grid;gap:8px}
+.phrase{display:grid;grid-template-columns:1fr auto;gap:8px;align-items:center;background:#fff;border:1px solid var(--line);border-radius:2px;padding:10px 12px}
+.phrase b{font:italic 400 20px/1.2 var(--display);color:var(--azul-deep)}
+.phrase span{display:block;font-size:13px;color:var(--ink-soft)}
+.speak{border:1px solid var(--albero);background:none;border-radius:50%;width:40px;height:40px;cursor:pointer;color:var(--azul)}
+.subhead{display:flex;align-items:center;gap:12px;font:500 11px/1 var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--azul);margin:32px 0 14px}
+.subhead::after{content:"";flex:1;height:1px;background:var(--line)}
+
+/* RSVP */
+.rsvp{background:var(--azul-deep);color:#fff;margin-top:40px;padding:50px 0 44px;border-top:6px solid var(--albero)}
+.rsvp h2{color:#fff}
+.rsvp .eyebrow{color:var(--albero)}
+.rsvp-box{background:var(--cal);outline:1px solid var(--albero);outline-offset:-7px;color:var(--ink);border-radius:var(--r);padding:18px;margin-top:18px}
+.progress{display:flex;gap:6px;margin-bottom:16px}
+.progress i{flex:1;height:2px;border-radius:0;background:var(--line)}
+.progress i.on{background:var(--albero)}
+.step h3{color:var(--azul-deep);margin-bottom:12px}
+.field{display:grid;gap:6px;margin-bottom:14px}
+.field label,.lbl{font:500 11px/1.2 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--ink-soft)}
+.field input,.field select,.field textarea{width:100%;border:0;border-bottom:1px solid var(--ink-soft);border-radius:0;padding:10px 2px;background:transparent;font-size:17px}
+.field input:focus,.field select:focus,.field textarea:focus{border-color:var(--azul);outline:none}
+.hint{font-size:13px;color:var(--ink-soft)}
+.err{color:#b3261e;font-size:13px;font-weight:600;min-height:1em}
+.choice{display:flex;flex-wrap:wrap;gap:8px}
+.choice button{border:1px solid var(--line);background:#fff;border-radius:2px;padding:10px 13px;font:500 14px/1 var(--body);cursor:pointer}
+.choice button[aria-pressed="true"]{background:var(--azul);border-color:var(--azul);color:#fff}
+.big-choice{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.big-choice button{border:1px solid var(--line);background:#fff;border-radius:2px;padding:18px 10px;cursor:pointer;font:400 14px/1.3 var(--body)}
+.big-choice button b{display:block;font:italic 400 26px/1.1 var(--display);color:var(--azul-deep);margin-bottom:4px}
+.big-choice button[aria-pressed="true"]{border-color:var(--azul);box-shadow:inset 0 0 0 1px var(--azul);background:#fdf3e2}
+.person{border:1px solid var(--line);background:#fff;border-radius:2px;padding:12px;margin-bottom:10px;display:grid;gap:10px}
+.person-head{display:flex;justify-content:space-between;align-items:center;font-weight:700}
+.x{border:0;background:none;color:var(--ink-soft);font-size:13px;text-decoration:underline;cursor:pointer}
+.evt-toggle{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;border:1px solid var(--line);border-radius:2px;padding:12px;margin-bottom:8px;cursor:pointer;background:#fff;width:100%;text-align:left}
+.evt-toggle .box{width:24px;height:24px;border-radius:1px;border:1px solid var(--ink-soft);display:grid;place-items:center;color:#fff;font-weight:700}
+.evt-toggle[aria-pressed="true"]{border-color:var(--azul)}
+.evt-toggle[aria-pressed="true"] .box{background:var(--azul);border-color:var(--azul)}
+.evt-toggle small{display:block;color:var(--ink-soft)}
+.nav-row{display:flex;justify-content:space-between;gap:10px;margin-top:16px}
+.done{text-align:center;padding:12px 0}
+.done h3{font-size:32px;font-style:italic;color:var(--azul-deep)}
+.summary{text-align:left;background:var(--cal);border-radius:12px;padding:12px 14px;font-size:14px;margin:14px 0}
+.summary div{display:flex;justify-content:space-between;gap:12px;padding:4px 0;border-bottom:1px solid var(--cal-2)}
+.summary div:last-child{border:0}
+.demo-note{background:#fdf3e2;border:1px solid var(--albero);border-radius:2px;padding:10px 12px;font-size:13px;margin-top:12px;color:var(--ink)}
+
+footer{padding:30px 0 20px;text-align:center;font-size:13px;color:var(--ink-soft)}
+footer .sig{font:italic 400 26px/1.2 var(--display);color:var(--azul-deep);margin-bottom:6px}
+.sim{margin-top:14px}
+.sim summary{font-size:12px;font-weight:600;padding:8px 0;color:var(--ink-soft)}
+.sim summary::after{content:none}
+.sim{border:0;background:none;padding:0}
+.sim .choice{justify-content:center}
+.sim .choice button{font-size:12px;padding:7px 10px}
+
+/* barre d'onglets */
+.tabbar{position:fixed;left:0;right:0;bottom:0;z-index:20;background:rgba(250,246,238,.95);backdrop-filter:blur(10px);-webkit-backdrop-filter:blur(10px);border-top:1px solid var(--line);padding:6px 6px calc(6px + env(safe-area-inset-bottom))}
+.tabbar ul{list-style:none;margin:0 auto;padding:0;display:grid;grid-template-columns:repeat(5,1fr);max-width:620px}
+.tabbar a{display:flex;flex-direction:column;align-items:center;gap:4px;text-decoration:none;color:var(--ink-soft);font:500 9.5px/1 var(--body);letter-spacing:.14em;text-transform:uppercase;padding:6px 0;border-radius:10px}
+.tabbar a svg{width:21px;height:21px;stroke-width:1.4}
+.tabbar a.active{color:var(--azul)}
+.tabbar a.cta{color:var(--azul)}
+.tabbar a.active{color:var(--azul);box-shadow:inset 0 2px 0 var(--albero);border-radius:0}
+
+.toast{position:fixed;left:50%;bottom:96px;transform:translateX(-50%) translateY(20px);opacity:0;background:var(--ink);color:#fff;padding:10px 16px;border-radius:999px;font-size:14px;font-weight:600;transition:.25s;z-index:30;pointer-events:none}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+/* plan de table */
+.tsearch{position:relative}
+.tsearch input{width:100%;border:0;border-bottom:1px solid var(--ink-soft);background:transparent;padding:12px 2px;font-size:18px}
+.tsearch input:focus{outline:none;border-color:var(--azul)}
+.matches{display:flex;flex-wrap:wrap;gap:8px;margin-top:12px}
+.matches button{border:1px solid var(--line);background:#fff;border-radius:2px;padding:9px 12px;font:500 14px/1 var(--body);cursor:pointer}
+.tresult{margin-top:16px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:18px;display:grid;gap:12px}
+.tresult .tname{font:italic 400 34px/1.05 var(--display);color:var(--azul)}
+.neigh{display:flex;flex-wrap:wrap;gap:6px}
+.neigh span{font-size:14px;border-bottom:1px solid var(--albero);padding:2px 0;margin-right:8px}
+.neigh span.me{color:var(--azul);font-weight:600}
+.plan svg{width:100%;height:auto;display:block}
+.demo-tag{display:inline-block;font:500 10px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--buganvilla);border:1px dashed var(--albero);padding:5px 7px;margin-bottom:12px}
+
+/* carte à gratter */
+.scratch{position:relative;aspect-ratio:3/2;width:100%;max-width:440px;margin:0 auto;border-radius:3px;overflow:hidden;background:var(--cal);box-shadow:0 14px 30px rgba(60,15,10,.22)}
+.prize{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:26px 22px;gap:8px;background:#fff;outline:1px solid var(--albero);outline-offset:-8px}
+.prize .k{font:500 10.5px/1 var(--body);letter-spacing:.28em;text-transform:uppercase;color:var(--buganvilla)}
+.prize .t{font:italic 400 30px/1.1 var(--display);color:var(--azul-deep)}
+.prize .d{font-size:15px;color:var(--ink-soft);max-width:30ch}
+.prize.win{background:var(--azul-deep);outline-color:var(--albero)}
+.prize.win .t{color:var(--albero);font-size:clamp(28px,8.5vw,40px)}
+.prize.win .d{color:#fff}
+.prize.win .k{color:var(--albero)}
+.prize .codebox{font:600 13px/1 ui-monospace,Menlo,monospace;letter-spacing:.2em;color:#fff;border:1px dashed var(--albero);padding:7px 10px;margin-top:4px}
+.prize.photo{padding:0;justify-content:flex-end}
+.prize.photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.prize.photo .cap{position:relative;width:100%;padding:40px 16px 16px;background:linear-gradient(transparent,rgba(90,23,18,.92));color:#fff}
+.prize.photo .cap .t{color:#fff;font-size:24px}
+.prize.photo .cap .k{color:var(--albero)}
+.scratch canvas{position:absolute;inset:0;width:100%;height:100%;touch-action:none;cursor:grab}
+.locked{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;text-align:center;padding:20px;color:#fff;
+ background:linear-gradient(180deg,var(--albero) 0 10px,var(--cal) 10px 11px,var(--azul) 11px 56px,var(--azul-deep) 56px)}
+.locked .t{font:italic 400 24px/1.2 var(--display);color:var(--albero)}
+.locked .d{font-size:14px;opacity:.9}
+.scr-res{max-width:440px;margin:14px auto 0;text-align:center;border-top:1px solid var(--albero);border-bottom:1px solid var(--albero);padding:12px 8px;display:grid;gap:6px;justify-items:center}
+.scr-res[hidden]{display:none}
+.scr-res .k{font:500 10.5px/1.2 var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--buganvilla)}
+.scr-res p{margin:0;font-size:15px}
+.scr-res .won{font:italic 400 22px/1.2 var(--display);color:var(--azul-deep)}
+.scr-res.win{background:#fdf3e2}
+.scr-res .codebox{font:600 13px/1 ui-monospace,Menlo,monospace;letter-spacing:.2em;border:1px dashed var(--albero);padding:7px 10px;color:var(--azul-deep)}
+.scratch-hint{text-align:center;font-size:13px;color:var(--ink-soft);margin-top:12px}
+
+/* playlist */
+.plform{display:grid;grid-template-columns:1fr 1fr;gap:10px 14px;align-items:end;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:16px}
+.plform .field{margin:0}
+.plform .btn{grid-column:1/-1}
+.plnf,.plform .btn{grid-column:1/-1}
+.murwho{display:block;margin-top:8px;font-size:13px;color:var(--ink-soft)}
+.pinin{letter-spacing:.5em;font-size:20px;max-width:150px}
+.plwho{grid-column:1/-1;margin:0;font-size:14px;color:var(--ink-soft)}.linkbtn.inl{display:inline;margin:0}
+/* ---------- profil ---------- */
+.pbtn{width:34px;height:34px;border-radius:50%;border:1px solid var(--line);background:rgba(255,255,255,.85);display:grid;place-items:center;padding:0;cursor:pointer;margin-right:8px;color:var(--ink);position:relative}
+.pbtn svg{width:18px;height:18px}.pbtn .pav{font:500 16px/1 var(--display)}
+.pbtn.on{background:var(--sage-d,#5e6b42);border-color:var(--sage-d,#5e6b42);color:#fbf8f2}
+.pbtn.warn::after{content:"";position:absolute;top:-1px;right:-1px;width:9px;height:9px;border-radius:50%;background:#c4553e;border:2px solid #fff}
+.psheet{position:fixed;inset:0;z-index:250;background:rgba(43,42,40,.45);display:flex;align-items:flex-end;justify-content:center;opacity:0;transition:opacity .3s}
+.psheet.on{opacity:1}
+.pcard{position:relative;width:min(100%,460px);background:var(--cal,#fbf8f2);border-radius:22px 22px 0 0;padding:22px 20px calc(22px + env(safe-area-inset-bottom));display:grid;gap:12px;transform:translateY(40px);transition:transform .35s cubic-bezier(.2,.9,.3,1)}
+.psheet.on .pcard{transform:none}
+.pcard p{margin:0;font-size:14.5px;color:var(--ink-soft)}.pcard .pwho{color:var(--ink);font-size:16px}
+.pcard label{display:grid;gap:4px;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--ink-soft)}
+.pcard input{border:0;border-bottom:1px solid var(--ink-soft);background:transparent;padding:8px 2px;font-size:17px;text-transform:none;letter-spacing:0;color:var(--ink)}
+.pcard input.pin{letter-spacing:.5em;font-size:22px;width:140px}
+.pcard small{font-size:12px;color:var(--ink-soft);opacity:.8}.pcard .perr{color:#b3261e;font-size:13.5px;min-height:1em}
+.pcard .plink{background:none;border:0;padding:4px 0;font:inherit;font-size:12.5px;color:var(--ink-soft);text-decoration:underline;text-underline-offset:3px;cursor:pointer;align-self:center}.pcard .plink:disabled{opacity:.5}.pcard .perr.ok{color:var(--sauge,#5e6b42)}
+.pcard .px{position:absolute;top:10px;right:12px;border:0;background:none;font-size:28px;line-height:1;color:var(--ink-soft);cursor:pointer}
+.pcard .pnew{animation:pop .3s}
+.plcode{margin:8px 0 0;font-size:12.5px;color:var(--ink-soft)}.plcode b{color:var(--ink);letter-spacing:.06em;white-space:nowrap}
+.linkbtn{display:block;margin-top:6px;border:0;background:none;padding:0;font:inherit;font-size:13px;color:var(--sage-d,#5e6b42);text-decoration:underline;cursor:pointer}
+.plrest{display:flex;gap:6px;margin-top:8px;align-items:center}.plrest input{flex:1;min-width:0;border:0;border-bottom:1px solid var(--ink-soft);background:transparent;padding:6px 2px;font-size:16px}
+.plrest input#plRc{flex:0 0 70px;text-align:center;letter-spacing:.2em}
+.plwarn{grid-column:1/-1;margin:2px 0 0;font-size:13px;color:var(--ink-soft)}
+.plform .btn.confirm{background:#8a6a1f;border-color:#8a6a1f;animation:pop .3s}
+.pllock{margin:6px 0 0;font-size:12.5px;color:var(--ink-soft)}
+.songs{list-style:none;margin:16px 0 0;padding:0;counter-reset:s}
+.song{display:grid;grid-template-columns:34px 1fr auto;gap:10px;align-items:center;padding:12px 0;border-bottom:1px solid var(--line)}
+.song .rk{font:italic 400 22px/1 var(--display);color:var(--albero);text-align:center}
+.song.top .rk{color:var(--azul)}
+.song b{display:block;font-weight:500}
+.song small{color:var(--ink-soft);font-size:13.5px}
+.song .ex{font:500 9.5px/1 var(--body);letter-spacing:.18em;text-transform:uppercase;color:var(--buganvilla);margin-left:6px}
+.heart{display:flex;align-items:center;gap:6px;border:1px solid var(--line);background:#fff;border-radius:2px;padding:8px 10px;cursor:pointer;font:500 14px/1 var(--body);color:var(--ink-soft)}
+.heart svg{width:16px;height:16px}
+.heart[aria-pressed="true"]{border-color:var(--azul);color:var(--azul)}
+.heart[aria-pressed="true"] svg{fill:var(--azul)}
+.topline{display:flex;align-items:center;gap:12px;margin:14px 0 0;font:500 10.5px/1 var(--body);letter-spacing:.26em;text-transform:uppercase;color:var(--buganvilla)}
+.topline::before,.topline::after{content:"";flex:1;height:1px;background:var(--albero)}
+.plform[hidden],.plmine[hidden]{display:none}
+.pdot{display:inline-block;min-width:16px;height:16px;line-height:16px;border-radius:8px;background:var(--albero);color:var(--azul-deep);font-size:9.5px;font-weight:600;margin-left:5px;padding:0 4px;letter-spacing:0;vertical-align:1px}
+.plmine{background:#fff;border:1px solid var(--albero);padding:14px 16px;display:grid;gap:4px}
+.plmine b{font:italic 400 22px/1.2 var(--display);color:var(--azul-deep)}
+.plmine small{color:var(--ink-soft)}
+.plbudget{font-size:13.5px;color:var(--ink-soft);margin:10px 0 0}
+.plbudget .hearts{color:var(--azul);letter-spacing:.1em;margin-right:4px}.plbudget .hearts i{font-style:normal;color:var(--line)}
+.plnew{list-style:none;background:#fdf3e2;border-left:2px solid var(--albero);padding:10px 12px;font-size:14px;margin-top:14px}
+.song.isnew{background:linear-gradient(90deg,#fdf3e2,transparent)}
+.song .ex.nw{color:var(--azul)}
+.heart:disabled{opacity:.6;cursor:default}
+.already{font-size:14px;background:#fdf3e2;border-left:2px solid var(--albero);padding:10px 12px;margin-bottom:16px}
+/* vues : un écran par onglet */
+.view{display:none}
+.view.on{display:block;animation:viewin .28s ease-out}
+@keyframes viewin{from{opacity:0;transform:translateY(8px)}}
+section.view{padding-top:30px;min-height:calc(100vh - 160px)}
+.rsvp.view{margin-top:0;padding-top:34px}
+.hero-img{height:min(60vh,520px)!important;min-height:380px!important}
+/* carrousels */
+.rail{display:grid;grid-auto-flow:column;grid-auto-columns:84%;gap:12px;overflow-x:auto;scroll-snap-type:x mandatory;margin:0 -18px;padding:2px 18px 10px;scroll-padding-left:18px;scrollbar-width:none}
+.rail::-webkit-scrollbar{display:none}
+.rail>*{scroll-snap-align:start}
+@media (min-width:640px){.rail{grid-auto-columns:46%}}
+/* sous-onglets */
+.seg{display:flex;border:1px solid var(--azul);border-radius:2px;margin-bottom:18px;overflow:hidden}
+.seg button{flex:1;border:0;background:none;padding:12px 2px;font:500 9.5px/1.2 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--azul);cursor:pointer}
+.seg button+button{border-left:1px solid var(--azul)}
+.seg button[data-sub]{position:relative;min-height:62px;display:flex;align-items:flex-end;justify-content:center;padding:0 2px 9px;
+ background:linear-gradient(180deg,rgba(250,246,238,.55),rgba(250,246,238,.92) 72%),var(--simg) center/cover no-repeat;filter:saturate(.35);transition:filter .25s,background .25s,color .25s}
+.seg button[data-sub][aria-pressed="true"]{filter:none;color:#fff;background:linear-gradient(180deg,rgba(90,23,18,.05),rgba(90,23,18,.9) 75%),var(--simg) center/cover no-repeat}
+.seg button[data-sub="playlist"]{--simg:url(img/jeu-playlist.svg)}
+.seg button[data-sub="course"]{--simg:url(img/jeu-course.svg)}
+.seg button[data-sub="piste"]{--simg:url(img/jeu-piste.svg)}
+.seg button[data-sub="carte"]{--simg:url(img/jeu-carte.svg)}
+.seg button[data-sub="capsule"]{--simg:url(img/jeu-capsule.svg)}
+.seg button[aria-pressed="true"]{background:var(--azul);color:#fff}
+.sub{display:none}.sub.on{display:block}
+.sub .muted{margin-top:0}
+.foot-lang{justify-content:center;width:max-content;margin:14px auto 0;background:var(--azul-deep)}
+/* la carrera */
+.game{position:relative;border-radius:3px;overflow:hidden;outline:1px solid var(--albero);user-select:none;-webkit-user-select:none;-webkit-touch-callout:none;background:#fbefdc}
+#gc{display:block;width:100%;height:340px;touch-action:none}
+.gui{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;background:rgba(90,23,18,.5);-webkit-backdrop-filter:blur(2px);backdrop-filter:blur(2px)}
+.gui[hidden]{display:none}
+.gpanel{background:var(--cal);padding:20px 16px;text-align:center;width:min(88%,340px);outline:1px solid var(--albero);outline-offset:-6px;display:grid;gap:10px;justify-items:center}
+.gtitle{font:italic 400 24px/1.15 var(--display);color:var(--azul-deep);text-wrap:balance}
+.gscore{font:400 54px/1 var(--display);color:var(--azul)}
+.gsmall{font-size:13px;color:var(--ink-soft);margin:0}
+.pick{display:grid;grid-template-columns:1fr 1fr;gap:10px;width:100%}
+.pick button{border:1px solid var(--line);background:#fff;padding:12px 6px;cursor:pointer;display:grid;gap:8px;justify-items:center;font:500 10.5px/1.2 var(--body);letter-spacing:.14em;text-transform:uppercase;color:var(--azul)}
+.pick button:hover{border-color:var(--azul)}
+.pick img{width:62px;height:auto}
+.bighead{width:70px;height:auto}
+.gpanel input{width:100%;border:0;border-bottom:1px solid var(--ink-soft);background:transparent;padding:10px 2px;font-size:17px;text-align:center}
+.gpanel input:focus{outline:none;border-color:var(--azul)}
+.gbtns{display:flex;gap:8px;flex-wrap:wrap;justify-content:center}
+.tsb{display:flex;justify-content:space-between;align-items:center;gap:10px;margin:4px 0 8px}
+.tsb-side{display:flex;align-items:center;gap:8px}
+.tsb-side img{width:34px;height:auto}
+.tsb-side small{display:block;font:500 9.5px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.tsb-side b{display:block;font:italic 400 20px/1.1 var(--display);color:var(--azul-deep)}
+.tsb-side span{font-size:13px;color:var(--ink-soft)}
+.tsb-side.r{text-align:right}
+.tsb-bar{height:6px;background:var(--azul-deep);margin-bottom:14px}
+.tsb-bar i{display:block;height:100%;background:var(--albero);transition:width .6s}
+.podium{display:grid;grid-template-columns:1fr 1.15fr 1fr;align-items:end;gap:8px;margin:16px 0 8px;text-align:center}
+.pd{display:grid;justify-items:center;gap:3px;padding-bottom:10px;border-bottom:3px solid var(--albero)}
+.pd.p1{border-bottom-width:6px}
+.pf{position:relative;width:64px;height:64px;border-radius:50%;overflow:visible}
+.pd.p1 .pf{width:84px;height:84px}
+.pf img{width:100%;height:100%;border-radius:50%;object-fit:cover;box-shadow:0 0 0 3px var(--cal),0 0 0 4px var(--albero)}
+.pf img.hd{object-fit:contain;background:var(--cal)}
+.pf i{position:absolute;right:-4px;bottom:-4px;width:24px;height:24px;border-radius:50%;background:var(--albero);color:#fff;font:600 13px/24px var(--body);font-style:normal}
+.pd.p1 .pf i{background:#c9a227}
+.pd b{font-weight:600;font-size:14px;max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.pd span{font-size:13px;color:var(--ink-soft)}
+.faceask{width:100%;display:grid;gap:6px;justify-items:center;padding:8px;border:1px solid var(--albero);background:rgba(255,255,255,.6)}
+.faceask b{font-size:14px;font-weight:600}
+/* ---------- ciel de Séville (style drapé) ---------- */
+.sky{display:none}
+html[data-avstyle="drape"] .sky{display:block;position:absolute;left:0;right:0;top:0;height:76%;z-index:0;pointer-events:none;
+ background:linear-gradient(180deg,var(--top,#c7d8de) 0%,var(--mid,#efe9df) 55%,var(--cal) 100%);transition:background 2s}
+html[data-avstyle="drape"] .hero>.hero-img,html[data-avstyle="drape"] .hero>.hero-text{position:relative;z-index:1}
+html[data-avstyle="drape"] .hero .hero-img{position:relative}
+.sky .stars{position:absolute;inset:0;opacity:var(--stars,0);transition:opacity 2s}
+.sky .stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;animation:tw 3s ease-in-out infinite}
+@keyframes tw{50%{opacity:.25}}
+.hero-img .orb{position:absolute;width:46px;height:46px;margin:-23px 0 0 -23px;border:0;padding:0;border-radius:50%;pointer-events:auto;cursor:pointer;z-index:3;-webkit-tap-highlight-color:transparent;animation:orbglow 4s ease-in-out infinite;
+ background:radial-gradient(circle at 50% 50%,#fff3c4 0,#f3d27a 45%,rgba(243,210,122,0) 72%);box-shadow:0 0 30px 10px rgba(243,210,122,.45);transition:left 2s,top 2s}
+.hero-img .orb.moon{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cdefs%3E%3CradialGradient id='g' cx='.35' cy='.35' r='.8'%3E%3Cstop offset='0' stop-color='%23fffdf7'/%3E%3Cstop offset='.7' stop-color='%23f1e7cf'/%3E%3Cstop offset='1' stop-color='%23d9c9a3'/%3E%3C/radialGradient%3E%3Cmask id='m'%3E%3Crect width='44' height='44' fill='%23fff'/%3E%3Ccircle cx='30' cy='15' r='14.5' fill='%23000'/%3E%3C/mask%3E%3C/defs%3E%3Cg mask='url(%23m)'%3E%3Ccircle cx='22' cy='22' r='16' fill='url(%23g)'/%3E%3Ccircle cx='13' cy='25' r='2.2' fill='%23e3d5b3' opacity='.7'/%3E%3Ccircle cx='18' cy='32' r='1.4' fill='%23e3d5b3' opacity='.7'/%3E%3Ccircle cx='11' cy='18' r='1' fill='%23e3d5b3' opacity='.6'/%3E%3C/g%3E%3C/svg%3E") center/100% no-repeat;box-shadow:none;border-radius:0;filter:drop-shadow(0 0 10px rgba(255,248,225,.55)) drop-shadow(0 0 3px rgba(255,248,225,.8));animation:none}
+@keyframes orbglow{50%{box-shadow:0 0 42px 16px rgba(243,210,122,.55)}}
+html[data-avstyle="drape"] .hero.is-night .hero-img img{filter:saturate(.55) brightness(.72) hue-rotate(-8deg)}
+html[data-avstyle="drape"] .hero.is-dusk .hero-img img{filter:saturate(.75) brightness(.9) sepia(.15)}
+.hero-img .orb.cool::before{content:"😎";position:absolute;inset:0;display:grid;place-items:center;font-size:24px;animation:pop .4s}
+@keyframes pop{from{transform:scale(0)}}
+.hero-img .shoot{position:absolute;z-index:3;pointer-events:none;left:12%;top:16%;width:90px;height:2px;background:linear-gradient(90deg,rgba(255,255,255,0),#fff);opacity:0;transform:rotate(18deg)}
+.hero-img .shoot.go{animation:shoot 1.1s ease-out}
+@keyframes shoot{0%{opacity:1;transform:translate(0,0) rotate(18deg)}100%{opacity:0;transform:translate(240px,80px) rotate(18deg)}}
+.skyclock{display:none}
+html[data-avstyle="drape"] .skyclock{display:inline-block;margin-right:auto;font:600 11px/1 var(--caps,var(--body));letter-spacing:.24em;text-transform:uppercase;color:var(--ink-soft)}
+html[data-avstyle="drape"] .hero .topbar{display:flex;align-items:center}
+html[data-avstyle="drape"] .hero.is-night .skyclock{color:#f4efe6}
+/* ---------- la fête du RSVP ---------- */
+.fiesta{position:fixed;inset:0;z-index:200;display:grid;place-items:center;background:radial-gradient(circle at 50% 45%,#fbf8f2 0,#f1ebe1 55%,#e3dccd 100%);opacity:0;transition:opacity .4s;overflow:hidden;cursor:pointer}
+.fiesta.on{opacity:1}
+.fz{text-align:center;display:grid;justify-items:center;gap:6px;padding:20px}
+.fz h3{font:italic 400 clamp(30px,9vw,52px)/1.05 var(--display);color:var(--sage-d,#5e6b42);margin:0}
+.fz p{margin:0;max-width:30ch;color:var(--ink-soft)}.fz small{font-size:11px;letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft);opacity:.7;margin-top:10px}
+.dz{width:min(78vw,320px);height:auto;overflow:visible}
+.dz *{transform-box:fill-box}
+.dA{animation:twirlA 2.4s ease-in-out infinite;transform-origin:62px 190px;transform-box:view-box}
+.dV{animation:stepV 1.2s ease-in-out infinite;transform-origin:158px 190px;transform-box:view-box}
+.dA .armL,.dV .armL{transform-origin:100% 100%;animation:armL 1.2s ease-in-out infinite}
+.dA .armR,.dV .armR{transform-origin:0 100%;animation:armR 1.2s ease-in-out infinite}
+.dA .skirt{transform-origin:50% 0;animation:skirt .6s ease-in-out infinite alternate}
+.dA .armL,.dA .armR{animation-duration:.9s}
+.dV .legL{transform-origin:50% 0;animation:legs .6s ease-in-out infinite alternate}.dV .legR{transform-origin:50% 0;animation:legs .6s ease-in-out infinite alternate-reverse}
+.hA,.hV{transform-origin:50% 90%;animation:head 1.2s ease-in-out infinite}
+@keyframes twirlA{0%,35%{transform:translateX(0) rotateY(0)}55%{transform:translateX(10px) rotateY(180deg)}75%,100%{transform:translateX(0) rotateY(360deg)}}
+@keyframes stepV{0%,100%{transform:translate(0,0)}25%{transform:translate(-6px,-4px)}50%{transform:translate(-10px,0)}75%{transform:translate(-4px,-4px)}}
+@keyframes armL{0%,100%{transform:rotate(0)}50%{transform:rotate(28deg)}}
+@keyframes armR{0%,100%{transform:rotate(0)}50%{transform:rotate(-28deg)}}
+@keyframes skirt{from{transform:skewX(-6deg)}to{transform:skewX(6deg)}}
+@keyframes legs{from{transform:rotate(-10deg)}to{transform:rotate(10deg)}}
+@keyframes head{0%,100%{transform:rotate(-6deg)}50%{transform:rotate(6deg)}}
+.petals i{position:absolute;top:-20px;width:12px;height:16px;border-radius:60% 0 60% 0;background:#f2c9c0;opacity:.85;animation:petal linear infinite}
+.petals i:nth-child(3n){background:#fbf8f2;box-shadow:0 0 0 1px #e6dccb}.petals i:nth-child(4n){background:#d7dcc2}
+@keyframes petal{from{transform:translateY(0) rotate(var(--r))}to{transform:translateY(110vh) rotate(calc(var(--r) + 540deg))}}
+@media (prefers-reduced-motion:reduce){.dA,.dV,.dz *,.petals i{animation:none!important}}
+/* ---------- secrets ---------- */
+#plBan{touch-action:pan-y;user-select:none;-webkit-user-select:none}
+.vinyl{position:absolute;z-index:150;width:64px;height:64px;margin:-32px 0 0 -32px;font-size:60px;line-height:64px;text-align:center;pointer-events:none;animation:vinyl 1.6s cubic-bezier(.2,.7,.3,1) forwards}
+@keyframes vinyl{0%{transform:scale(.3) rotate(0);opacity:0}15%{transform:scale(1.15) rotate(180deg);opacity:1}80%{transform:scale(1) rotate(1440deg);opacity:1}100%{transform:scale(.8) rotate(1620deg);opacity:0}}
+.note{position:absolute;z-index:150;font-size:22px;color:#5e6b42;pointer-events:none;animation:note 1.5s ease-out forwards}
+@keyframes note{0%{opacity:0;transform:translate(0,0)}20%{opacity:1}100%{opacity:0;transform:translate(var(--dx),-120px) rotate(var(--r))}}
+.egg-heart{position:absolute;z-index:150;font-size:20px;pointer-events:none;animation:heart 1.6s ease-out forwards}
+@keyframes heart{to{transform:translate(var(--dx),var(--dy)) scale(1.4);opacity:0}}
+.say{position:absolute;z-index:3;transform:translate(-50%,-100%);background:#fff;border:1px solid var(--albero);border-radius:14px;padding:5px 10px;font:600 13px/1.2 var(--body);white-space:nowrap;
+ color:var(--ink);box-shadow:0 6px 16px rgba(0,0,0,.1);animation:say 2.2s ease forwards;pointer-events:none}
+@keyframes say{0%{opacity:0;transform:translate(-50%,-80%) scale(.6)}12%{opacity:1;transform:translate(-50%,-100%) scale(1)}80%{opacity:1}100%{opacity:0;transform:translate(-50%,-130%)}}
+.secrets{font-size:12px;opacity:.75;margin:6px 0}
+.eggcard{position:fixed;left:50%;top:14px;z-index:300;width:min(92vw,380px);display:flex;align-items:center;gap:14px;padding:14px 16px;border-radius:18px;cursor:pointer;
+ background:linear-gradient(135deg,#fff8e1,#f3d27a 120%);border:1px solid #c9a227;box-shadow:0 14px 40px rgba(94,80,50,.35),0 0 0 4px rgba(243,210,122,.35);
+ transform:translate(-50%,-140%) scale(.9);transition:transform .55s cubic-bezier(.2,1.4,.4,1)}
+.eggcard.on{transform:translate(-50%,0) scale(1)}
+.eg-ico{font-size:38px;line-height:1;animation:egwig 1s ease-in-out .5s 2}
+@keyframes egwig{25%{transform:rotate(-18deg) scale(1.15)}75%{transform:rotate(14deg) scale(1.15)}}
+.eg-txt{display:grid;gap:3px}.eg-txt small{font:600 10.5px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:#8a6a1f}
+.eg-txt b{font:400 21px/1.15 var(--display);color:#2b2a28}
+.eg-dots{display:flex;gap:5px;margin-top:3px}.eg-dots i{width:9px;height:9px;border-radius:50%;background:rgba(138,106,31,.22)}.eg-dots i.on{background:#8a6a1f}
+.eg-spark{position:absolute;left:38px;top:50%;pointer-events:none}
+.eg-spark i{position:absolute;width:5px;height:5px;border-radius:50%;background:#c9a227;transform:rotate(var(--a)) translateX(0);opacity:0;animation:egsp .9s ease-out .45s}
+@keyframes egsp{0%{opacity:1;transform:rotate(var(--a)) translateX(0)}100%{opacity:0;transform:rotate(var(--a)) translateX(60px)}}
+/* ---------- mur photo ---------- */
+#mur{padding:26px 0 0}
+.gban.mur b{display:block;font:400 24px/1.15 var(--display);margin:4px 0 6px}
+.gban.mur label.btn{margin-top:10px;cursor:pointer}
+.murname{display:block;width:min(100%,260px);margin-top:10px;border:0;border-bottom:1px solid var(--ink-soft);background:transparent;padding:8px 2px;font-size:16px}
+.murname:focus{outline:none;border-color:var(--sage-d,#5e6b42)}
+.murgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:-4px 0 10px}
+.murgrid button{aspect-ratio:1;border:0;padding:0;background:#ece5db center/cover;border-radius:10px;cursor:pointer;box-shadow:0 2px 8px rgba(0,0,0,.08)}
+.murmore{display:block;margin:0 auto 6px}
+.lbx{position:fixed;inset:0;z-index:180;background:rgba(43,42,40,.92);display:grid;place-items:center;padding:18px;cursor:zoom-out}
+.lbx figure{margin:0;background:#fbf8f2;padding:10px 10px 4px;max-width:96vw;box-shadow:0 20px 50px rgba(0,0,0,.4)}
+.lbx img{display:block;max-width:calc(96vw - 20px);max-height:78vh;object-fit:contain}
+.lbx figcaption{font:italic 400 18px/1.6 var(--display);text-align:center;color:var(--ink)}
+/* ---------- mode Jour J ---------- */
+.jj{margin-top:14px;padding:16px;border:1px solid var(--line);background:#fff;border-radius:var(--rr,14px)}
+.jj-k{font:600 11px/1 var(--caps,var(--body));letter-spacing:.3em;text-transform:uppercase;color:var(--buganvilla);margin-bottom:12px}
+.jj-next{display:grid;gap:3px;padding:12px 14px;margin-bottom:12px;background:var(--cal);border-left:3px solid var(--sage-d,#5e6b42)}
+.jj-next small{font-size:12px;color:var(--ink-soft);letter-spacing:.06em}.jj-next b{font:400 22px/1.15 var(--display)}.jj-next span{font-size:14px;color:var(--ink-soft)}
+.jj-list{list-style:none;margin:0;padding:0 0 0 6px;border-left:1px solid var(--soft,#e6dccb)}
+.jj-list li{display:grid;grid-template-columns:48px 22px 1fr auto;align-items:center;gap:6px;padding:7px 0 7px 10px;position:relative;font-size:14.5px}
+.jj-list li::before{content:"";position:absolute;left:-10px;top:50%;width:7px;height:7px;margin-top:-3.5px;border-radius:50%;background:var(--soft,#e6dccb)}
+.jj-list li span{color:var(--ink-soft);font-size:13px}.jj-list li b{font-weight:500}
+.jj-list li.past{opacity:.45}.jj-list li.cur b{font-weight:700}
+.jj-list li.cur::before{background:var(--sage-d,#5e6b42);box-shadow:0 0 0 4px rgba(94,107,66,.18)}
+.jj-list li em{font-style:normal;font-size:10.5px;letter-spacing:.14em;text-transform:uppercase;color:#fff;background:var(--sage-d,#5e6b42);padding:3px 7px;border-radius:99px}
+/* ---------- livre d'or vocal, capsule ---------- */
+#souvenirs{padding:4px 0 0}
+.gban.souv b{display:block;font:400 22px/1.15 var(--display);margin:4px 0 6px}
+.gban.souv .row{display:flex;gap:8px;flex-wrap:wrap;margin-top:10px}
+.gban.souv audio{width:min(100%,280px);margin-top:10px;display:block}
+.gban.souv textarea{display:block;width:min(100%,300px);margin-top:10px;border:1px solid var(--soft,#e6dccb);border-radius:10px;padding:10px;font:inherit;font-size:15px;background:rgba(255,255,255,.85);resize:vertical}
+.gban.souv .btn{margin-top:10px}.gban.souv .ok{font-weight:600;margin-top:8px}
+.gban.souv .capn{display:block;margin-top:8px;font-size:12.5px;color:var(--ink-soft)}
+.vrec{display:flex;align-items:center;gap:8px;margin-top:10px}.vrec .btn{margin:0 0 0 6px}
+.vdot{width:10px;height:10px;border-radius:50%;background:#c4553e;animation:tw 1s infinite}
+/* ---------- récap ---------- */
+#recap{padding:24px 0 8px}
+.recap{text-align:center;padding:24px 18px;background:#fff;border:1px solid var(--line);border-radius:var(--rr,14px)}
+.recap h2{margin:6px 0 16px}
+.rnums{display:grid;grid-auto-flow:column;grid-auto-columns:1fr;gap:8px;margin-bottom:16px}
+.rnums b{display:block;font:400 34px/1 var(--display);color:var(--sage-d,#5e6b42)}.rnums small{font-size:12px;color:var(--ink-soft)}
+.rfacts{list-style:none;padding:0;margin:0 0 16px;display:grid;gap:8px;text-align:left}
+.rfacts li{padding:10px 12px;background:var(--cal);border-radius:10px;font-size:14.5px}
+.rgrid{display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin-bottom:10px}
+.rgrid button{aspect-ratio:1;border:0;border-radius:10px;background:#ece5db center/cover;cursor:pointer}
+.rword{margin-top:18px;padding-top:16px;border-top:1px solid var(--soft,#e6dccb)}
+.rword small{font:600 11px/1 var(--caps,var(--body));letter-spacing:.3em;text-transform:uppercase;color:var(--buganvilla)}
+.rword p{font:italic 400 19px/1.45 var(--display);margin:10px 0}.rword .sig{font:400 26px/1 var(--script,var(--display))}
+/* ---------- espace des mariés ---------- */
+.admv{list-style:none;padding:0;display:grid;gap:8px}.admv li{display:grid;grid-template-columns:1fr auto;gap:2px 10px;align-items:center;padding:10px;background:#fff;border:1px solid var(--line);border-radius:10px}
+.admv small{grid-column:1;color:var(--ink-soft)}.admv .btn,.admv audio{grid-row:1/3;grid-column:2;max-width:220px}
+.admc{display:grid;gap:10px}.admc blockquote{margin:0;padding:12px 14px;background:#fff;border-left:3px solid var(--albero)}.admc cite{font-size:13px;color:var(--ink-soft)}
+/* ---------- installation ---------- */
+.installbar{display:flex;gap:10px;align-items:center;justify-content:space-between;flex-wrap:wrap;padding:12px 14px;margin-bottom:12px;background:#fff;border:1px dashed var(--albero);border-radius:12px;font-size:14px}
+.installbar p{margin:0;flex:1 1 200px}.installbar small{color:var(--ink-soft)}.installbar div{display:flex;gap:6px}
+ol.lb{list-style:none;padding:0;margin:4px 0 0}
+.lb li{display:grid;grid-template-columns:30px 1fr auto;gap:10px;align-items:center;padding:9px 0;border-bottom:1px solid var(--line)}
+.lb .rk{font:italic 400 20px/1 var(--display);color:var(--albero);text-align:center}
+.lb .nm{font-weight:500}
+.lb small{display:block;font-weight:400;font-size:12px;color:var(--ink-soft)}
+.lb li.agathe small{color:var(--buganvilla)}.lb li.valentin small{color:var(--azul)}
+.night{display:grid;grid-template-columns:1fr auto;gap:12px;align-items:center;border:1px dashed var(--albero);padding:14px;margin-top:10px;background:#fff}
+.night h3{font-size:21px;color:var(--azul-deep);margin:6px 0 4px}
+.night p{margin:0;font-size:14px}
+.night.open{border-style:solid;border-color:var(--azul)}
+.lock{font-size:20px;opacity:.55}
+.lockbox{display:grid;grid-template-columns:auto 1fr;gap:12px;align-items:center;background:#fff;border:1px solid var(--line);padding:14px 16px;margin:14px 0}
+.lockbox .lk{font-size:22px}
+.lockbox b{display:block;font:italic 400 21px/1.2 var(--display);color:var(--azul-deep)}
+.lockbox p{margin:4px 0 0;font-size:14px;color:var(--ink-soft)}
+html[data-avstyle="drape"] .lockbox{background:var(--ivory);border:1px solid var(--soft);border-radius:var(--rr);box-shadow:var(--shadow)}
+html[data-avstyle="drape"] .lockbox b{font-style:normal;font-weight:500;color:var(--ink)}
+.night .eyebrow.lk{color:var(--ink);text-transform:none;letter-spacing:.01em;font:500 15px/1.3 var(--display)}
+#course .topline{margin-top:22px}
+/* jeu de piste */
+.stamps{display:grid;grid-template-columns:repeat(8,1fr);gap:6px;margin:16px 0 8px}
+.stamps span{aspect-ratio:1;border:1px dashed var(--albero);border-radius:50%;display:grid;place-items:center;font:italic 400 15px/1 var(--display);color:var(--albero)}
+.stamps span.on{background:var(--azul);border:1px solid var(--azul);color:#fff;transform:rotate(-8deg)}
+.hunt-progress{font-size:13.5px;color:var(--ink-soft);margin-bottom:14px}
+.hunt-name{margin:6px 0 10px}
+.spots{list-style:none;margin:0;padding:0;display:grid;gap:12px}
+.spot{display:grid;grid-template-columns:96px 1fr;gap:14px;background:#fff;border:1px solid var(--line);border-radius:var(--r);padding:12px;align-items:start}
+.spot.got{border-color:var(--albero)}
+.spot-ph{position:relative;aspect-ratio:3/4;background:var(--cal-2);display:grid;place-items:center;overflow:hidden;outline:1px solid var(--line)}
+.spot-ph span{font:italic 400 34px/1 var(--display);color:var(--albero)}
+.spot-ph img{width:100%;height:100%;object-fit:cover}
+.visado{position:absolute;left:50%;top:50%;transform:translate(-50%,-50%) rotate(-14deg);font:600 11px/1 var(--body);letter-spacing:.22em;color:var(--azul);border:2px solid var(--azul);padding:5px 6px;background:rgba(250,246,238,.82)}
+.spot-body h3{font-size:20px;color:var(--azul-deep)}
+.spot-body p{margin:6px 0 0;font-size:14.5px;color:var(--ink-soft)}
+.spot-body .row{display:flex;flex-wrap:wrap;gap:8px;align-items:center;margin-top:10px}
+.filebtn{cursor:pointer}
+.voucher{position:relative;background:var(--azul-deep);color:#fff;padding:22px 18px;margin:6px 0 18px;text-align:center;outline:1px solid var(--albero);outline-offset:-7px}
+.voucher .k{font:500 10.5px/1 var(--body);letter-spacing:.26em;text-transform:uppercase;color:var(--albero)}
+.voucher .t{font:italic 400 30px/1.1 var(--display);color:var(--albero);margin:10px 0 8px}
+.voucher p{margin:0 auto 14px;max-width:34ch;font-size:14.5px;opacity:.92}
+.voucher.used{opacity:.7}
+.served{font:500 12px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--albero);border:1px solid var(--albero);display:inline-block;padding:9px 12px}
+.holdbtn{position:relative;overflow:hidden;border:1px solid var(--albero);background:none;color:#fff;padding:12px 14px;font:500 10.5px/1.2 var(--body);letter-spacing:.16em;text-transform:uppercase;cursor:pointer;-webkit-user-select:none;user-select:none;touch-action:none}
+.holdbtn i{position:absolute;left:0;top:0;bottom:0;width:0;background:rgba(226,161,60,.45)}
+.holdbtn.holding i{width:100%;transition:width 1.5s linear}
+.holdbtn span{position:relative}
+.teaser{display:grid;grid-template-columns:auto 1fr auto;gap:14px;align-items:center;text-decoration:none;color:var(--ink);background:#fff;border:1px solid var(--albero);padding:14px;margin:34px 0 10px}
+.teaser b{display:block;font:italic 400 20px/1.1 var(--display);color:var(--azul-deep)}
+.teaser small{color:var(--ink-soft);font-size:13px}
+.stamps.mini{grid-template-columns:repeat(4,12px);gap:4px;margin:0}
+.stamps.mini span{width:12px;border-radius:50%}
+canvas#confetti{position:fixed;inset:0;pointer-events:none;z-index:40}
+@media (min-width:640px){.cards.two{grid-template-columns:1fr 1fr}}
+/* bandeaux illustrés des jeux */
+.gban{position:relative;color:#fff;padding:18px 16px;min-height:130px;margin-bottom:16px;display:flex;align-items:flex-end;outline:1px solid var(--albero);outline-offset:-6px;
+ background:linear-gradient(90deg,rgba(90,23,18,.96) 0%,rgba(90,23,18,.86) 50%,rgba(90,23,18,.25) 100%),var(--img) right center/cover no-repeat,var(--azul-deep)}
+.gban p,.gban .muted{color:#fff;margin:0;max-width:78%;font-size:15px;line-height:1.5;text-shadow:0 1px 6px rgba(30,8,5,.5)}
+.night{position:relative;overflow:hidden;background:#fff}
+.night::before{content:"";position:absolute;top:0;bottom:0;right:0;width:62%;background:var(--img,none) right center/cover no-repeat;pointer-events:none;
+ -webkit-mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 30%,rgba(0,0,0,.8) 60%,#000 85%);mask-image:linear-gradient(90deg,transparent 0%,rgba(0,0,0,.35) 30%,rgba(0,0,0,.8) 60%,#000 85%)}
+.night>*{position:relative;z-index:1}
+.night>div:first-child{padding-right:32%}
+.night>.btn,.night>.lock,.night>.gsmall{position:absolute;right:12px;bottom:12px;z-index:1}
+/* jeux du soir (soiree.js) */
+body.immersive{padding-bottom:0}
+body.immersive .tabbar,body.immersive footer{display:none}
+section.view#soiree{padding-top:14px;padding-bottom:30px}
+.sv-top{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:18px;min-height:32px}
+.sv-back{white-space:nowrap;font:500 11px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;text-decoration:none;color:var(--azul);padding:8px 0}
+.sv-badges{display:flex;gap:8px;align-items:center;flex-wrap:wrap;justify-content:flex-end}
+.sv-badge{background:var(--albero);color:var(--azul-deep);font:600 10px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;padding:6px 8px}
+.sv-badge.ghost{background:none;border:1px dashed var(--albero);color:var(--buganvilla)}
+.sv-head{display:grid;gap:8px;margin-bottom:18px}
+.sv-head .muted{margin:0}
+.sv-title{font:italic 400 clamp(30px,8vw,44px)/1.08 var(--display);color:var(--azul-deep);margin:0}
+.sv-title .amp{font-style:normal;color:var(--albero)}
+.sv-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-bottom:14px}
+.sv-stats div{border-top:1px solid var(--albero);border-bottom:1px solid var(--albero);padding:8px 4px;text-align:center}
+.sv-stats small{display:block;font:500 9.5px/1 var(--body);letter-spacing:.22em;text-transform:uppercase;color:var(--ink-soft)}
+.sv-stats b{display:block;font:400 26px/1.1 var(--display);color:var(--azul);margin-top:4px}
+#bgPl{font:500 15px/1.6 var(--body)}
+.sv-tally{display:grid;gap:6px;margin-bottom:14px}
+.sv-tally .trow{display:grid;grid-template-columns:24px 1fr 30px;gap:8px;align-items:center}
+.sv-tally .trow span{font:400 20px/1 var(--display);color:var(--albero);text-align:center}
+.sv-tally .bar{height:10px;background:var(--cal-2)}
+.sv-tally .bar i{display:block;height:100%;background:var(--albero);transition:width .2s}
+.sv-tally .win .bar i{background:var(--azul)}
+.sv-tally b{text-align:right;font-weight:500}
+.pad{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.pad button{aspect-ratio:1/1.2;border:0;background:var(--azul);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:8px;cursor:pointer;outline:1px solid var(--albero);outline-offset:-6px;transition:transform .08s,background .2s,opacity .3s;touch-action:none}
+.pad button b{font:400 54px/1 var(--display)}
+.pad button span{font:500 10.5px/1 var(--body);letter-spacing:.2em;text-transform:uppercase}
+.pad button[data-a="J"]{background:var(--azul-deep)}
+.pad button.hit{transform:scale(.93)}
+.pad button.ok{background:var(--albero);color:var(--azul-deep)}
+.pad.dim button{opacity:.5}
+.sv-sync{text-align:center;font-size:14px;color:var(--ink-soft);min-height:1.4em;margin:12px 0}
+.sv-wide{width:100%;margin:14px 0 4px}
+.sv-wait{display:flex;justify-content:center;align-items:center;gap:18px;margin:26px 0}
+.sv-wait img{width:76px;animation:bob 1s ease-in-out infinite alternate}
+.sv-wait img:last-child{animation-delay:.5s}
+.sv-wait .amp{font:italic 400 30px/1 var(--display);color:var(--albero)}
+@keyframes bob{to{transform:translateY(-10px) rotate(4deg)}}
+.pick button[aria-pressed="true"]{border-color:var(--azul);box-shadow:inset 0 0 0 1px var(--azul);background:#fdf3e2}
+.dh{display:grid;grid-template-columns:1fr auto 1fr;gap:8px;align-items:center;text-align:center}
+.dh-p{display:grid;justify-items:center;gap:3px;min-width:0}
+.dh-p img{width:54px}
+.dh-p b{font:italic 400 19px/1.1 var(--display);color:var(--azul-deep);max-width:100%;overflow:hidden;text-overflow:ellipsis;white-space:nowrap}
+.dh-p small{font:500 9.5px/1 var(--body);letter-spacing:.2em;text-transform:uppercase;color:var(--ink-soft)}
+.dh-p.me b{color:var(--azul)}
+.dots{color:var(--albero);letter-spacing:.2em;font-size:13px}
+.dh .amp{font:italic 400 18px/1 var(--display);color:var(--albero)}
+.dstage{margin-top:16px}
+.dintro{text-align:center;display:grid;gap:8px;padding:20px 16px;background:#fff;outline:1px solid var(--albero);outline-offset:-6px}
+.dintro h3{font:italic 400 32px/1.1 var(--display);color:var(--azul-deep)}
+.dintro .muted{margin:0}
+.dcount{font:400 80px/1 var(--display);color:var(--azul);min-height:80px}
+.aisle{position:relative;height:min(44vh,360px);background:#fbefdc;outline:1px solid var(--albero);display:grid;grid-template-columns:1fr 1fr;overflow:hidden}
+.aisle::before{content:"";position:absolute;left:50%;top:0;bottom:0;width:30%;transform:translateX(-50%);background:var(--azul);opacity:.85}
+.arch{position:absolute;left:0;right:0;top:0;height:38px;display:grid;place-items:center;color:var(--albero);font-size:22px;border-bottom:2px solid var(--albero);background:var(--cal);z-index:2}
+.lane{position:relative}
+.lane img{position:absolute;left:50%;bottom:4px;width:54px;transform:translateX(-50%);transition:bottom .12s linear;z-index:1}
+.lane small{position:absolute;top:44px;left:0;right:0;text-align:center;font-size:11px;color:var(--ink-soft);z-index:1}
+.tapzone{display:block;width:100%;margin-top:12px;height:min(24vh,180px);border:0;background:var(--azul);color:#fff;font:italic 400 38px/1 var(--display);outline:1px solid var(--albero);outline-offset:-8px;cursor:pointer;user-select:none;-webkit-user-select:none;touch-action:none;-webkit-touch-callout:none}
+.tapzone:active{background:var(--azul-deep)}
+.tapzone.over{background:#b3261e}
+.cavaw{display:flex;justify-content:center;padding:14px 0 6px}
+.glass{position:relative;width:120px;height:min(36vh,270px);border:3px solid rgba(90,23,18,.35);border-top:0;border-radius:0 0 16px 16px;background:rgba(255,255,255,.7)}
+.glass .fill{position:absolute;left:0;right:0;bottom:0;height:0;background:linear-gradient(180deg,#f3d27a,#e2a13c);border-radius:0 0 13px 13px}
+.glass .foam{position:absolute;left:-1px;right:-1px;height:12px;background:#fffaf0;bottom:0;transform:translateY(50%);border-radius:6px;box-shadow:0 0 0 1px rgba(226,161,60,.4)}
+.glass .line{position:absolute;left:-16px;right:-16px;height:2px;background:var(--azul);z-index:2}
+.glass .line span{position:absolute;right:-30px;top:-7px;font:500 11px/1 var(--body);color:var(--azul)}
+.olezone{display:grid;place-items:center;width:100%;height:min(54vh,420px);border:0;background:var(--azul-deep);color:var(--cal);font:italic 400 40px/1 var(--display);cursor:pointer;outline:1px solid var(--albero);outline-offset:-8px;touch-action:none;user-select:none;-webkit-user-select:none;-webkit-touch-callout:none}
+.olezone.go{background:var(--albero);color:var(--azul-deep);font-size:76px}
+.olezone.early{background:#3a2a26}
+.dwait{text-align:center;margin-top:10px}
+.dres{text-align:center;padding:20px;background:#fff;outline:1px solid var(--albero);outline-offset:-6px;display:grid;gap:12px}
+.dres h3{font:italic 400 34px/1.1 var(--display);color:var(--azul-deep)}
+.dres.won{background:var(--azul-deep)}.dres.won h3{color:var(--albero)}.dres.won small,.dres.won b{color:#fff}.dres.won .eyebrow{color:var(--albero)}
+.dvals{display:grid;grid-template-columns:1fr 1fr;gap:10px}
+.dvals small{display:block;font-size:12px;color:var(--ink-soft)}
+.dvals b{font:400 20px/1.2 var(--display);color:var(--azul)}
+.dend{text-align:center;display:grid;gap:10px;justify-items:center;padding-top:10px}
+.dend img{width:110px}
+.dend.won img{animation:bob .6s ease-in-out infinite alternate}
+.dend .muted{margin:0}
+.sim .livetest{margin-top:10px}
+.themesw{display:flex;gap:6px;width:100%;margin-bottom:10px}.themesw button{flex:1}
+.bq{padding:30px 6px 10px}
+.bq-track{position:relative;height:70px;margin:0 22px;background:linear-gradient(90deg,var(--cal-2),#fff 50%,var(--cal-2));outline:1px solid var(--albero)}
+.bq-c{position:absolute;left:50%;top:-10px;bottom:-10px;width:3px;transform:translateX(-50%);background:var(--azul)}
+.bq-m{position:absolute;top:50%;left:0;transform:translate(-50%,-50%);font-size:44px;line-height:1}
+.chr{text-align:center;padding:24px 0 8px;display:grid;gap:8px}
+.chr-t{font:400 92px/1 var(--display);color:var(--azul);transition:opacity .2s}
+.chr-t.hide{opacity:.25}
+.bride{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;touch-action:manipulation}
+.bride button{border:0;background:#fff;padding:4px;aspect-ratio:1;cursor:pointer;outline:1px solid var(--line)}
+.bride img{width:100%;height:100%;object-fit:contain;pointer-events:none}
+.bride button.no{background:#f3d0cc}.bride button.ok{background:var(--albero)}
+.filebtn input{display:none}
+.plteaser{display:flex;text-decoration:none;margin-top:30px;min-height:170px}
+.plteaser>div{display:grid;gap:8px;justify-items:start;max-width:80%}
+.plteaser b{font:italic 400 26px/1.15 var(--display);color:#fff}
+.plteaser p{margin:0}
+html[data-avstyle="drape"] .plteaser b{font:500 28px/1.15 var(--display);color:var(--ink)}
+.restos{display:grid;gap:12px}
+/* page Pratique : chaque bloc a son illustration en fond, qui apparaît en bas et se fond vers le haut */
+#hotels .card{--img:url(img/drape/p-dormir.svg)}
+.resto{--img:url(img/drape/p-restos.svg)}
+#visits .card{--img:url(img/drape/p-visites.svg)}
+#faq{--img:url(img/drape/p-faq.svg)}
+#phrases{--img:url(img/drape/p-lexique.svg)}
+#hotels .card,.resto,#visits .card,#faq,#phrases{--bg:#fff;--bg0:rgba(255,255,255,0);
+ background:linear-gradient(180deg,var(--bg) 0,var(--bg) calc(100% - 150px),var(--bg0) calc(100% - 70px)),var(--img) center bottom/100% auto no-repeat,var(--bg);padding-bottom:112px}
+#faq,#phrases{border:1px solid var(--line);padding:14px 14px 120px}
+#faq details,#phrases .phrase{position:relative}
+#restoList .resto.soon{padding-bottom:16px;background:var(--bg)}
+html[data-avstyle="drape"] #hotels .card,html[data-avstyle="drape"] .resto,html[data-avstyle="drape"] #visits .card,html[data-avstyle="drape"] #faq,html[data-avstyle="drape"] #phrases{--bg:#fbf8f2;--bg0:rgba(251,248,242,0)}
+html[data-avstyle="drape"] #faq,html[data-avstyle="drape"] #phrases{border:1px solid var(--soft);border-radius:var(--rr);box-shadow:var(--shadow)}
+html[data-avstyle="drape"] #faq details{box-shadow:none}
+/* petites scènes qui changent d'une carte à l'autre et entrent en douceur au défilement */
+.acc{position:relative;overflow:hidden;z-index:0}
+.acc::after{content:"";position:absolute;left:0;right:0;bottom:0;aspect-ratio:3/1;background-image:var(--acc);background-position:center bottom;background-size:100% auto;background-repeat:no-repeat;pointer-events:none;z-index:-1;opacity:0;transform:translateX(var(--dx,24px));transition:opacity .9s ease,transform 1.4s cubic-bezier(.2,.7,.2,1)}
+.acc.vu::after{opacity:1;transform:none}
+@media (prefers-reduced-motion:reduce){.acc::after{transition:none;opacity:1;transform:none}}
+.resto{display:grid;grid-template-columns:54px 1fr;gap:14px;align-items:start;padding:16px 16px 140px}
+.resto .rk{font:400 46px/1 var(--display);color:var(--albero);text-align:center}
+.resto h3{margin:0 0 4px}
+.resto .row{margin-top:10px}
+.resto.soon{opacity:.55}
+.gdefi{width:100%;border:1px dashed var(--albero);padding:8px 10px;display:grid;gap:2px;text-align:center;background:rgba(255,255,255,.5)}
+.gdefi small{font:600 10px/1.2 var(--body);letter-spacing:.12em;text-transform:uppercase;color:var(--albero)}
+.gdefi b{font-weight:600;font-size:14px}.gdefi span{font-size:12px;color:var(--ink-soft)}
+.gdefi.ok{border-style:solid;opacity:.75}
+.gimpact{width:100%;display:grid;gap:4px;justify-items:center}
+.gimpact b{font:600 17px/1.2 var(--body);color:var(--azul)}.gimpact span{font-size:13px;color:var(--ink-soft)}
+.gimpact.miss{font-size:13px;color:var(--ink-soft)}
+.gbar{width:80%;height:6px;background:rgba(0,0,0,.08);border-radius:3px;overflow:hidden}
+.gbar i{display:block;height:100%;background:var(--albero);animation:gbar 1.2s cubic-bezier(.2,.7,.2,1)}
+@keyframes gbar{from{width:0}}
+.howto{display:grid;grid-template-columns:1fr 1fr;gap:8px;width:100%}
+.howto div{border:1px solid var(--line);background:#fff;padding:8px 4px;display:grid;gap:4px;justify-items:center}
+.howto b{font-size:22px;line-height:1}
+.howto span{font:500 10px/1.25 var(--body);letter-spacing:.08em;text-transform:uppercase;color:var(--azul)}
+.hero-champ{display:block;margin-top:10px;font:italic 400 17px/1.2 var(--display);color:var(--albero)}
+
+/* =====================================================================
+   THÈME « DRAPÉ » (moodboard Agathe) : blanc, vert sauge, grège, filets noirs fins,
+   capitales étroites très espacées, grand serif fin. Activé par <html data-avstyle="drape">.
+   Le thème d'origine (« Maestranza ») reste intact : il suffit de changer DEFAULT_THEME en haut.
+   ===================================================================== */
+html[data-avstyle="drape"]{
+  --cal:#f6f2ec; --cal-2:#eae1d8; --azul:#2f2d2b; --azul-deep:#5e6e57; --albero:#a9c49d; --buganvilla:#8a8178;
+  --ink:#2f2d2b; --ink-soft:#7a736c; --line:#ddd4ca; --sage:#c5dfbe; --sage-d:#7e9a72;
+  --display:"Bodoni Moda","Didot",Georgia,serif; --body:"Lora",Georgia,serif; --caps:"Antonio","Bebas Neue","Oswald",sans-serif; --r:0px;
+}
+html[data-avstyle="drape"] body{font-size:16px;line-height:1.65}
+html[data-avstyle="drape"] h2{font:300 clamp(26px,7.2vw,36px)/1.15 var(--caps);letter-spacing:.3em;text-transform:uppercase;color:var(--ink)}
+html[data-avstyle="drape"] h2::after{width:38px;background:var(--ink);margin-top:14px}
+html[data-avstyle="drape"] h3{font-style:normal}
+html[data-avstyle="drape"] .eyebrow,html[data-avstyle="drape"] .live-label,html[data-avstyle="drape"] .topline,html[data-avstyle="drape"] .k{font-family:var(--caps);font-weight:300;letter-spacing:.38em;font-size:12.5px;color:var(--buganvilla)}
+html[data-avstyle="drape"] .tiles{height:7px;background:none;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+/* boutons : rectangles nets, capitales étroites */
+html[data-avstyle="drape"] .btn{font:400 13px/1 var(--caps);letter-spacing:.3em;border-radius:0;padding:14px 20px}
+html[data-avstyle="drape"] .btn-sm{font-size:12px;padding:11px 13px}
+html[data-avstyle="drape"] .btn-primary{background:var(--ink);color:#fff}
+html[data-avstyle="drape"] .btn-gold{background:var(--sage);color:var(--ink);font-weight:400;box-shadow:inset 0 0 0 1px var(--ink)}
+html[data-avstyle="drape"] .btn-ghost{color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+/* en-tête */
+html[data-avstyle="drape"] .lang{background:rgba(47,45,43,.35)}
+html[data-avstyle="drape"] .lang button{font-family:var(--caps);font-weight:400;letter-spacing:.25em}
+html[data-avstyle="drape"] .lang button[aria-pressed="true"]{color:var(--ink)}
+html[data-avstyle="drape"] .hero{background:var(--ink)}
+html[data-avstyle="drape"] .hero-img img{filter:saturate(.8) contrast(.96)}
+html[data-avstyle="drape"] .hero-img::after{background:linear-gradient(180deg,rgba(47,45,43,.25) 0%,rgba(47,45,43,0) 30%,rgba(47,45,43,.25) 58%,rgba(47,45,43,.88) 100%)}
+html[data-avstyle="drape"] .hero h1{font:200 clamp(30px,9.6vw,74px)/1.02 var(--caps);letter-spacing:.12em;text-transform:uppercase;font-style:normal;white-space:nowrap}
+html[data-avstyle="drape"] .live{background:linear-gradient(180deg,var(--ink) 0,var(--ink) 60px,var(--cal) 60px)}
+html[data-avstyle="drape"] .live-title{font-style:normal;color:var(--ink)}
+html[data-avstyle="drape"] .hero h1 .amp{font-family:var(--display);font-weight:400;font-style:italic;text-transform:none;letter-spacing:0;color:var(--sage);padding:0 .12em}
+html[data-avstyle="drape"] .hero .when{font-family:var(--caps);font-weight:300;letter-spacing:.45em;border-top-color:rgba(255,255,255,.6)}
+html[data-avstyle="drape"] .hero .when span{color:var(--sage)}
+html[data-avstyle="drape"] .hero-champ{color:var(--sage)}
+/* cartes et cadres : filets noirs fins, pas d'ombres */
+html[data-avstyle="drape"] .live-card{background:#fff;box-shadow:none;outline:1px solid var(--ink);outline-offset:-7px}
+html[data-avstyle="drape"] .count div{border-color:var(--ink)}
+html[data-avstyle="drape"] .count b{font-family:var(--caps);font-weight:200;color:var(--ink)}
+html[data-avstyle="drape"] .live-label .dot{background:var(--sage-d)}
+html[data-avstyle="drape"] .polaroid{box-shadow:none;outline:1px solid var(--ink);padding:6px}
+html[data-avstyle="drape"] .polaroid figcaption{font-family:var(--caps);font-weight:300;letter-spacing:.3em;text-transform:uppercase;font-style:normal;font-size:12px}
+html[data-avstyle="drape"] .card,html[data-avstyle="drape"] .day,html[data-avstyle="drape"] .teaser,html[data-avstyle="drape"] .night{border:1px solid var(--ink);border-radius:0}
+html[data-avstyle="drape"] .night{border-style:solid}
+html[data-avstyle="drape"] .day-date{background:#fff;color:var(--ink);border-right:1px solid var(--ink)}
+html[data-avstyle="drape"] .day-date b{font-family:var(--caps);font-weight:200}
+html[data-avstyle="drape"] .day.main .day-date{background:var(--sage);color:var(--ink)}
+html[data-avstyle="drape"] .day.main{border-color:var(--ink)}
+html[data-avstyle="drape"] .chip{border-radius:0;font-family:var(--caps);letter-spacing:.25em}
+/* programme : photo du lieu en bandeau net, texte sur blanc */
+html[data-avstyle="drape"] .day.ph .day-body{color:var(--ink);padding-top:172px;min-height:0;
+ background:linear-gradient(180deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) 150px,#fff 150px),var(--img) top/100% 150px no-repeat,#fff}
+html[data-avstyle="drape"] .day.ph .day-body h3,html[data-avstyle="drape"] .day.ph .day-meta{color:var(--ink);text-shadow:none}
+html[data-avstyle="drape"] .day.ph .day-meta{color:var(--ink-soft)}
+html[data-avstyle="drape"] .day.ph .day-meta b{color:var(--ink);border-bottom-color:var(--sage-d)}
+html[data-avstyle="drape"] .day.ph .chip{background:var(--sage);color:var(--ink);border-color:var(--ink)}
+html[data-avstyle="drape"] .day.ph .steps li{border-top-color:var(--line)}
+html[data-avstyle="drape"] .day.ph .steps li time{color:var(--sage-d)}
+html[data-avstyle="drape"] .day.ph .btn-ghost{color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+html[data-avstyle="drape"] .day.ph .btn-primary{background:var(--ink);color:#fff}
+html[data-avstyle="drape"] .steps li time{color:var(--sage-d)}
+/* navettes */
+html[data-avstyle="drape"] .shuttle{color:var(--ink);border:1px solid var(--ink);border-radius:0;
+ background:url(img/drape/navette.svg) top center/100% 175px no-repeat,var(--cal-2)}
+html[data-avstyle="drape"] .shuttle h3{text-shadow:none;color:var(--ink)}
+html[data-avstyle="drape"] .shuttle{padding-top:192px}
+html[data-avstyle="drape"] .shuttle-col{background:#fff;border-color:var(--ink);color:var(--ink)}
+html[data-avstyle="drape"] .shuttle-col li,html[data-avstyle="drape"] .shuttle-col p,html[data-avstyle="drape"] .shuttle-col span{color:var(--ink)}
+html[data-avstyle="drape"] .shuttle-col h4{color:var(--sage-d)}
+html[data-avstyle="drape"] .shuttle p{color:var(--ink-soft)}
+/* jeux */
+html[data-avstyle="drape"] .gban{color:var(--ink);outline-color:var(--ink);
+ background:linear-gradient(90deg,rgba(255,255,255,.97) 0%,rgba(255,255,255,.9) 52%,rgba(255,255,255,.15) 100%),var(--img) right center/cover no-repeat,#fff}
+html[data-avstyle="drape"] .gban p,html[data-avstyle="drape"] .gban .muted{color:var(--ink);text-shadow:none}
+html[data-avstyle="drape"] .seg{border-color:var(--ink);border-radius:0}
+html[data-avstyle="drape"] .seg button{font-family:var(--caps);font-weight:400;font-size:11.5px;letter-spacing:.22em;color:var(--ink)}
+html[data-avstyle="drape"] .seg button+button{border-left-color:var(--ink)}
+html[data-avstyle="drape"] .seg button[data-sub]{background:linear-gradient(180deg,rgba(246,242,236,.5),rgba(246,242,236,.93) 72%),var(--simg) center/cover no-repeat;filter:saturate(.5)}
+html[data-avstyle="drape"] .seg button[data-sub][aria-pressed="true"]{color:var(--ink);filter:none;background:linear-gradient(180deg,rgba(197,223,190,0),rgba(197,223,190,.95) 75%),var(--simg) center/cover no-repeat}
+html[data-avstyle="drape"] .seg button[data-sub="playlist"]{--simg:url(img/drape/jeu-playlist.svg)}
+html[data-avstyle="drape"] .seg button[data-sub="course"]{--simg:url(img/drape/jeu-course.svg)}
+html[data-avstyle="drape"] .seg button[data-sub="piste"]{--simg:url(img/drape/jeu-piste.svg)}
+html[data-avstyle="drape"] .seg button[data-sub="carte"]{--simg:url(img/drape/jeu-carte.svg)}
+html[data-avstyle="drape"] .seg button[data-sub="capsule"]{--simg:url(img/drape/jeu-capsule.svg)}
+html[data-avstyle="drape"] .tsb-bar{background:var(--ink)}
+html[data-avstyle="drape"] .tsb-bar i{background:var(--sage)}
+html[data-avstyle="drape"] .lb .rk{color:var(--sage-d)}
+html[data-avstyle="drape"] .pdot{background:var(--sage);color:var(--ink)}
+html[data-avstyle="drape"] .scratch{border-radius:0;box-shadow:none;outline:1px solid var(--ink)}
+html[data-avstyle="drape"] .prize{outline-color:var(--ink)}
+html[data-avstyle="drape"] .prize .t{font-style:normal}
+html[data-avstyle="drape"] .prize.photo .cap{background:linear-gradient(transparent,rgba(47,45,43,.85))}
+html[data-avstyle="drape"] .prize.photo .cap .k{color:var(--sage)}
+/* RSVP : grège clair au lieu du lie-de-vin */
+html[data-avstyle="drape"] .rsvp{background:var(--cal-2);color:var(--ink);border-top:1px solid var(--ink)}
+html[data-avstyle="drape"] .rsvp h2{color:var(--ink)}
+html[data-avstyle="drape"] .rsvp .eyebrow{color:var(--buganvilla)}
+html[data-avstyle="drape"] .rsvp .muted,html[data-avstyle="drape"] .rsvp p{color:var(--ink-soft)}
+html[data-avstyle="drape"] .rsvp-box{background:#fff;outline-color:var(--ink)}
+html[data-avstyle="drape"] .progress i.on{background:var(--ink)}
+html[data-avstyle="drape"] .choice button[aria-pressed="true"],html[data-avstyle="drape"] .big-choice button[aria-pressed="true"]{background:var(--sage);color:var(--ink);border-color:var(--ink)}
+/* barre d'onglets et pied de page */
+html[data-avstyle="drape"] .tabbar{background:rgba(246,242,236,.96)}
+html[data-avstyle="drape"] .tabbar a{font-family:var(--caps);font-weight:400;font-size:10.5px;letter-spacing:.2em}
+html[data-avstyle="drape"] .tabbar a.active{color:var(--ink);box-shadow:inset 0 2px 0 var(--sage-d)}
+html[data-avstyle="drape"] .tabbar a.cta{color:var(--sage-d)}
+html[data-avstyle="drape"] footer .sig{font-style:normal;color:var(--ink)}
+/* jeux du soir dans l'appli */
+html[data-avstyle="drape"] .pad button{background:var(--ink);outline-color:var(--sage)}
+html[data-avstyle="drape"] .pad button[data-a="J"]{background:var(--azul-deep)}
+html[data-avstyle="drape"] .pad button.ok{background:var(--sage);color:var(--ink)}
+html[data-avstyle="drape"] .tapzone{background:var(--ink);outline-color:var(--sage);font-style:normal}
+html[data-avstyle="drape"] .olezone{background:var(--azul-deep);outline-color:var(--sage)}
+html[data-avstyle="drape"] .olezone.go{background:var(--sage);color:var(--ink)}
+html[data-avstyle="drape"] .aisle::before{background:var(--sage)}
+html[data-avstyle="drape"] .dres.won{background:var(--azul-deep)}
+html[data-avstyle="drape"] .sv-title,html[data-avstyle="drape"] .dintro h3,html[data-avstyle="drape"] .dres h3{font-style:normal}
+html[data-avstyle="drape"] .sv-badge{background:var(--sage);color:var(--ink)}
+
+/* ----- Drapé, version douce : arrondis, arches, festons de tissu ----- */
+html[data-avstyle="drape"]{--soft:rgba(169,196,157,.55);--shadow:0 12px 34px rgba(94,110,87,.09);--rr:22px}
+html[data-avstyle="drape"] .tiles{height:30px;border:0;background:url(img/drape/feston.svg) center top/220px 30px repeat-x}
+html[data-avstyle="drape"] h2::after{width:54px;height:20px;margin-top:10px;background:url(img/drape/arche.svg) left center/54px 20px no-repeat}
+html[data-avstyle="drape"] .btn{border-radius:999px;padding:14px 22px}
+html[data-avstyle="drape"] .btn-primary{background:var(--azul-deep)}
+html[data-avstyle="drape"] .btn-gold{box-shadow:none;background:var(--sage)}
+html[data-avstyle="drape"] .btn-ghost{color:var(--azul-deep);box-shadow:inset 0 0 0 1px var(--sage-d)}
+html[data-avstyle="drape"] .card,html[data-avstyle="drape"] .day,html[data-avstyle="drape"] .teaser,html[data-avstyle="drape"] .night,
+html[data-avstyle="drape"] .shuttle,html[data-avstyle="drape"] details{border:1px solid var(--soft);border-radius:var(--rr);box-shadow:var(--shadow);overflow:hidden}
+html[data-avstyle="drape"] .live-card,html[data-avstyle="drape"] .rsvp-box{outline:none;border:1px solid var(--soft);border-radius:var(--rr);box-shadow:var(--shadow)}
+html[data-avstyle="drape"] .gban{outline:none;border:1px solid var(--soft);border-radius:var(--rr);overflow:hidden}
+html[data-avstyle="drape"] .seg{border-color:var(--soft);border-radius:18px;box-shadow:var(--shadow)}
+html[data-avstyle="drape"] .seg button+button{border-left-color:var(--soft)}
+html[data-avstyle="drape"] .scratch{outline:none;border-radius:var(--rr);box-shadow:var(--shadow)}
+html[data-avstyle="drape"] .prize{outline-color:var(--soft);border-radius:var(--rr)}
+html[data-avstyle="drape"] .day-date{border-right-color:var(--soft)}
+html[data-avstyle="drape"] .count div{border-color:var(--soft)}
+html[data-avstyle="drape"] .chip{border-radius:999px;padding-left:10px;padding-right:10px}
+html[data-avstyle="drape"] .day.ph .chip{border-color:transparent}
+html[data-avstyle="drape"] .choice button,html[data-avstyle="drape"] .big-choice button,html[data-avstyle="drape"] .pick button,html[data-avstyle="drape"] .shuttle-col{border-radius:16px}
+html[data-avstyle="drape"] .shuttle-col{border-color:var(--soft)}
+html[data-avstyle="drape"] .day.main{border-color:var(--sage-d)}
+html[data-avstyle="drape"] .plform,html[data-avstyle="drape"] .plmine{border:1px solid var(--soft);border-radius:var(--rr);box-shadow:var(--shadow)}
+html[data-avstyle="drape"] .heart{border-radius:999px}
+html[data-avstyle="drape"] .day.ph .btn-primary{background:var(--azul-deep)}
+html[data-avstyle="drape"] .lb li,html[data-avstyle="drape"] .steps li{border-color:#e9e2d8}
+/* photos en arche andalouse */
+html[data-avstyle="drape"] .polaroid{border-radius:999px 999px 20px 20px;outline:none;border:1px solid var(--soft);box-shadow:var(--shadow);padding:8px 8px 10px}
+html[data-avstyle="drape"] .polaroid img{border-radius:999px 999px 12px 12px}
+html[data-avstyle="drape"] .day.ph .day-body{background:linear-gradient(180deg,rgba(255,255,255,0) 0,rgba(255,255,255,0) 150px,#fff 150px),var(--img) top/100% 150px no-repeat,#fff}
+/* photo d'accueil en arche andalouse, prénoms dessous comme sur un faire-part */
+html[data-avstyle="drape"] .hero{background:var(--cal);color:var(--ink);padding:64px 18px 0}
+html[data-avstyle="drape"] .hero-img{height:min(56vh,500px)!important;min-height:330px!important;max-width:460px;margin:0 auto;border-radius:999px 999px 16px 16px;
+ box-shadow:0 0 0 7px var(--cal),0 0 0 8px var(--soft),0 18px 40px rgba(94,110,87,.14)}
+html[data-avstyle="drape"] .hero-img::after{background:linear-gradient(180deg,rgba(255,255,255,0) 70%,rgba(246,242,236,.25))}
+html[data-avstyle="drape"] .hero-img::before{content:none}
+html[data-avstyle="drape"] .hero-text{position:static;text-align:center;padding:26px 0 6px}
+html[data-avstyle="drape"] .hero h1{color:var(--ink)}
+html[data-avstyle="drape"] .hero h1 .amp{color:var(--sage-d)}
+html[data-avstyle="drape"] .hero .when{color:var(--ink-soft);border-top-color:var(--soft)}
+html[data-avstyle="drape"] .hero .when span{color:var(--sage-d)}
+html[data-avstyle="drape"] .hero-champ{color:var(--sage-d)}
+html[data-avstyle="drape"] .topbar{z-index:6}
+html[data-avstyle="drape"] .lang{background:#fff;border:1px solid var(--soft);box-shadow:var(--shadow);backdrop-filter:none;-webkit-backdrop-filter:none}
+html[data-avstyle="drape"] .lang button{color:var(--ink-soft)}
+html[data-avstyle="drape"] .lang button[aria-pressed="true"]{background:var(--sage);color:var(--ink)}
+html[data-avstyle="drape"] .live{background:var(--cal);color:var(--ink);padding-top:14px}
+/* grands blocs habillés d'un tissu plissé */
+html[data-avstyle="drape"] .rsvp{background:url(img/drape/feston.svg) center top/220px 30px repeat-x,url(img/drape/plis.svg) center/140px 100% repeat-x,var(--cal-2);border-top:0;padding-top:64px}
+html[data-avstyle="drape"] .shuttle{background:url(img/drape/navette.svg) top center/100% 175px no-repeat,url(img/drape/plis.svg) center/140px 100% repeat-x,var(--cal-2)}
+html[data-avstyle="drape"] .tabbar{border-top:1px solid var(--soft)}
+html[data-avstyle="drape"] .tabbar a.active{box-shadow:none;position:relative}
+html[data-avstyle="drape"] .tabbar a.active::before{content:"";position:absolute;top:-1px;left:30%;right:30%;height:8px;background:url(img/drape/arche.svg) center/100% 100% no-repeat;transform:scaleY(-1)}
+
+/* ----- Drapé, ambiance des photos d'Agathe : nappes ivoire drapées, parasols à festons,
+   tiges de calla vert olive, chaises en bois blond, couverts dorés, prénoms brodés ----- */
+html[data-avstyle="drape"]{
+  --cal:#ece5db; --cal-2:#e4dccf; --ivory:#fbf8f2; --ink:#2b2a28; --ink-soft:#6f675e; --line:#ddd3c4;
+  --azul:#2b2a28; --azul-deep:#5e6b42; --albero:#b39663; --buganvilla:#8c7a5e; --sage:#dfe3cc; --sage-d:#6b7a4b; --wood:#c29a6b;
+  --soft:rgba(179,150,99,.38); --shadow:0 14px 36px rgba(94,80,50,.10);
+  --display:"Cormorant Garamond","Cormorant",Georgia,serif; --caps:"Cormorant Garamond",Georgia,serif; --script:"Pinyon Script","Snell Roundhand",cursive;
+}
+html[data-avstyle="drape"] body{font-size:16.5px}
+html[data-avstyle="drape"] h1,html[data-avstyle="drape"] h2,html[data-avstyle="drape"] h3{font-family:var(--display)}
+html[data-avstyle="drape"] h2{font:500 clamp(32px,8.6vw,44px)/1.1 var(--display);letter-spacing:.01em;text-transform:none;color:var(--ink)}
+html[data-avstyle="drape"] h2::after{width:90px;height:30px;margin-top:6px;background:url(img/drape/brin.svg) left center/90px 30px no-repeat}
+html[data-avstyle="drape"] h3{font-weight:500}
+html[data-avstyle="drape"] .eyebrow,html[data-avstyle="drape"] .live-label,html[data-avstyle="drape"] .topline,html[data-avstyle="drape"] .k{font-family:var(--caps);font-weight:600;font-size:12.5px;letter-spacing:.3em;color:var(--buganvilla)}
+/* festons de parasol : dents ivoire bordées d'un trait noir */
+html[data-avstyle="drape"] .tiles{height:20px;border:0;background:url(img/drape/feston.svg) left top/40px 20px repeat-x}
+/* boutons */
+html[data-avstyle="drape"] .btn{font:600 13px/1 var(--caps);letter-spacing:.24em}
+html[data-avstyle="drape"] .btn-primary,html[data-avstyle="drape"] .day.ph .btn-primary{background:var(--azul-deep);color:var(--ivory)}
+html[data-avstyle="drape"] .btn-gold{background:var(--ivory);color:var(--ink);box-shadow:inset 0 0 0 1px var(--ink)}
+html[data-avstyle="drape"] .btn-ghost{color:var(--ink);box-shadow:inset 0 0 0 1px var(--soft)}
+/* surfaces ivoire */
+html[data-avstyle="drape"] .card,html[data-avstyle="drape"] .day,html[data-avstyle="drape"] .teaser,html[data-avstyle="drape"] .night,html[data-avstyle="drape"] details,
+html[data-avstyle="drape"] .live-card,html[data-avstyle="drape"] .rsvp-box,html[data-avstyle="drape"] .plform,html[data-avstyle="drape"] .plmine,html[data-avstyle="drape"] .shuttle-col{background-color:var(--ivory)}
+html[data-avstyle="drape"] .night{background:var(--ivory)}
+html[data-avstyle="drape"] .day-date{background:var(--ivory)}
+html[data-avstyle="drape"] .day-date b{font-family:var(--display);font-weight:500}
+html[data-avstyle="drape"] .day.main .day-date{background:var(--sage)}
+html[data-avstyle="drape"] .day.ph .day-body{background:linear-gradient(180deg,rgba(0,0,0,0) 0,rgba(0,0,0,0) 150px,var(--ivory) 150px),var(--img) top/100% 150px no-repeat,var(--ivory)}
+html[data-avstyle="drape"] .day.ph .day-body h3{font-size:26px}
+html[data-avstyle="drape"] .chip,html[data-avstyle="drape"] .day.ph .chip{background:var(--ivory);color:var(--ink);border:1px solid var(--ink)}
+html[data-avstyle="drape"] .count b{font-family:var(--display);font-weight:400;font-size:36px}
+/* le compte à rebours sous une bordure de parasol */
+html[data-avstyle="drape"] .live-card{position:relative;padding-top:34px}
+html[data-avstyle="drape"] .live-card::before,html[data-avstyle="drape"] .rsvp-box::before{content:"";position:absolute;left:0;right:0;top:0;height:18px;background:url(img/drape/feston.svg) left top/36px 18px repeat-x;border-radius:var(--rr) var(--rr) 0 0}
+html[data-avstyle="drape"] .rsvp-box{position:relative;padding-top:34px}
+/* accueil : prénoms brodés */
+html[data-avstyle="drape"] .hero h1{font:400 clamp(46px,14vw,92px)/1 var(--script);letter-spacing:0;text-transform:none;white-space:normal;color:var(--ink)}
+html[data-avstyle="drape"] .hero h1 .amp{font-family:var(--display);font-style:italic;font-weight:400;font-size:.62em;color:var(--albero);padding:0 .14em;vertical-align:.12em}
+html[data-avstyle="drape"] .btn-sm{letter-spacing:.14em}
+html[data-avstyle="drape"] .hero .when{font-family:var(--caps);font-weight:600;letter-spacing:.34em;font-size:12.5px;color:var(--ink-soft)}
+html[data-avstyle="drape"] .hero .when span{color:var(--sage-d)}
+html[data-avstyle="drape"] .hero-img{box-shadow:0 0 0 7px var(--cal),0 0 0 8px var(--soft),0 18px 40px rgba(94,80,50,.16)}
+html[data-avstyle="drape"] .hero-champ{font-family:var(--display);color:var(--sage-d)}
+html[data-avstyle="drape"] .lang{background:var(--ivory)}
+html[data-avstyle="drape"] .lang button{font-family:var(--caps);font-weight:600}
+html[data-avstyle="drape"] .lang button[aria-pressed="true"]{background:var(--azul-deep);color:var(--ivory)}
+html[data-avstyle="drape"] .polaroid{background:var(--ivory)}
+html[data-avstyle="drape"] .polaroid figcaption{font:400 22px/1 var(--script);letter-spacing:0;text-transform:none}
+html[data-avstyle="drape"] footer .sig{font:400 34px/1.2 var(--script)}
+/* navettes, RSVP, jeux */
+html[data-avstyle="drape"] .shuttle{background:url(img/drape/navette.svg) top center/100% 175px no-repeat,url(img/drape/plis.svg) center/140px 100% repeat-x,var(--cal-2)}
+html[data-avstyle="drape"] .rsvp{background:url(img/drape/feston.svg) left top/40px 20px repeat-x,url(img/drape/plis.svg) center/140px 100% repeat-x,var(--cal-2);padding-top:60px}
+html[data-avstyle="drape"] .gban{background:linear-gradient(90deg,rgba(251,248,242,.97) 0%,rgba(251,248,242,.9) 52%,rgba(251,248,242,.15) 100%),var(--img) right center/cover no-repeat,var(--ivory)}
+html[data-avstyle="drape"] .seg button{font-family:var(--caps);font-weight:600;font-size:11px;letter-spacing:.1em}
+html[data-avstyle="drape"] .seg button[data-sub]{background:linear-gradient(180deg,rgba(236,229,219,.5),rgba(236,229,219,.94) 72%),var(--simg) center/cover no-repeat}
+html[data-avstyle="drape"] .seg button[data-sub][aria-pressed="true"]{color:var(--ivory);background:linear-gradient(180deg,rgba(94,107,66,0),rgba(94,107,66,.92) 75%),var(--simg) center/cover no-repeat}
+html[data-avstyle="drape"] .pdot{background:var(--albero);color:var(--ivory)}
+html[data-avstyle="drape"] .tsb-bar i{background:var(--albero)}
+html[data-avstyle="drape"] .lb .rk{font-family:var(--display);color:var(--albero)}
+html[data-avstyle="drape"] .choice button[aria-pressed="true"],html[data-avstyle="drape"] .big-choice button[aria-pressed="true"],html[data-avstyle="drape"] .pick button[aria-pressed="true"]{background:var(--sage);color:var(--ink)}
+html[data-avstyle="drape"] .big-choice button b{font-family:var(--script);font-size:34px;font-weight:400;font-style:normal}
+/* barre d'onglets sous un feston */
+html[data-avstyle="drape"] .tabbar{background:rgba(251,248,242,.97);border-top:0}
+html[data-avstyle="drape"] .tabbar::before{content:"";position:absolute;left:0;right:0;top:-12px;height:14px;background:url(img/drape/feston.svg) left bottom/28px 14px repeat-x;transform:scaleY(-1)}
+html[data-avstyle="drape"] .tabbar a{font-family:var(--caps);font-weight:600;font-size:11px;letter-spacing:.14em}
+html[data-avstyle="drape"] .tabbar a.active{color:var(--sage-d)}
+html[data-avstyle="drape"] .tabbar a.active::before{content:none}
+html[data-avstyle="drape"] .tabbar a.cta{color:var(--albero)}
+</style>
+</head>
+<body>
+
+<main>
+<div class="view" id="accueil">
+<header class="hero">
+  <div class="topbar"><div class="lang" role="group" aria-label="Langue">
+    <button type="button" data-lang="fr">FR</button><button type="button" data-lang="es">ES</button><button type="button" data-lang="en">EN</button>
+  </div></div>
+  <div class="hero-img"><img src="img/p-plaza.jpg" alt="Agathe et Valentin sur la place d'Espagne, à Séville" fetchpriority="high"></div>
+  <div class="hero-text">
+    <h1>Agathe<span class="amp">&amp;</span>Valentin</h1>
+    <div class="when"><span data-i18n="heroDate">7 mai 2027</span> · Sevilla</div>
+    <span class="hero-champ" id="heroChamp" hidden></span>
+  </div>
+</header>
+
+<div class="live"><div class="wrap">
+  <div class="live-card" id="live" aria-live="polite"></div>
+</div></div>
+<div class="tiles" aria-hidden="true"></div>
+<section id="histoire"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow" data-i18n="storyEyebrow">Rendez-vous à Séville</span><h2 data-i18n="storyTitle">On se marie, et on vous emmène.</h2>
+  <p class="muted" data-i18n="storyText">Trois jours au soleil andalou : un verre sur les toits pour se retrouver, une grande soirée à l'hacienda, et un dernier apéritif au bord du Guadalquivir. Ce site vous suit jusqu'au bout : programme, navettes, adresses, et de quoi vous amuser pendant la fête.</p></div>
+  <div class="story">
+    <figure class="polaroid p1"><img src="img/p-bretagne.jpg" alt="Agathe et Valentin au bord de la mer, en Bretagne" loading="lazy"><figcaption data-i18n="capHome">En Bretagne</figcaption></figure>
+    <figure class="polaroid p2"><img src="img/p-soleil.jpg" alt="Agathe et Valentin au soleil couchant" loading="lazy"><figcaption data-i18n="capSun">Au soleil</figcaption></figure>
+    <figure class="polaroid p3"><img src="img/p-fiancailles.jpg" alt="Agathe montre sa bague de fiançailles, à New York" loading="lazy"><figcaption data-i18n="capYes">Fiancés, à New York</figcaption></figure>
+  </div>
+  <a class="gban plteaser" href="#playlist" style="--img:url(img/jeu-playlist.svg)"><div><span class="eyebrow" data-i18n="plOpenK">Dès maintenant</span>
+   <b data-i18n="plOpenT">La playlist du mariage est ouverte</b>
+   <p data-i18n="plOpenD">Proposez LA chanson qui vous fera danser à Séville et votez pour celles des autres. Le top 10 part chez le DJ.</p>
+   <span class="btn btn-gold btn-sm" data-i18n="plOpenB">Proposer ma chanson</span></div></a>
+</div></section>
+</div>
+
+<section class="view" id="table" hidden><div class="wrap">
+  <div class="sec-head"><span class="eyebrow" data-i18n="tblEyebrow">Le soir du 7 mai</span><h2 data-i18n="tblTitle">Votre table</h2></div>
+  <div id="tblDemo"></div>
+  <div class="tsearch"><label class="lbl" for="tq" data-i18n="tblQ">Tapez votre nom</label><input id="tq" type="search" autocomplete="off" data-i18n-ph="tblPh"></div>
+  <div class="matches" id="tMatches"></div>
+  <div id="tResult"></div>
+</div></section>
+
+
+<section class="view" id="programme"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow" data-i18n="progEyebrow">6 – 8 mai 2027</span><h2 data-i18n="progTitle">Le programme</h2></div>
+  <div class="frise" id="frise"></div>
+  <div class="days" id="days"></div>
+  <div class="shuttle" id="navettes">
+    <h3 data-i18n="shuttleTitle">Navettes du 7 mai</h3>
+    <div class="shuttle-grid">
+      <div class="shuttle-col"><h4 data-i18n="shuttleGo">Aller</h4><ul id="shGo"></ul></div>
+      <div class="shuttle-col"><h4 data-i18n="shuttleBack">Retour</h4><ul id="shBack"></ul></div>
+    </div>
+    <p data-i18n="shuttleNote">Départ et retour à l'hôtel Only You. Selon vos réponses au RSVP, d'autres hôtels pourront être desservis. En dehors des horaires, taxis et Uber viennent jusqu'à l'hacienda toute la nuit.</p>
+  </div>
+  <div class="days" id="days2"></div>
+</div></section>
+
+<section class="view" id="pratique"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow" data-i18n="pracEyebrow">Infos pratiques</span><h2 data-i18n="pracTitle">Venir, dormir, profiter</h2></div>
+
+  <div class="subhead" data-i18n="hotelsTitle">Où dormir</div>
+  <p class="bfnote" id="bfNote" hidden></p>
+  <div class="cards rail" id="hotels"></div>
+  <p class="hint" style="margin-top:10px" data-i18n="hotelsAlt">Moins cher : les résidences (entre l'hôtel et l'appartement) et Airbnb.</p>
+
+  <div class="subhead" data-i18n="faqTitle">Questions fréquentes</div>
+  <div id="faq"></div>
+
+  <div class="subhead" id="restos" data-i18n="restoTitle">Nos tables préférées</div>
+  <div class="restos" id="restoList"></div>
+
+  <div class="subhead" data-i18n="visitTitle">À réserver à l'avance</div>
+  <div class="cards rail" id="visits"></div>
+
+  <div id="phrasesBlock">
+    <div class="subhead" data-i18n="phrasesTitle">Petit lexique de survie</div>
+    <div class="phrases" id="phrases"></div>
+  </div>
+</div></section>
+
+<section class="view" id="jeux"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow" data-i18n="gameEyebrow">Avant et pendant la fête</span><h2 data-i18n="jeuxTitle">Les jeux</h2></div>
+  <div class="seg" id="seg" role="group">
+    <button type="button" data-sub="playlist">Playlist</button><button type="button" data-sub="course" data-i18n="segRun">Course</button><button type="button" data-sub="piste" data-i18n="segHunt">Piste</button><button type="button" data-sub="carte" data-i18n="segCard">Carte à gratter</button><button type="button" data-sub="capsule" data-i18n="segCap">Capsule</button>
+  </div>
+  <div class="sub" data-subp="playlist" id="playlist">
+  <div class="gban" id="plBan" style="--img:url(img/jeu-playlist.svg)"><p data-i18n="plText"></p></div>
+  <form class="plform" id="plForm" novalidate>
+    <div class="field"><label for="plT" data-i18n="plSong">Titre</label><input id="plT" maxlength="80" autocomplete="off"></div>
+    <div class="field"><label for="plA" data-i18n="plArtist">Artiste</label><input id="plA" maxlength="60" autocomplete="off"></div>
+    <p class="plwho" id="plWho"></p>
+    <p class="plwarn" data-i18n="plOnce">⚠️ Une seule chanson par personne : une fois proposée, vous ne pourrez plus la changer.</p>
+    <button class="btn btn-primary" type="submit" id="plBtn" data-i18n="plAdd">Proposer</button>
+  </form>
+  <div class="plmine" id="plMine" hidden></div>
+  <div class="err" id="plErr"></div>
+  <p class="plbudget" id="plBudget"></p>
+  <ol class="songs" id="songs"></ol>
+  </div>
+  <div class="sub" data-subp="course" id="course">
+    <div class="gban" style="--img:url(img/jeu-course.svg)"><p data-i18n="runText"></p></div>
+    <div id="teamScore"></div>
+    <div class="game" id="game"><canvas id="gc" aria-label="La Carrera"></canvas><div class="gui" id="gui" hidden></div></div>
+    <div id="lb"></div>
+    <div id="tonight"></div>
+  </div>
+  <div class="sub" data-subp="carte">
+    <div class="gban" style="--img:url(img/jeu-carte.svg)"><p id="scratchHint"></p></div>
+    <div class="scratch" id="scratch"></div>
+    <div class="scr-res" id="scrRes" hidden></div>
+  </div>
+  <div class="sub" data-subp="piste" id="piste"></div>
+  <div class="sub" data-subp="capsule" id="capsule"><div id="souvBox"></div></div>
+</div></section>
+
+
+<section class="view" id="soiree"><div class="wrap"><div id="sv"></div></div></section>
+
+<section class="view rsvp" id="rsvp"><div class="wrap">
+  <div class="sec-head"><span class="eyebrow" id="rsvpDeadline"></span><h2 data-i18n="rsvpTitle">Vous serez là ?</h2></div>
+  <div class="rsvp-box" id="rsvpBox"></div>
+</div></section>
+
+</main>
+<footer><div class="wrap">
+  <div class="sig">Agathe &amp; Valentin</div>
+  <div data-i18n="footer">Séville, 6 – 8 mai 2027</div>
+  <div class="lang foot-lang" role="group" aria-label="Langue"><button type="button" data-lang="fr">FR</button><button type="button" data-lang="es">ES</button><button type="button" data-lang="en">EN</button></div>
+  <details class="sim"><summary data-i18n="simTitle">Aperçu du jour J</summary>
+    <div class="choice" id="simBtns"></div>
+  </details>
+</div></footer>
+
+<nav class="tabbar" aria-label="Sections"><ul id="tabs"></ul></nav>
+
+<div class="toast" id="toast" role="status"></div>
+<canvas id="confetti" aria-hidden="true"></canvas>
+
+<script>
+/* ====================== À COMPLÉTER ======================
+   Tout ce qui vaut null/"" est masqué ou affiché « bientôt ». */
+const CONFIG = {
+  RSVP_ENDPOINT: "",              // URL du script Google Apps Script (voir rsvp-apps-script.gs)
+  RSVP_DEADLINE: null,            // ex. "2027-02-15"
+  SHUTTLE_GO: [],                 // ex. ["16:45","17:15"]
+  SHUTTLE_BACK: [],               // ex. ["00:30","02:00","04:15"]
+  DRESS_CODE: null,               // ex. {fr:"Chic d'été…", es:"…", en:"…"}
+  KIDS: null,                     // ex. {fr:"Les enfants sont les bienvenus", es:"…", en:"…"}
+  PHOTO_ALBUM_URL: "",            // lien d'album partagé (Google Photos…)
+  CONTACT_EMAIL: "",              // adresse pour les questions des invités
+
+  /* Programme : photo de fond de chaque lieu. Déposez vos photos dans img/ et indiquez le nom du fichier ;
+     vide = illustration dessinée. Format conseillé : paysage, ~1600 px de large, JPEG. */
+  PLACE_PHOTOS: { welcome: "", wedding: "", farewell: "" },   // ex. welcome: "img/rooftop.jpg"
+
+  /* Plan de table : visible à partir de cette heure. x / y facultatifs (0–100) pour placer la table sur le plan. */
+  TABLES_VISIBLE_FROM: "2027-05-07T12:00:00+02:00",
+  TABLES: [
+    // { name: "Triana", guests: ["Jean Martin", "Léa Martin"], x: 20, y: 30 },
+  ],
+
+  /* Carte à gratter : se débloque à cette heure. Les autres cartes sont tirées au hasard dans SCRATCH_POOL. */
+  /* Jeu de piste photo : ouverture et nombre de lieux à valider pour gagner le cocktail */
+  HUNT_FROM: "2027-05-03T08:00:00+02:00",
+  HUNT_REQUIRED: 6,
+
+  /* Jeux de la soirée : se débloquent à l'heure indiquée. id = jeu intégré (soiree.js) ; url = lien externe facultatif.
+     Configuration temps réel : soiree-config.js. Écran du vidéoprojecteur : ecran.html */
+  /* false = les heures des jeux du soir restent cachées (« le soir du mariage ») ; true une fois le déroulé fixé */
+  GAME_TIMES: false,
+  /* Encart Black Friday sur les hôtels : visible jusqu'à cette date (vide = jamais) */
+  BLACK_FRIDAY_UNTIL: "2026-12-01T23:59:00+01:00",
+  EVENING_GAMES: [
+    { id: "big", img: "img/jeu-ecran.svg", at: "2027-05-07T22:30:00+02:00", url: "", title: {fr:"Le grand écran", es:"La pantalla gigante", en:"The big screen"}, text: {fr:"De quoi renverser le score.", es:"Para darle la vuelta al marcador.", en:"Enough to turn the score around."} },
+    { id: "duel", img: "img/jeu-duels.svg", at: "2027-05-08T00:30:00+02:00", url: "", title: {fr:"Le tournoi des duels", es:"El torneo de duelos", en:"The duel tournament"}, text: {fr:"Une défaite et c'est fini. Surprise pour le champion.", es:"Una derrota y se acabó. Sorpresa para el campeón.", en:"Lose once and you're out. A surprise for the champion."} }
+  ],
+
+  SCRATCH_AT: "2027-05-07T23:00:00+02:00",
+  /* La Carrera (Team Agathe contre Team Valentin) : se débloque 7 jours avant le mariage */
+  RUN_AT: "2027-04-30T10:00:00+02:00",
+  PHOTOS_AT: "2027-05-07T18:00:00+02:00",   // ouverture du mur photo (soir du mariage ; invisible avant)
+  /* Livre d'or vocal et capsule : ouverts pendant le week-end ; capsule lisible par vous seuls à CAPSULE_OPEN */
+  SOUVENIRS_AT: "2027-05-06T18:00:00+02:00",
+  CAPSULE_OPEN: "2028-05-07T10:00:00+02:00",
+  /* Récap du week-end sur l'accueil (chiffres, photos, votre mot) */
+  RECAP_AT: "2027-05-09T10:00:00+02:00",
+  RECAP_WORD: { fr: "Merci d'être venus jusqu'à Séville. Ces trois jours resteront parmi les plus beaux de notre vie, et c'est grâce à vous.",
+                es: "Gracias por venir hasta Sevilla. Estos tres días serán de los más bonitos de nuestra vida, y es gracias a vosotros.",
+                en: "Thank you for coming all the way to Seville. These three days will stay among the most beautiful of our lives, and it's thanks to you." },
+  /* Votre espace privé (messages vocaux, capsule) : adresse du site + #maries-CLÉ. Changez la clé ! */
+  MARIES_KEY: "Marie-Laure",
+  /* Profils (e-mail + code) : même mot que SEL dans annonces.gs, à choisir avant le premier envoi d'e-mails puis ne plus changer */
+  PROFILE_SALT: "Isabelle",
+  /* Nos tables préférées (top 3). name vide = « bientôt dévoilé ». */
+  RESTOS: [
+    { name: "La Barca de Calderón", area: "Triana · au bord du Guadalquivir", map: "La Barca de Calderón, Paseo de Nuestra Señora de la O, Sevilla",
+      why: { fr: "Notre coup de cœur. Une ancienne maison du club de pêche posée sur la rive du Guadalquivir : le cadre est magique, surtout au coucher du soleil, et la cuisine est incroyable (produits frais de Cádiz, riz).",
+             es: "Nuestro favorito. Una antigua sede del club de pesca a orillas del Guadalquivir: el sitio es mágico, sobre todo al atardecer, y la comida es increíble (producto fresco de Cádiz, arroces).",
+             en: "Our favourite. A former fishing-club house right on the bank of the Guadalquivir: the setting is magical, especially at sunset, and the food is incredible (fresh produce from Cádiz, rice dishes)." } },
+    { name: "", area: "", map: "", why: null },
+    { name: "", area: "", map: "", why: null }
+  ],
+  /* Une seule carte gagnante : celle grattée au plus près d'une heure secrète, tirée au hasard (une fois pour toutes,
+     au premier grattage) entre ces deux heures. Personne ne la connaît, pas même vous. Résultat sur le grand écran
+     à SCRATCH_REVEAL (ou plus tôt avec la touche G puis V sur ecran.html). Après la révélation, on ne peut plus gagner. */
+  SCRATCH_GOLDEN: { from: "2027-05-07T23:20:00+02:00", to: "2027-05-08T00:40:00+02:00" },
+  SCRATCH_REVEAL: "2027-05-08T01:00:00+02:00",
+  SCRATCH_POOL: [
+    { type: "photo", img: "img/a-photomaton.jpg", title: {fr:"Archive privée", es:"Archivo privado", en:"Private archive"}, text: {fr:"Photomaton, version très sérieuse.", es:"Fotomatón, versión muy seria.", en:"Photo booth, very serious edition."} },
+    { type: "photo", img: "img/a-pigeon.jpg", title: {fr:"Archive privée", es:"Archivo privado", en:"Private archive"}, text: {fr:"New York, avec un invité surprise.", es:"Nueva York, con un invitado sorpresa.", en:"New York, with a surprise guest."} },
+    { type: "photo", img: "img/a-newyork.jpg", title: {fr:"Archive privée", es:"Archivo privado", en:"Private archive"}, text: {fr:"Tout là-haut, bien avant Séville.", es:"Allá arriba, mucho antes de Sevilla.", en:"Way up high, long before Seville."} },
+    { type: "photo", img: "img/a-chateau.jpg", title: {fr:"Archive privée", es:"Archivo privado", en:"Private archive"}, text: {fr:"Invités à un autre mariage, en repérage pour le nôtre.", es:"Invitados en otra boda, tomando notas para la nuestra.", en:"Guests at another wedding, taking notes for ours."} },
+    { type: "photo", img: "img/a-bretagne.jpg", title: {fr:"Archive privée", es:"Archivo privado", en:"Private archive"}, text: {fr:"En Bretagne, endimanchés.", es:"En Bretaña, de punta en blanco.", en:"In Brittany, in our Sunday best."} },
+    { type: "gage",  title: {fr:"Votre gage", es:"Vuestra prueba", en:"Your dare"}, text: {fr:"Trinquez avec trois personnes que vous ne connaissiez pas hier.", es:"Brindad con tres personas que no conocíais ayer.", en:"Clink glasses with three people you didn't know yesterday."} },
+    { type: "gage",  title: {fr:"Votre gage", es:"Vuestra prueba", en:"Your dare"}, text: {fr:"Apprenez un pas de sevillana à quelqu'un. Ou faites très bien semblant.", es:"Enseñad un paso de sevillanas a alguien. O fingid muy bien.", en:"Teach someone a sevillana step. Or fake it very convincingly."} },
+    { type: "gage",  title: {fr:"Votre gage", es:"Vuestra prueba", en:"Your dare"}, text: {fr:"Portez un toast en espagnol à votre table.", es:"Haced un brindis en francés en vuestra mesa.", en:"Raise a toast in Spanish at your table."} },
+    { type: "gage",  title: {fr:"Votre gage", es:"Vuestra prueba", en:"Your dare"}, text: {fr:"Selfie avec les deux mariés avant minuit.", es:"Selfie con los dos novios antes de medianoche.", en:"Selfie with both newlyweds before midnight."} },
+    { type: "joker", title: {fr:"Joker", es:"Comodín", en:"Joker"}, text: {fr:"Aucun gage pour vous. Profitez de la piste.", es:"Nada de pruebas. A disfrutar de la pista.", en:"No dare for you. Enjoy the dance floor."} }
+  ]
+};
+
+/* ====================== TEXTES ====================== */
+const T = {
+fr:{heroDate:"7 mai 2027",storyEyebrow:"Rendez-vous à Séville",storyTitle:"On se marie, et on vous emmène.",
+storyText:"Trois jours au soleil andalou : un verre sur les toits pour se retrouver, une grande soirée à l'hacienda, et un dernier apéritif au bord du Guadalquivir. Ce site vous suit jusqu'au bout : programme, navettes, adresses, et de quoi vous amuser pendant la fête.",
+capSun:"Au soleil",capHome:"En Bretagne",capYes:"Fiancés, à New York",capSev:"Séville, déjà",progEyebrow:"6 – 8 mai 2027",friseK:"La frise",friseNow:"Dès maintenant",friseFete:"Fête",friseJeu:"Jeu",friseHint:"Faites glisser · touchez une étape",progTitle:"Le programme",
+shuttleTitle:"Navettes du 7 mai",shuttleGo:"Aller",shuttleBack:"Retour",
+shuttleNote:"Départ et retour à l'hôtel Only You. Selon vos réponses au RSVP, d'autres hôtels pourront être desservis. En dehors des horaires, taxis et Uber viennent jusqu'à l'hacienda toute la nuit.",
+soon:"Horaires bientôt",pracEyebrow:"Infos pratiques",pracTitle:"Venir, dormir, profiter",hotelsTitle:"Où dormir",
+bfNote:"🏷️ <b>Black Friday :</b> les hôtels font des offres en ce moment, à ne pas rater, notamment l'<b>Only You</b>. C'est le moment de réserver.",hotelsAlt:"Moins cher : les résidences (entre l'hôtel et l'appartement) et Airbnb.",restoTitle:"Nos tables préférées",restoSoon:"Bientôt dévoilé…",restoBook:"Réservez, surtout le week-end.",plOpenK:"Dès maintenant",plOpenT:"La playlist du mariage est ouverte",plOpenD:"Proposez LA chanson qui vous fera danser à Séville et votez pour celles des autres. Le top 10 part chez le DJ.",plOpenB:"Proposer ma chanson",runLockT:d=>`La Carrera ouvre le ${d}`,runLockD:"Une semaine avant le mariage, Team Agathe contre Team Valentin. Vous recevrez un e-mail ce jour-là.",faqTitle:"Questions fréquentes",visitTitle:"À réserver à l'avance",
+gameEyebrow:"Avant et pendant la fête",gameTitle:"Le bingo du mariage",gameText:"Cochez ce que vous voyez pendant la soirée. Une ligne complète ? Venez le prouver aux mariés.",
+reset:"Recommencer",phrasesTitle:"Petit lexique de survie",rsvpTitle:"Vous serez là ?",footer:"Séville, 6 – 8 mai 2027",simTitle:"Aperçu du jour J",
+tHome:"Accueil",tProg:"Programme",tPrac:"Pratique",tGame:"Bingo",
+days:["Jours","Heures","Min","Sec"],until:"Avant le cocktail de bienvenue",countLbl:"Compte à rebours",nowLbl:"En ce moment",nextLbl:"Prochaine étape",afterLbl:"C'était magique",
+afterText:"Merci d'être venus jusqu'à Séville. On vous embrasse.",inLbl:"dans",nextShuttle:"Prochaine navette retour",go:"Y aller",cal:"Ajouter au calendrier",
+dayWords:["dim.","lun.","mar.","mer.","jeu.","ven.","sam."],mon:"mai",main:"Le grand jour",
+copy:"Copier",copied:"Code copié",map:"Plan",site:"Site",book:"Réserver",
+bingoScore:(n,l)=>`${n}/16 cochées${l?` · ${l} ligne${l>1?"s":""} !`:""}`,bingoWin:"BINGO ! Allez voir les mariés.",
+deadline:d=>`Réponse souhaitée avant le ${d}`,rsvpEyebrow:"Répondez en 2 minutes",
+s1:"Qui êtes-vous ?",fName:"Nom du foyer",fNameHint:"Ex. Famille Martin, ou Julie & Thomas",fEmail:"E-mail",fPin:"Code à 4 chiffres de votre choix",fPinHint:"Il crée votre profil : avec votre e-mail, il vous permet de retrouver votre prénom, votre chanson, vos jeux et vos secrets sur n'importe quel appareil.",fPinLogged:n=>`Profil connecté : ${n}`,ePin:"Choisissez un code à 4 chiffres.",ePinWrong:"Ce code ne correspond pas au profil de cet e-mail.",fEmailHint:"Pour vous envoyer la confirmation et modifier votre réponse.",fPhone:"Téléphone (facultatif)",
+comeQ:"Vous venez ?",yes:"Avec joie",yesSub:"On ne raterait ça pour rien",no:"À regret",noSub:"On sera là par la pensée",
+s2:"Qui vient ?",person:"Invité",pName:"Prénom et nom",adult:"Adulte",child:"Enfant",diet:"Régime",dietNone:"Aucun",veg:"Végétarien",vegan:"Vegan",gf:"Sans gluten",allergy:"Allergie",allergyQ:"Précisez l'allergie",addP:"+ Ajouter une personne",remove:"Retirer",
+s3:"Vous serez là pour…",s4:"Logistique",arrive:"Arrivée à Séville",hotel:"Où dormez-vous ?",other:"Autre / pas encore décidé",busGo:"Navette aller depuis l'hôtel Only You ?",busBack:"Retour envisagé",early:"Tôt",mid:"Milieu de soirée",late:"Jusqu'au bout",taxi:"Taxi / Uber",
+yesW:"Oui",noW:"Non",s5:"Le mot de la fin",song:"La chanson qui vous fera danser",songHint:"On la transmet au DJ.",msg:"Un mot pour nous",msgNo:"Un mot pour nous (facultatif)",
+back:"Retour",next:"Continuer",send:"Envoyer ma réponse",sending:"Envoi…",
+eName:"Indiquez un nom.",eEmail:"Vérifiez l'adresse e-mail.",ePeople:"Indiquez le nom de chaque invité.",eEvt:"Choisissez au moins un moment.",eSend:"L'envoi a échoué. Vérifiez votre connexion et réessayez.",
+doneYes:"¡Olé ! C'est noté.",doneNo:"C'est noté, vous allez nous manquer.",doneText:"Une confirmation part à",edit:"Modifier ma réponse",
+demo:"Aperçu : cette réponse n'est pas encore enregistrée. Le formulaire sera relié au tableau des réponses une fois le site en ligne.",
+sumPeople:"Invités",sumEvents:"Moments",sumHotel:"Hôtel",
+simNow:"Maintenant",simReal:"Revenir à l'heure réelle",simOn:"Simulation :",dress:"Tenue",kids:"Enfants",album:"Partagez vos photos",albumBtn:"Ouvrir l'album",contact:"Une question ?",
+already:"Vous avez déjà répondu sur l'ancien site ? C'est bon, pas besoin de recommencer.",
+tblEyebrow:"Le soir du 7 mai",tblTitle:"Votre table",tblQ:"Tapez votre nom",tblPh:"Prénom ou nom",tblNone:"Aucun invité trouvé. Essayez votre nom de famille.",tblWith:"À votre table",tblFloor:"Piste",tblYou:"Votre table",tblDemo:"Exemple fictif, pour l'aperçu",
+scrTitle:"La carte à gratter",scrLocked:w=>`La carte se gratte le ${w}`,scrAt:t=>"Une carte par téléphone, une seule gagnante.",scrGo:"Grattez !",scrHint:"Une carte par téléphone. Une seule gagne : celle grattée au plus près d'une heure secrète, quelque part entre 23 h 20 et 0 h 40. Résultat à 1 h sur le grand écran.",scrMine:t=>`Grattée à ${t}`,scrWait:"Résultat à 1 h sur le grand écran.",scrSecret:t=>`Heure secrète : ${t}`,scrWon:"C'est vous ! Votre carte est la gagnante. Montrez-la aux mariés : votre cadeau vous attend.",scrWinner:(n,t)=>`Carte gagnante : ${n}, grattée à ${t}`,scrClosed:"Résultat déjà révélé : cette carte ne peut plus gagner.",scrNone:"Personne n'a gratté sa carte.",scrKicker:"Votre carte",
+plEyebrow:"Pour le DJ",plTitle:"La playlist des invités",plText:"Proposez UNE chanson, celle qui vous fera danser à Séville, puis distribuez 5 cœurs aux chansons des autres. Revenez de temps en temps : les nouveautés sont signalées. Le top 10 part chez le DJ.",plMine:"Votre chanson",plYours:"la vôtre",plLeft:(n,m)=>`${n} cœur${n>1?"s":""} à donner sur ${m}. Vous pouvez les déplacer à tout moment.`,plNoHeart:"Plus de cœurs : retirez-en un pour le donner à une autre chanson.",plNew:n=>`${n} nouvelle${n>1?"s":""} chanson${n>1?"s":""} depuis votre dernière visite`,plNewTag:"nouveau",plSong:"Titre",plArtist:"Artiste",plAdd:"Proposer",plTop:"Top 10 · direct au DJ",plEx:"exemple",plDup:"Déjà proposée : on a ajouté votre vote.",plAdded:"Chanson ajoutée",plNeed:"Indiquez le titre et l'artiste.",plEmpty:"Aucune chanson pour l'instant. Lancez la playlist !",plLive:"Classement en direct",plCode:"Votre code pour retrouver vos cœurs sur un autre téléphone : ",plRestore:"Déjà un profil ? Connectez-vous pour retrouver vos cœurs",plNeedProfile:"Pour garder votre chanson et vos cœurs sur tous vos appareils, connectez-vous ou créez votre profil (e-mail + code à 4 chiffres).",plAs:n=>`Proposée au nom de ${n}.`,plNotYou:"Pas vous ?",plLogin:"Vous indiquerez votre prénom en créant votre profil (e-mail + code).",plRestoreNeed:"Prénom + code à 4 chiffres",plRestoreNo:"Code introuvable : vérifiez le prénom et le code",plRestoreOk:n=>`Bon retour, ${n} ! Vos cœurs sont là.`,plName:"Votre prénom",plOnce:"⚠️ Une seule chanson par personne : une fois proposée, vous ne pourrez plus la changer.",plConfirm:t=>`Confirmer « ${t} » (définitif)`,plBy:n=>`proposée par ${n}`,plLocked:"C'est votre chanson pour le mariage : elle ne peut plus être changée. 🔒",plNeedName:"Indiquez votre prénom : il s'affichera sous votre chanson.",
+tTable:"Ma table",tPlay:"Playlist",tJeux:"Jeux",jeuxTitle:"Les jeux",segHunt:"Piste",segRun:"Course",runText:"Dirigez l'un des mariés dans les rues de Séville. Votre meilleur score compte pour votre équipe : rejouez autant que vous voulez pour le battre. L'équipe gagnante sera annoncée le soir du mariage.",
+runPick:"Choisissez votre camp",runPickNote:"Attention, c'est pour la vie. Comme le mariage.",runNickQ:"Votre nom au classement",runNickPh:"Prénom ou surnom",runReady:n=>`Prêt à courir pour ${n} ?`,runHow:"Sautez par-dessus les touristes, potelets et calèches. Ramassez le cava. Chaque partie peut battre votre record.",runGo:"C'est parti",runBest:"Votre record",
+runCause:{tourist:"Percuté par un touriste et son selfie.",bollard:"Le potelet ne vous a pas vu venir.",caleche:"Renversé par une calèche.",bull:"¡Olé! Le taureau a gagné.",pigeon:"Attaqué par un pigeon sévillan.",pause:"Partie interrompue."},
+runPts:c=>`dont ${c} verre${c>1?"s":""} de cava`,runNewBest:"nouveau record !",runForTeam:n=>`Nouveau record compté pour Team ${n}`,runAgain:"Rejouer",runNickLock:"Attention : ce nom ne pourra plus être changé.",runBestOnly:"seul votre record compte pour votre équipe",runNotBest:"Pas de nouveau record : votre équipe garde votre meilleur score.",runHow1:"1 toucher = 1 saut",runHow2:"re-toucher en l'air = double saut",runTapHint:"Touchez l'écran pour sauter",runTapNow:"Touchez !",runScreen:(a,v)=>`dont le grand écran : ${a} pour Agathe, ${v} pour Valentin`,runTop:"Meilleurs coureurs",runNoScore:"Personne n'a encore couru. À vous !",runTonight:"Le soir du mariage, à l'hacienda",runOpen:"Ouvert",runAt:t=>`Se débloque à ${t}`,opensOn:w=>`Ouvre le ${w}`,weddingNight:"soir du mariage",atTime:(d,h)=>`${d} à ${h}`,runPlay:"Jouer",runSoon:"Arrive dans un instant…",segCard:"Carte",segCap:"Capsule",segLex:"Lexique",liveTest:"Jeux du soir : mode test",liveTestOn:"Mode test activé : les jeux du soir sont débloqués",liveTestOff:"Mode test désactivé"},
+es:{heroDate:"7 de mayo de 2027",storyEyebrow:"Nos vemos en Sevilla",storyTitle:"Nos casamos, y os llevamos con nosotros.",
+storyText:"Tres días al sol andaluz: una copa en una azotea para reencontrarnos, una gran noche en la hacienda y un último aperitivo a orillas del Guadalquivir. Esta web os acompaña hasta el final: programa, autobuses, direcciones y algo para divertiros durante la fiesta.",
+capSun:"Al sol",capHome:"En Bretaña",capYes:"Prometidos, en Nueva York",capSev:"Sevilla, ya entonces",progEyebrow:"6 – 8 de mayo de 2027",friseK:"La línea del tiempo",friseNow:"Desde ya",friseFete:"Fiesta",friseJeu:"Juego",friseHint:"Desliza · toca una etapa",progTitle:"El programa",
+shuttleTitle:"Autobuses del 7 de mayo",shuttleGo:"Ida",shuttleBack:"Vuelta",
+shuttleNote:"Salida y vuelta en el hotel Only You. Según vuestras respuestas, podremos recoger en otros hoteles. Fuera de esos horarios, hay taxis y Uber hasta la hacienda toda la noche.",
+soon:"Horarios próximamente",pracEyebrow:"Información práctica",pracTitle:"Llegar, dormir, disfrutar",hotelsTitle:"Dónde dormir",
+bfNote:"🏷️ <b>Black Friday:</b> los hoteles tienen ofertas estos días que no hay que perderse, sobre todo el <b>Only You</b>. Es el momento de reservar.",hotelsAlt:"Más económico: apartahoteles y Airbnb.",restoTitle:"Nuestras mesas favoritas",restoSoon:"Muy pronto…",restoBook:"Reservad, sobre todo el fin de semana.",plOpenK:"Desde ya",plOpenT:"La playlist de la boda está abierta",plOpenD:"Proponed LA canción que os hará bailar en Sevilla y votad las de los demás. El top 10 va al DJ.",plOpenB:"Proponer mi canción",runLockT:d=>`La Carrera abre el ${d}`,runLockD:"Una semana antes de la boda, Team Agathe contra Team Valentin. Recibiréis un e-mail ese día.",faqTitle:"Preguntas frecuentes",visitTitle:"Para reservar con antelación",
+gameEyebrow:"Antes y durante la fiesta",gameTitle:"El bingo de la boda",gameText:"Marcad lo que veáis durante la noche. ¿Línea completa? Demostrádselo a los novios.",
+reset:"Empezar de nuevo",phrasesTitle:"",rsvpTitle:"¿Vendréis?",footer:"Sevilla, 6 – 8 de mayo de 2027",simTitle:"Vista previa del gran día",
+tHome:"Inicio",tProg:"Programa",tPrac:"Info",tGame:"Bingo",
+days:["Días","Horas","Min","Seg"],until:"Hasta el cóctel de bienvenida",countLbl:"Cuenta atrás",nowLbl:"Ahora mismo",nextLbl:"Lo siguiente",afterLbl:"Fue mágico",
+afterText:"Gracias por venir hasta Sevilla. Un abrazo enorme.",inLbl:"en",nextShuttle:"Próximo autobús de vuelta",go:"Cómo llegar",cal:"Añadir al calendario",
+dayWords:["dom.","lun.","mar.","mié.","jue.","vie.","sáb."],mon:"mayo",main:"El gran día",
+copy:"Copiar",copied:"Código copiado",map:"Mapa",site:"Web",book:"Reservar",
+bingoScore:(n,l)=>`${n}/16 marcadas${l?` · ¡${l} línea${l>1?"s":""}!`:""}`,bingoWin:"¡BINGO! Id a ver a los novios.",
+deadline:d=>`Respuesta antes del ${d}`,rsvpEyebrow:"Responde en 2 minutos",
+s1:"¿Quiénes sois?",fName:"Nombre de la familia o grupo",fNameHint:"Ej. Familia García, o Lucía y Pablo",fEmail:"Correo electrónico",fPin:"Código de 4 cifras a tu elección",fPinHint:"Crea tu perfil: con tu e-mail, te permite recuperar tu nombre, tu canción, tus juegos y tus secretos en cualquier dispositivo.",fPinLogged:n=>`Perfil conectado: ${n}`,ePin:"Elige un código de 4 cifras.",ePinWrong:"Este código no corresponde al perfil de este e-mail.",fEmailHint:"Para enviaros la confirmación y poder cambiar la respuesta.",fPhone:"Teléfono (opcional)",
+comeQ:"¿Venís?",yes:"¡Claro que sí!",yesSub:"No nos lo perdemos",no:"No podemos",noSub:"Estaremos con vosotros en el pensamiento",
+s2:"¿Quién viene?",person:"Invitado",pName:"Nombre y apellido",adult:"Adulto",child:"Niño/a",diet:"Dieta",dietNone:"Ninguna",veg:"Vegetariana",vegan:"Vegana",gf:"Sin gluten",allergy:"Alergia",allergyQ:"¿Qué alergia?",addP:"+ Añadir una persona",remove:"Quitar",
+s3:"Estaréis en…",s4:"Logística",arrive:"Llegada a Sevilla",hotel:"¿Dónde os alojáis?",other:"Otro / aún no lo sé",busGo:"¿Autobús de ida desde el hotel Only You?",busBack:"Vuelta prevista",early:"Pronto",mid:"A media noche",late:"Hasta el final",taxi:"Taxi / Uber",
+yesW:"Sí",noW:"No",s5:"Para terminar",song:"La canción que os hará bailar",songHint:"Se la pasamos al DJ.",msg:"Unas palabras para nosotros",msgNo:"Unas palabras para nosotros (opcional)",
+back:"Atrás",next:"Continuar",send:"Enviar respuesta",sending:"Enviando…",
+eName:"Indica un nombre.",eEmail:"Revisa el correo electrónico.",ePeople:"Indica el nombre de cada invitado.",eEvt:"Elige al menos un momento.",eSend:"No se ha podido enviar. Revisa la conexión e inténtalo de nuevo.",
+doneYes:"¡Olé! Apuntado.",doneNo:"Apuntado. Os echaremos de menos.",doneText:"Enviamos una confirmación a",edit:"Cambiar mi respuesta",
+demo:"Vista previa: esta respuesta aún no se guarda. El formulario se conectará a la hoja de respuestas cuando la web esté publicada.",
+sumPeople:"Invitados",sumEvents:"Momentos",sumHotel:"Hotel",
+simNow:"Ahora",simReal:"Volver a la hora real",simOn:"Simulación:",dress:"Vestimenta",kids:"Niños",album:"Compartid vuestras fotos",albumBtn:"Abrir el álbum",contact:"¿Alguna pregunta?",
+already:"¿Ya respondisteis en la web anterior? Perfecto, no hace falta repetir.",
+tblEyebrow:"La noche del 7 de mayo",tblTitle:"Vuestra mesa",tblQ:"Escribe tu nombre",tblPh:"Nombre o apellido",tblNone:"No encontramos a nadie. Prueba con el apellido.",tblWith:"En vuestra mesa",tblFloor:"Pista",tblYou:"Vuestra mesa",tblDemo:"Ejemplo ficticio, solo vista previa",
+scrTitle:"El rasca y gana",scrLocked:w=>`Se podrá rascar el ${w}`,scrAt:t=>"Una carta por móvil, una sola ganadora.",scrGo:"¡Rasca!",scrHint:"Una carta por móvil. Solo una gana: la que se rasque más cerca de una hora secreta, entre las 23:20 y las 0:40. Resultado a la 1 en la pantalla gigante.",scrMine:t=>`Rascada a las ${t}`,scrWait:"Resultado a la 1 en la pantalla gigante.",scrSecret:t=>`Hora secreta: ${t}`,scrWon:"¡Eres tú! Tu carta es la ganadora. Enséñasela a los novios: tu regalo te espera.",scrWinner:(n,t)=>`Carta ganadora: ${n}, rascada a las ${t}`,scrClosed:"El resultado ya se ha revelado: esta carta ya no puede ganar.",scrNone:"Nadie ha rascado su carta.",scrKicker:"Vuestra carta",
+plEyebrow:"Para el DJ",plTitle:"La playlist de los invitados",plText:"Proponed UNA canción, la que os hará bailar en Sevilla, y repartid 5 corazones entre las de los demás. Volved de vez en cuando: las novedades aparecen señaladas. El top 10 va al DJ.",plMine:"Tu canción",plYours:"la tuya",plLeft:(n,m)=>`Te quedan ${n} corazón${n>1?"es":""} de ${m}. Puedes moverlos cuando quieras.`,plNoHeart:"No te quedan corazones: quita uno para dárselo a otra canción.",plNew:n=>`${n} canción${n>1?"es":""} nueva${n>1?"s":""} desde tu última visita`,plNewTag:"nueva",plSong:"Canción",plArtist:"Artista",plAdd:"Proponer",plTop:"Top 10 · directo al DJ",plEx:"ejemplo",plDup:"Ya estaba: hemos sumado tu voto.",plAdded:"Canción añadida",plNeed:"Indica la canción y el artista.",plEmpty:"Todavía no hay canciones. ¡Empieza tú!",plLive:"Clasificación en directo",plCode:"Tu código para recuperar tus corazones en otro móvil: ",plRestore:"¿Ya tienes perfil? Conéctate para recuperar tus corazones",plNeedProfile:"Para guardar tu canción y tus corazones en todos tus dispositivos, conéctate o crea tu perfil (e-mail + código de 4 cifras).",plAs:n=>`Propuesta a nombre de ${n}.`,plNotYou:"¿No eres tú?",plLogin:"Indicarás tu nombre al crear tu perfil (e-mail + código).",plRestoreNeed:"Nombre + código de 4 cifras",plRestoreNo:"Código no encontrado: revisa el nombre y el código",plRestoreOk:n=>`¡Hola de nuevo, ${n}! Aquí están tus corazones.`,plName:"Tu nombre",plOnce:"⚠️ Una sola canción por persona: una vez propuesta, ya no podrás cambiarla.",plConfirm:t=>`Confirmar «${t}» (definitivo)`,plBy:n=>`propuesta por ${n}`,plLocked:"Es tu canción para la boda: ya no se puede cambiar. 🔒",plNeedName:"Indica tu nombre: aparecerá bajo tu canción.",
+tTable:"Mi mesa",tPlay:"Playlist",tJeux:"Juegos",jeuxTitle:"Los juegos",segHunt:"Gincana",segRun:"Carrera",runText:"Dirigid a uno de los novios por las calles de Sevilla. Vuestro mejor resultado cuenta para vuestro equipo: repetid las veces que queráis para batirlo. El equipo ganador se anunciará la noche de la boda.",
+runPick:"Elegid bando",runPickNote:"Ojo, es para toda la vida. Como el matrimonio.",runNickQ:"Vuestro nombre en la clasificación",runNickPh:"Nombre o mote",runReady:n=>`¿Listo para correr por ${n}?`,runHow:"Salta por encima de turistas, bolardos y coches de caballos. Coge el cava. Cada partida puede batir tu récord.",runGo:"¡Vamos!",runBest:"Tu récord",
+runCause:{tourist:"Arrollado por un turista y su selfie.",bollard:"El bolardo no te vio venir.",caleche:"Atropellado por un coche de caballos.",bull:"¡Olé! Ganó el toro.",pigeon:"Atacado por una paloma sevillana.",pause:"Partida interrumpida."},
+runPts:c=>`con ${c} copa${c>1?"s":""} de cava`,runNewBest:"¡nuevo récord!",runForTeam:n=>`Nuevo récord para el Team ${n}`,runAgain:"Otra vez",runNickLock:"Ojo: este nombre ya no se podrá cambiar.",runBestOnly:"solo tu récord cuenta para tu equipo",runNotBest:"Sin récord esta vez: tu equipo conserva tu mejor marca.",runHow1:"1 toque = 1 salto",runHow2:"tocar otra vez en el aire = doble salto",runTapHint:"Toca la pantalla para saltar",runTapNow:"¡Toca!",runScreen:(a,v)=>`incluida la pantalla gigante: ${a} para Agathe, ${v} para Valentin`,runTop:"Mejores corredores",runNoScore:"Nadie ha corrido todavía. ¡Te toca!",runTonight:"La noche de la boda, en la hacienda",runOpen:"Abierto",runAt:t=>`Se desbloquea a las ${t}`,opensOn:w=>`Abre el ${w}`,weddingNight:"día de la boda, por la noche",atTime:(d,h)=>`${d} a las ${h}`,runPlay:"Jugar",runSoon:"Llega en un momento…",segCard:"Rasca",segCap:"Cápsula",segLex:"Léxico",liveTest:"Juegos de la noche: modo prueba",liveTestOn:"Modo prueba activado: juegos de la noche desbloqueados",liveTestOff:"Modo prueba desactivado"},
+en:{heroDate:"7 May 2027",storyEyebrow:"See you in Seville",storyTitle:"We're getting married, and we're taking you with us.",
+storyText:"Three days in the Andalusian sun: drinks on a rooftop to get together, a big night at the hacienda, and a last aperitif by the Guadalquivir. This site stays with you all the way: schedule, shuttles, addresses, and something to play during the party.",
+capSun:"In the sun",capHome:"In Brittany",capYes:"Engaged, in New York",capSev:"Seville, already",progEyebrow:"6 – 8 May 2027",friseK:"The timeline",friseNow:"Starting now",friseFete:"Party",friseJeu:"Game",friseHint:"Swipe · tap a step",progTitle:"The schedule",
+shuttleTitle:"Shuttles on 7 May",shuttleGo:"There",shuttleBack:"Back",
+shuttleNote:"Leaving from and returning to the Only You hotel. Depending on your RSVP answers, other hotels may be served. Outside these times, taxis and Uber run to the hacienda all night.",
+soon:"Times coming soon",pracEyebrow:"Practical info",pracTitle:"Getting there, sleeping, enjoying",hotelsTitle:"Where to stay",
+bfNote:"🏷️ <b>Black Friday:</b> hotels have deals right now that you shouldn't miss, especially the <b>Only You</b>. Now is the time to book.",hotelsAlt:"Cheaper: aparthotels and Airbnb.",restoTitle:"Our favourite tables",restoSoon:"Coming soon…",restoBook:"Book ahead, especially at weekends.",plOpenK:"Open now",plOpenT:"The wedding playlist is open",plOpenD:"Suggest THE song that will get you dancing in Seville and vote for everyone else's. The top 10 goes to the DJ.",plOpenB:"Suggest my song",runLockT:d=>`The Race opens on ${d}`,runLockD:"One week before the wedding, Team Agathe versus Team Valentin. You'll get an e-mail that day.",faqTitle:"FAQ",visitTitle:"Book ahead",
+gameEyebrow:"Before and during the party",gameTitle:"Wedding bingo",gameText:"Tick what you spot during the night. Full line? Go and prove it to the newlyweds.",
+reset:"Start over",phrasesTitle:"Survival Spanish",rsvpTitle:"Will you be there?",footer:"Seville, 6 – 8 May 2027",simTitle:"Preview the big day",
+tHome:"Home",tProg:"Schedule",tPrac:"Info",tGame:"Bingo",
+days:["Days","Hours","Min","Sec"],until:"Until the welcome drinks",countLbl:"Countdown",nowLbl:"Happening now",nextLbl:"Up next",afterLbl:"That was magic",
+afterText:"Thank you for coming all the way to Seville. Love, A & V.",inLbl:"in",nextShuttle:"Next shuttle back",go:"Directions",cal:"Add to calendar",
+dayWords:["Sun","Mon","Tue","Wed","Thu","Fri","Sat"],mon:"May",main:"The big day",
+copy:"Copy",copied:"Code copied",map:"Map",site:"Website",book:"Book",
+bingoScore:(n,l)=>`${n}/16 ticked${l?` · ${l} line${l>1?"s":""}!`:""}`,bingoWin:"BINGO! Go find the newlyweds.",
+deadline:d=>`Please reply by ${d}`,rsvpEyebrow:"Reply in 2 minutes",
+s1:"Who are you?",fName:"Household name",fNameHint:"E.g. The Smiths, or Julia & Tom",fEmail:"Email",fPin:"4-digit code of your choice",fPinHint:"It creates your profile: with your email, it lets you get your name, song, games and secrets back on any device.",fPinLogged:n=>`Profile signed in: ${n}`,ePin:"Choose a 4-digit code.",ePinWrong:"This code doesn't match this email's profile.",fEmailHint:"To send your confirmation and let you change your reply.",fPhone:"Phone (optional)",
+comeQ:"Are you coming?",yes:"Joyfully",yesSub:"Wouldn't miss it",no:"Sadly not",noSub:"We'll be there in spirit",
+s2:"Who's coming?",person:"Guest",pName:"First and last name",adult:"Adult",child:"Child",diet:"Diet",dietNone:"None",veg:"Vegetarian",vegan:"Vegan",gf:"Gluten-free",allergy:"Allergy",allergyQ:"Which allergy?",addP:"+ Add a person",remove:"Remove",
+s3:"You'll join us for…",s4:"Logistics",arrive:"Arriving in Seville",hotel:"Where are you staying?",other:"Other / not decided yet",busGo:"Shuttle from the Only You hotel?",busBack:"Planning to head back",early:"Early",mid:"Mid-party",late:"Till the end",taxi:"Taxi / Uber",
+yesW:"Yes",noW:"No",s5:"Last words",song:"The song that gets you dancing",songHint:"We'll pass it to the DJ.",msg:"A note for us",msgNo:"A note for us (optional)",
+back:"Back",next:"Continue",send:"Send my reply",sending:"Sending…",
+eName:"Please enter a name.",eEmail:"Please check the email address.",ePeople:"Please enter each guest's name.",eEvt:"Pick at least one moment.",eSend:"Sending failed. Check your connection and try again.",
+doneYes:"¡Olé! You're on the list.",doneNo:"Noted. We'll miss you.",doneText:"A confirmation is on its way to",edit:"Change my reply",
+demo:"Preview: this reply isn't saved yet. The form will be linked to the replies sheet once the site is live.",
+sumPeople:"Guests",sumEvents:"Moments",sumHotel:"Hotel",
+simNow:"Now",simReal:"Back to real time",simOn:"Simulating:",dress:"Dress code",kids:"Children",album:"Share your photos",albumBtn:"Open the album",contact:"Any questions?",
+already:"Already replied on the old site? You're all set, no need to do it again.",
+tblEyebrow:"The night of 7 May",tblTitle:"Your table",tblQ:"Type your name",tblPh:"First or last name",tblNone:"No guest found. Try your last name.",tblWith:"At your table",tblFloor:"Dance floor",tblYou:"Your table",tblDemo:"Made-up example, for preview",
+scrTitle:"Scratch card",scrLocked:w=>`The card can be scratched on ${w}`,scrAt:t=>"One card per phone, only one winner.",scrGo:"Scratch!",scrHint:"One card per phone. Only one wins: the one scratched closest to a secret time, somewhere between 11:20 pm and 12:40 am. Result at 1 am on the big screen.",scrMine:t=>`Scratched at ${t}`,scrWait:"Result at 1 am on the big screen.",scrSecret:t=>`Secret time: ${t}`,scrWon:"It's you! Yours is the winning card. Show it to the newlyweds: your gift is waiting.",scrWinner:(n,t)=>`Winning card: ${n}, scratched at ${t}`,scrClosed:"The result is out: this card can no longer win.",scrNone:"Nobody scratched their card.",scrKicker:"Your card",
+plEyebrow:"For the DJ",plTitle:"The guests' playlist",plText:"Suggest ONE song, the one that will get you dancing in Seville, then give 5 hearts to other people's songs. Check back now and then: new songs are flagged. The top 10 goes to the DJ.",plMine:"Your song",plYours:"yours",plLeft:(n,m)=>`${n} of ${m} heart${m>1?"s":""} left to give. You can move them any time.`,plNoHeart:"No hearts left: take one back to give it to another song.",plNew:n=>`${n} new song${n>1?"s":""} since your last visit`,plNewTag:"new",plSong:"Song",plArtist:"Artist",plAdd:"Suggest",plTop:"Top 10 · straight to the DJ",plEx:"example",plDup:"Already suggested: we added your vote.",plAdded:"Song added",plNeed:"Enter the song and the artist.",plEmpty:"No songs yet. Get the playlist started!",plLive:"Live ranking",plCode:"Your code to get your hearts back on another phone: ",plRestore:"Already have a profile? Sign in to get your hearts back",plNeedProfile:"To keep your song and hearts on all your devices, sign in or create your profile (email + 4-digit code).",plAs:n=>`Suggested as ${n}.`,plNotYou:"Not you?",plLogin:"You'll give your first name when creating your profile (email + code).",plRestoreNeed:"First name + 4-digit code",plRestoreNo:"Code not found: check the name and code",plRestoreOk:n=>`Welcome back, ${n}! Your hearts are here.`,plName:"Your first name",plOnce:"⚠️ One song per person: once suggested, you won't be able to change it.",plConfirm:t=>`Confirm "${t}" (final)`,plBy:n=>`suggested by ${n}`,plLocked:"This is your song for the wedding: it can no longer be changed. 🔒",plNeedName:"Enter your first name: it will appear under your song.",
+tTable:"My table",tPlay:"Playlist",tJeux:"Games",jeuxTitle:"Games",segHunt:"Trail",segRun:"Race",runText:"Steer one of the newlyweds through the streets of Seville. Your best score counts for your team: play as often as you like to beat it. The winning team will be announced on the wedding night.",
+runPick:"Pick your side",runPickNote:"Careful, it's for life. Like marriage.",runNickQ:"Your name on the leaderboard",runNickPh:"Name or nickname",runReady:n=>`Ready to run for ${n}?`,runHow:"Jump over tourists, bollards and carriages. Grab the cava. Every run can beat your record.",runGo:"Let's go",runBest:"Your best",
+runCause:{tourist:"Hit by a tourist and their selfie.",bollard:"That bollard never saw you coming.",caleche:"Run over by a horse carriage.",bull:"¡Olé! The bull won.",pigeon:"Attacked by a Sevillian pigeon.",pause:"Game interrupted."},
+runPts:c=>`including ${c} glass${c>1?"es":""} of cava`,runNewBest:"new record!",runForTeam:n=>`New record counted for Team ${n}`,runAgain:"Play again",runNickLock:"Careful: this name can't be changed later.",runBestOnly:"only your best counts for your team",runNotBest:"No new record: your team keeps your best score.",runHow1:"1 tap = 1 jump",runHow2:"tap again mid-air = double jump",runTapHint:"Tap the screen to jump",runTapNow:"Tap!",runScreen:(a,v)=>`incl. the big screen: ${a} for Agathe, ${v} for Valentin`,runTop:"Top runners",runNoScore:"Nobody has run yet. Your turn!",runTonight:"On the wedding night, at the hacienda",runOpen:"Open",runAt:t=>`Unlocks at ${t}`,opensOn:w=>`Opens on ${w}`,weddingNight:"the wedding night",atTime:(d,h)=>`${d} at ${h}`,runPlay:"Play",runSoon:"Coming any minute…",segCard:"Scratch",segCap:"Capsule",segLex:"Phrases",liveTest:"Evening games: test mode",liveTestOn:"Test mode on: evening games unlocked",liveTestOff:"Test mode off"}
+};
+
+/* ====================== DONNÉES ====================== */
+const L3=(fr,es,en)=>({fr,es,en});
+const gmap=q=>"https://www.google.com/maps/search/?api=1&query="+encodeURIComponent(q);
+const EVENTS=[
+ {id:"welcome",start:"2027-05-06T20:00:00+02:00",end:"2027-05-06T23:00:00+02:00",day:6,
+  title:L3("Cocktail de bienvenue","Cóctel de bienvenida","Welcome drinks"),
+  place:"Pura Vida · Hotel Los Seises",addr:"C. Segovias 6, Casco Antiguo, 41004 Sevilla",
+  desc:L3("Sur le rooftop, au 3e étage, en plein centre historique.","En la azotea, en la 3.ª planta, en pleno casco antiguo.","On the rooftop, 3rd floor, in the heart of the old town."),
+  steps:[]},
+ {id:"wedding",start:"2027-05-07T18:00:00+02:00",end:"2027-05-08T04:00:00+02:00",day:7,main:true,
+  title:L3("Cérémonie & fête","Ceremonia y fiesta","Ceremony & party"),
+  place:"Hacienda de la Soledad",addr:"A-8026, 41500 Alcalá de Guadaíra, Sevilla",
+  desc:L3("Cérémonie laïque, puis cocktail, dîner et fête jusqu'au bout de la nuit. Navette prévue.","Ceremonia civil, luego cóctel, cena y fiesta hasta el amanecer. Hay autobús.","Secular ceremony, then cocktails, dinner and dancing into the night. Shuttle provided."),
+  steps:[["18:00",L3("Cérémonie laïque","Ceremonia civil","Ceremony")],["",L3("Cocktail","Cóctel","Cocktails")],["",L3("Dîner","Cena","Dinner")],["",L3("Fête","Fiesta","Party")],["04:00",L3("Fin de la soirée","Fin de la fiesta","Last dance")]]},
+ {id:"farewell",start:"2027-05-08T20:00:00+02:00",end:"2027-05-08T23:59:00+02:00",day:8,
+  title:L3("Apéritif au bord de l'eau","Aperitivo junto al río","Riverside aperitif"),
+  place:"Mercado del Barranco",addr:"C. Arjona s/n, Casco Antiguo, 41001 Sevilla",
+  desc:L3("Un dernier verre ensemble au bord du Guadalquivir.","Una última copa juntos a orillas del Guadalquivir.","One last drink together by the Guadalquivir."),
+  steps:[]}
+];
+const HOTELS=[
+ {name:"Hotel Only You Sevilla",star:true,bf:true,addr:"Avenida Kansas City 7, Nervión, 41018 Sevilla",url:"https://www.onlyyouhotels.com/",code:"AGATHEVALENTIN",
+  tags:L3(["Hôtel des mariés","Départ des navettes","Piscine · bar · restaurant"],["Hotel de los novios","Salida del autobús","Piscina · bar · restaurante"],["Couple's hotel","Shuttle departure","Pool · bar · restaurant"]),
+  desc:L3("À 20–25 min à pied du centre. Le bus de l'aéroport s'arrête presque devant (arrêt Kansas City, environ 26 min). Inscrivez-vous au programme de fidélité Palladium Rewards (−7 %) puis ajoutez le code (−5 %) : les deux se cumulent.","A 20–25 min a pie del centro. El autobús del aeropuerto para casi delante (parada Kansas City, unos 26 min). Hazte socio de Palladium Rewards (−7 %) y añade el código (−5 %): son acumulables.","20–25 min walk from the centre. The airport bus stops almost outside (Kansas City stop, about 26 min). Join Palladium Rewards (−7%) and add the code (−5%): they stack.")},
+ {name:"Hotel Serras Sevilla",addr:"Avenida de la Constitución 12, 41001 Sevilla",url:"",code:"AYV08052027",
+  tags:L3(["5 étoiles","Ouverture sept. 2026","−10 %"],["5 estrellas","Abre en sept. 2026","−10 %"],["5 stars","Opens Sept 2026","−10%"]),
+  desc:L3("Tout neuf, au cœur du centre historique.","A estrenar, en pleno centro histórico.","Brand new, right in the historic centre.")},
+ {name:"Hotel Cavalta Boutique",addr:"Calle San Jacinto 89, Triana, 41010 Sevilla",url:"",
+  tags:L3(["Triana","Boutique"],["Triana","Boutique"],["Triana","Boutique"]),
+  desc:L3("De l'autre côté du Guadalquivir, dans le quartier de Triana.","Al otro lado del Guadalquivir, en el barrio de Triana.","Across the Guadalquivir, in the Triana neighbourhood.")},
+ {name:"Radisson Collection Magdalena Plaza",addr:"Pl. de la Magdalena 1, 41001 Sevilla",url:"",
+  tags:L3(["Centre","Terrasse · piscine"],["Centro","Terraza · piscina"],["Centre","Terrace · pool"]),
+  desc:L3("Très bien situé, grande terrasse et piscine.","Muy bien situado, gran terraza y piscina.","Great location, large terrace and pool.")}
+];
+const VISITS=[
+ {name:"Real Alcázar",url:"https://www.alcazarsevilla.org/",lead:L3("≈ 3 mois avant","≈ 3 meses antes","≈ 3 months ahead"),desc:L3("Palais et jardins classés à l'UNESCO.","Palacio y jardines, Patrimonio de la UNESCO.","UNESCO-listed palace and gardens.")},
+ {name:"Catedral & Giralda",url:"https://www.catedraldesevilla.es/",lead:L3("3 à 6 semaines avant","3 a 6 semanas antes","3–6 weeks ahead"),desc:L3("La cathédrale et sa tour, vue panoramique sur la ville.","La catedral y su torre, con vistas a toda la ciudad.","The cathedral and its tower, with a view over the city.")},
+ {name:"Plaza de Toros de la Maestranza",url:"https://www.realmaestranza.com/",lead:L3("≈ 2 semaines avant","≈ 2 semanas antes","≈ 2 weeks ahead"),desc:L3("Les arènes de la photo du haut, parmi les plus célèbres d'Espagne.","La plaza de la foto de arriba, de las más famosas de España.","The bullring from the top photo, one of Spain's most famous.")},
+ {name:"Plaza de España & Parque de María Luisa",map:"Plaza de España Sevilla",lead:L3("Sans réservation","Sin reserva","No booking"),desc:L3("Balade, barques sur les canaux, azulejos à chaque banc.","Paseo, barcas en los canales y azulejos en cada banco.","A stroll, rowing boats, tiles on every bench.")},
+ {name:"Barrio de Santa Cruz",map:"Barrio de Santa Cruz Sevilla",lead:L3("Sans réservation","Sin reserva","No booking"),desc:L3("Ruelles, patios et restaurants typiques.","Callejuelas, patios y restaurantes típicos.","Narrow lanes, patios and local restaurants.")}
+];
+const FAQ=[
+ [L3("Comment venir à Séville ?","¿Cómo llegar a Sevilla?","How do I get to Seville?"),
+  L3("<p>Les vols de mai 2027 sont ouverts. Il existe des vols directs depuis <b>Nantes, Lille, Paris et Marseille</b> ; <b>Rennes</b> devrait suivre (lundis et vendredis). Les vols directs sont peu nombreux : réservez tôt.</p><p>Sinon : correspondance via un autre aéroport, ou vol jusqu'à Madrid puis train (AVE) jusqu'à Séville.</p>",
+     "<p>Ya se pueden reservar los vuelos de mayo de 2027. Hay vuelos directos desde <b>Nantes, Lille, París y Marsella</b>; <b>Rennes</b> debería sumarse (lunes y viernes). Hay pocos directos: reservad pronto.</p><p>Si no, con escala, o vuelo a Madrid y AVE hasta Sevilla.</p>",
+     "<p>Flights for May 2027 are open. There are direct flights from <b>Nantes, Lille, Paris and Marseille</b>; <b>Rennes</b> should follow (Mondays and Fridays). Direct flights are few, so book early.</p><p>Otherwise, connect through another airport, or fly to Madrid and take the AVE train to Seville.</p>")],
+ [L3("De l'aéroport au centre-ville","Del aeropuerto al centro","From the airport to the city centre"),
+  L3("<p>Un bus relie l'aéroport au centre-ville. En sortant de l'aéroport, l'arrêt est <b>tout à droite</b>. Les billets s'achètent aux bornes sur place : <b>6 € l'aller</b>.</p><p>Si vous dormez à l'<b>hôtel Only You</b>, c'est parfait : le bus s'arrête presque devant (arrêt <b>Kansas City</b>, environ 26 min de trajet).</p>",
+     "<p>Un autobús conecta el aeropuerto con el centro. Al salir del aeropuerto, la parada está <b>a la derecha del todo</b>. Los billetes se compran en las máquinas de la parada: <b>6 € la ida</b>.</p><p>Si os alojáis en el <b>hotel Only You</b>, mejor imposible: el autobús para casi delante (parada <b>Kansas City</b>, unos 26 min de trayecto).</p>",
+     "<p>A bus runs from the airport to the city centre. As you walk out of the airport, the stop is <b>all the way to the right</b>. Buy tickets from the machines there: <b>€6 one way</b>.</p><p>Staying at the <b>Only You hotel</b>? Even better: the bus stops almost outside (<b>Kansas City</b> stop, about 26 min).</p>")],
+ [L3("Quand arriver et repartir ?","¿Cuándo llegar y cuándo irse?","When should I arrive and leave?"),
+  L3("<p>Idéalement, arrivée le <b>jeudi 6 mai</b> pour le cocktail du soir, départ le samedi ou le dimanche.</p>","<p>Lo ideal: llegar el <b>jueves 6 de mayo</b> para el cóctel y volver el sábado o el domingo.</p>","<p>Ideally arrive on <b>Thursday 6 May</b> for the evening drinks, and leave on Saturday or Sunday.</p>")],
+ [L3("Comment aller à l'hacienda ?","¿Cómo llegar a la hacienda?","How do I get to the hacienda?"),
+  L3("<p>Une navette part de l'hôtel Only You. D'autres arrêts pourront être ajoutés selon les hôtels indiqués dans le RSVP. Trois horaires de retour sont prévus ; en dehors, taxis et Uber viennent jusqu'à l'hacienda toute la nuit.</p>","<p>Sale un autobús del hotel Only You. Podremos añadir paradas según los hoteles indicados en el RSVP. Hay tres horarios de vuelta; fuera de ellos, taxis y Uber llegan a la hacienda toda la noche.</p>","<p>A shuttle leaves from the Only You hotel. More stops may be added depending on the hotels given in the RSVP. There are three return times; outside them, taxis and Uber reach the hacienda all night.</p>")],
+ [L3("Quel temps fera-t-il ?","¿Qué tiempo hará?","What will the weather be like?"),
+  L3("<p>Début mai, il fait souvent chaud l'après-midi à Séville, et les soirées sont plus fraîches à la campagne. Prévoyez une petite veste pour la nuit à l'hacienda, et des chaussures confortables pour danser.</p>","<p>A principios de mayo suele hacer calor por la tarde y refresca por la noche en el campo. Traed una chaqueta ligera para la noche en la hacienda y zapatos cómodos para bailar.</p>","<p>Early May afternoons in Seville are often hot, and evenings in the countryside are cooler. Bring a light jacket for the night at the hacienda, and comfortable shoes for dancing.</p>")],
+ [L3("À quelle heure dîne-t-on en Espagne ?","¿A qué hora se cena?","When do people eat in Spain?"),
+  L3("<p>Tard : les restaurants se remplissent rarement avant 21 h. Pensez à réserver le soir, surtout le week-end.</p>","<p>Tarde: los restaurantes se llenan a partir de las 21 h. Reservad para cenar, sobre todo el fin de semana.</p>","<p>Late: restaurants rarely fill up before 9 pm. Book for dinner, especially at the weekend.</p>")]
+];
+const PHRASES=[
+ ["¡Vivan los novios!",L3("Vive les mariés !","","Long live the newlyweds!")],
+ ["¡Enhorabuena!",L3("Félicitations !","","Congratulations!")],
+ ["¡Salud!",L3("Santé ! (pour trinquer)","","Cheers!")],
+ ["Otra copa de cava, por favor",L3("Encore un verre de cava, s'il vous plaît","","Another glass of cava, please")],
+ ["¿Bailamos?",L3("On danse ?","","Shall we dance?")],
+ ["¿Dónde está el autobús?",L3("Où est la navette ?","","Where's the shuttle?")],
+ ["¡Qué calor!",L3("Quelle chaleur !","","It's so hot!")],
+ ["La cuenta, por favor",L3("L'addition, s'il vous plaît","","The bill, please")]
+];
+
+/* ====================== ÉTAT & OUTILS ====================== */
+const $=s=>document.querySelector(s);
+const store={get(k,d){try{const v=localStorage.getItem("av27_"+k);return v==null?d:JSON.parse(v)}catch(e){return d}},set(k,v){try{localStorage.setItem("av27_"+k,JSON.stringify(v))}catch(e){}}};
+let lang=store.get("lang",null)||((navigator.language||"fr").slice(0,2));
+if(!T[lang])lang="fr";
+let simOffset=null; // ms ajoutés à Date.now() en simulation
+const now=()=>simOffset==null?Date.now():Date.now()+simOffset;
+const tr=k=>T[lang][k]??T.fr[k];
+const pick=o=>o?(o[lang]||o.fr):"";
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const madrid=new Intl.DateTimeFormat("fr-FR",{timeZone:"Europe/Madrid",hour:"2-digit",minute:"2-digit",hour12:false});
+const hm=t=>madrid.format(new Date(t));
+/* « 7 mai à 22:30 » dans la langue courante, pour tous les encarts verrouillés */
+const dayLabel=t=>new Intl.DateTimeFormat({fr:"fr-FR",es:"es-ES",en:"en-GB"}[lang]||"fr-FR",{timeZone:"Europe/Madrid",day:"numeric",month:"long"}).format(new Date(t));
+const whenLabel=t=>hm(t)==="00:00"?dayLabel(t):tr("atTime")(dayLabel(t),hm(t));
+const gameWhen=t=>CONFIG.GAME_TIMES?whenLabel(t):tr("weddingNight");
+/* réduit une photo (et la recadre au carré si besoin) avant envoi : légère pour la base temps réel */
+window.shrinkImg=(file,max,q,square)=>new Promise((ok,ko)=>{const u=URL.createObjectURL(file),im=new Image();
+ im.onload=()=>{let w=im.naturalWidth,h=im.naturalHeight,sx=0,sy=0,sw=w,sh=h;
+  if(square){const m=Math.min(w,h);sx=(w-m)/2;sy=(h-m)/2;sw=sh=m;w=h=Math.min(max,m)}else{const k=Math.min(1,max/Math.max(w,h));w=Math.round(w*k);h=Math.round(h*k)}
+  const c=document.createElement("canvas");c.width=w;c.height=h;c.getContext("2d").drawImage(im,sx,sy,sw,sh,0,0,w,h);URL.revokeObjectURL(u);ok(c.toDataURL("image/jpeg",q))};
+ im.onerror=()=>{URL.revokeObjectURL(u);ko(new Error("img"))};im.src=u});
+window.lockBox=(title,desc)=>`<div class="lockbox"><span class="lk" aria-hidden="true">🔒</span><div><b>${title}</b>${desc?`<p>${desc}</p>`:""}</div></div>`;
+function toast(msg){const t=$("#toast");t.textContent=msg;t.classList.add("show");clearTimeout(toast.t);toast.t=setTimeout(()=>t.classList.remove("show"),1800)}
+function gcal(e){const f=d=>new Date(d).toISOString().replace(/[-:]/g,"").replace(/\.\d{3}/,"");
+ return "https://calendar.google.com/calendar/render?action=TEMPLATE&text="+encodeURIComponent(pick(e.title)+" · Agathe & Valentin")+"&dates="+f(e.start)+"/"+f(e.end)+"&location="+encodeURIComponent(e.place+", "+e.addr)+"&details="+encodeURIComponent(pick(e.desc))}
+/* heure de navette « HH:MM » le 7 mai (après minuit = 8 mai) */
+function shuttleTime(s){const [h,m]=s.split(":").map(Number);const day=h<12?8:7;return Date.parse(`2027-05-0${day}T${String(h).padStart(2,"0")}:${String(m).padStart(2,"0")}:00+02:00`)}
+
+/* ====================== RENDU ====================== */
+function applyI18n(){
+ document.documentElement.lang=lang;
+ $("#phrasesBlock").hidden=lang==="es";
+ document.querySelectorAll("[data-i18n]").forEach(el=>{const v=tr(el.dataset.i18n);if(typeof v==="string")el.textContent=v});
+ document.querySelectorAll("[data-i18n-ph]").forEach(el=>{el.placeholder=tr(el.dataset.i18nPh)});
+ document.querySelectorAll(".lang button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.lang===lang));
+ const dl=CONFIG.RSVP_DEADLINE?new Date(CONFIG.RSVP_DEADLINE+"T12:00:00").toLocaleDateString(lang,{day:"numeric",month:"long",year:"numeric"}):null;
+ $("#rsvpDeadline").textContent=dl?tr("deadline")(dl):tr("rsvpEyebrow");
+}
+/* ----- frise : chaque étape a une date ; les mariés se placent entre les étapes selon l'heure ----- */
+function friseStops(){
+ const ev=id=>EVENTS.find(e=>e.id===id)||{};
+ return [
+  {t:"2026-11-01T00:00:00+01:00",now:true,jeu:true,go:"rsvp",b:L3("RSVP & playlist","RSVP y playlist","RSVP & playlist"),s:L3("Répondez, proposez votre chanson","Responded y proponed vuestra canción","Reply and pick your song")},
+  {t:CONFIG.RUN_AT,jeu:true,go:"course",b:L3("La Carrera","La Carrera","The Race"),s:L3("Team Agathe contre Team Valentin","Team Agathe contra Team Valentin","Team Agathe vs Team Valentin")},
+  {t:CONFIG.HUNT_FROM,jeu:true,go:"piste",b:L3("Jeu de piste","Búsqueda del tesoro","Photo hunt"),s:L3("Huit lieux à photographier dans Séville","Ocho lugares que fotografiar en Sevilla","Eight places to snap in Seville")},
+  {t:ev("welcome").start,go:"ev-welcome",hour:true,b:ev("welcome").title,s:L3("Sur un rooftop · la capsule s'ouvre","En una azotea · se abre la cápsula","On a rooftop · the capsule opens")},
+  {t:ev("wedding").start,go:"ev-wedding",hour:true,b:ev("wedding").title,s:L3("Mur photo, grand écran et duels","Muro de fotos, pantalla gigante y duelos","Photo wall, big screen and duels")},
+  {t:ev("farewell").start,go:"ev-farewell",hour:true,b:ev("farewell").title,s:L3("Le cocktail du jeu de piste","El cóctel de la búsqueda","The photo hunt cocktail")},
+  {t:CONFIG.RECAP_AT,go:"accueil",b:L3("Le récap","El resumen","The recap"),s:L3("Le week-end en chiffres et en photos","El fin de semana en cifras y fotos","The weekend in numbers and photos")}
+ ].filter(x=>x.t&&!isNaN(Date.parse(x.t)));
+}
+function renderFrise(){
+ const box=$("#frise");if(!box)return;
+ const S=friseStops(),n=now(),T=S.map(x=>Date.parse(x.t)),W=138;
+ let pos=0;for(let i=0;i<S.length;i++){if(n>=T[i]){pos=i;if(i<S.length-1&&n<T[i+1])pos=i+Math.min(.85,(n-T[i])/(T[i+1]-T[i]))}}
+ const cur=Math.floor(pos);
+ const day=t=>new Date(t).toLocaleDateString(lang,{timeZone:"Europe/Madrid",weekday:"short",day:"numeric",month:"short"}).replace(/\./g,"");
+ const stop=(x,i)=>`<a class="fstop ${x.jeu?"jeu":"fete"} ${i>cur?"todo":""} ${i===cur?"cur":""}" href="#${x.go}"><i class="dot"></i><time>${x.now?esc(tr("friseNow")):esc(day(T[i]))+(x.hour?" · "+hm(T[i]):"")}</time><b>${esc(pick(x.b))}</b><span>${esc(pick(x.s))}</span></a>`;
+ const first=!box.dataset.on;
+ box.innerHTML=`<div class="fhead"><span class="eyebrow">${tr("friseK")}</span><span class="flg"><span><i class="fe"></i>${tr("friseFete")}</span><span><i class="je"></i>${tr("friseJeu")}</span></span></div>
+  <div class="frail"><div class="ftrack"><div class="fdone" style="width:${pos*W}px"></div>
+   <div class="fme" style="left:${W/2+pos*W}px"><img src="img/mini-agathe.svg" alt="Agathe"><img src="img/mini-valentin.svg" alt="Valentin"></div>
+   ${S.map(stop).join("")}</div></div><p class="fhint">${tr("friseHint")}</p>`;
+ box.dataset.on="1";
+ if(first){const r=box.querySelector(".frail");requestAnimationFrame(()=>{r.scrollLeft=Math.max(0,W/2+pos*W-r.clientWidth/2)})}
+}
+function renderDays(){
+ renderFrise();
+ const n=now();
+ const cut=EVENTS.findIndex(e=>e.main)+1||EVENTS.length;
+ const card=e=>{
+  const s=Date.parse(e.start),en=Date.parse(e.end),d=new Date(s);
+  const cls=["day",e.main?"main":"",n>=s&&n<en?"now":"",n>=en?"past":""].join(" ");
+  const steps=e.steps.length?`<ol class="steps">${e.steps.map(([t,l])=>`<li><time>${t||"·"}</time><span>${esc(pick(l))}</span></li>`).join("")}</ol>`:"";
+  const extra=e.main?[CONFIG.DRESS_CODE?`<p class="day-meta"><b>${tr("dress")} :</b> ${esc(pick(CONFIG.DRESS_CODE))}</p>`:"",CONFIG.KIDS?`<p class="day-meta"><b>${tr("kids")} :</b> ${esc(pick(CONFIG.KIDS))}</p>`:""].join(""):"";
+  const img=(CONFIG.PLACE_PHOTOS&&CONFIG.PLACE_PHOTOS[e.id])||ART(`img/lieu-${e.id}.svg`);
+  return `<article class="${cls} ph" id="ev-${e.id}" style="--img:url('${img}')"><div class="day-top">
+   <div class="day-date"><small>${tr("dayWords")[d.getUTCDay()]}</small><b>${e.day}</b><small>${tr("mon")}</small></div>
+   <div class="day-body"><h3>${esc(pick(e.title))}${e.main?`<span class="chip">${tr("main")}</span>`:""}</h3>
+    <div class="day-meta tabnum">${hm(s)} – ${hm(en)} · <b>${esc(e.place)}</b></div>
+    <p class="day-meta">${esc(pick(e.desc))}</p>${extra}${steps}
+    <div class="day-actions"><a class="btn btn-primary btn-sm" href="${gmap(e.place+", "+e.addr)}" target="_blank" rel="noopener">${tr("go")}</a><a class="btn btn-ghost btn-sm" href="${gcal(e)}" target="_blank" rel="noopener">${tr("cal")}</a></div>
+   </div></div></article>`};
+ /* les navettes s'affichent juste sous la soirée à l'hacienda */
+ $("#days").innerHTML=EVENTS.slice(0,cut).map(card).join("");$("#days2").innerHTML=EVENTS.slice(cut).map(card).join("");
+}
+function renderShuttles(){
+ const n=now();
+ const list=(arr,el)=>{if(!arr.length){el.innerHTML=`<li class="muted soon">${tr("soon")}</li>`;return}
+  let nextSet=false;
+  el.innerHTML=arr.map(t=>{const ts=shuttleTime(t);let c="";if(ts<n)c="gone";else if(!nextSet){c="next";nextSet=true}
+   return `<li class="${c} tabnum"><span>${t}</span><span>${c==="next"?"●":""}</span></li>`}).join("")};
+ list(CONFIG.SHUTTLE_GO,$("#shGo"));list(CONFIG.SHUTTLE_BACK,$("#shBack"));
+}
+function renderHotels(){
+ const bf=!!CONFIG.BLACK_FRIDAY_UNTIL&&now()<Date.parse(CONFIG.BLACK_FRIDAY_UNTIL),bn=$("#bfNote");if(bn){bn.hidden=!bf;bn.innerHTML=bf?tr("bfNote"):""}
+ $("#hotels").innerHTML=HOTELS.map((h,i)=>`<div class="card${h.star?" star":""}"><h3>${esc(h.name)}</h3>
+  <div class="row">${bf&&h.bf?`<span class="tag bf">Black Friday</span>`:""}${pick(h.tags).map(t=>`<span class="tag">${esc(t)}</span>`).join("")}</div>
+  <p class="muted" style="margin:10px 0 0;font-size:15px">${esc(pick(h.desc))}</p>
+  <div class="row">${h.code?`<span class="code">${h.code}<button type="button" data-copy="${h.code}">${tr("copy")}</button></span>`:""}
+   <a class="btn btn-ghost btn-sm" href="${gmap(h.name+", "+h.addr)}" target="_blank" rel="noopener">${tr("map")}</a>
+   ${h.url?`<a class="btn btn-ghost btn-sm" href="${h.url}" target="_blank" rel="noopener">${tr("site")}</a>`:""}</div></div>`).join("");
+}
+function renderFaq(){
+ const extra=[];
+ if(CONFIG.PHOTO_ALBUM_URL)extra.push(`<div class="card" style="margin-top:12px"><h3>${tr("album")}</h3><div class="row"><a class="btn btn-gold btn-sm" href="${CONFIG.PHOTO_ALBUM_URL}" target="_blank" rel="noopener">${tr("albumBtn")}</a></div></div>`);
+ if(CONFIG.CONTACT_EMAIL)extra.push(`<div class="card" style="margin-top:12px"><h3>${tr("contact")}</h3><p style="margin:6px 0 0">${esc(CONFIG.CONTACT_EMAIL)}</p></div>`);
+ $("#faq").innerHTML=FAQ.map(([q,a])=>`<details><summary>${esc(pick(q))}</summary><div class="in">${pick(a)}</div></details>`).join("")+extra.join("");
+}
+function renderRestos(){
+ $("#restoList").innerHTML=(CONFIG.RESTOS||[]).map((r,i)=>r.name?`<div class="card resto"><span class="rk">${i+1}</span><div><h3>${esc(r.name)}</h3>
+  ${r.area?`<span class="tag">${esc(r.area)}</span>`:""}<p class="muted" style="margin:10px 0 0;font-size:15px">${esc(pick(r.why))}</p>
+  <p class="hint" style="margin:6px 0 0">${tr("restoBook")}</p>
+  <div class="row"><a class="btn btn-ghost btn-sm" href="${gmap(r.map||r.name)}" target="_blank" rel="noopener">${tr("map")}</a></div></div></div>`
+  :`<div class="card resto soon"><span class="rk">${i+1}</span><div><h3>${tr("restoSoon")}</h3></div></div>`).join("");
+}
+function renderVisits(){
+ $("#visits").innerHTML=VISITS.map(v=>`<div class="card"><h3>${esc(v.name)}</h3><div class="row"><span class="tag">${esc(pick(v.lead))}</span></div>
+  <p class="muted" style="margin:10px 0 0;font-size:15px">${esc(pick(v.desc))}</p>
+  <div class="row">${v.url?`<a class="btn btn-ghost btn-sm" href="${v.url}" target="_blank" rel="noopener">${tr("book")}</a>`:`<a class="btn btn-ghost btn-sm" href="${gmap(v.map)}" target="_blank" rel="noopener">${tr("map")}</a>`}</div></div>`).join("");
+}
+
+/* ----- carte « en direct » ----- */
+function liveState(n){
+ for(let i=0;i<EVENTS.length;i++){const e=EVENTS[i],s=Date.parse(e.start),en=Date.parse(e.end);
+  if(n>=s&&n<en)return{mode:"now",e,next:EVENTS[i+1]};
+  if(n<s)return{mode:i===0?"count":"between",e};}
+ return{mode:"after"};
+}
+function dur(ms){const m=Math.max(0,Math.round(ms/60000)),d=Math.floor(m/1440),h=Math.floor(m%1440/60),mi=m%60;
+ return (d?d+(lang==="en"?"d ":" j "):"")+(h?h+" h ":"")+(d?"":mi+" min")}
+function renderLive(){
+ const n=now(),st=liveState(n),el=$("#live");let html="";
+ const simTag=simOffset!=null?` <span class="muted" style="text-transform:none;letter-spacing:0">(${tr("simOn")} ${new Date(n).toLocaleString(lang,{timeZone:"Europe/Madrid",weekday:"short",day:"numeric",hour:"2-digit",minute:"2-digit"})})</span>`:"";
+ if(st.mode==="count"){
+  const ms=Date.parse(st.e.start)-n,s=Math.floor(ms/1000);
+  const v=[Math.floor(s/86400),Math.floor(s%86400/3600),Math.floor(s%3600/60),s%60];
+  html=`<div class="live-label"><span class="dot"></span>${tr("countLbl")}${simTag}</div>
+   <div class="live-title">${tr("until")}</div>
+   <div class="count tabnum">${v.map((x,i)=>`<div><b>${String(x).padStart(i?2:1,"0")}</b><small>${tr("days")[i]}</small></div>`).join("")}</div>
+   <div class="live-actions"><a class="btn btn-gold" href="#rsvp">RSVP</a><a class="btn btn-ghost" href="#programme">${tr("tProg")}</a></div>`;
+ }else if(st.mode==="now"){
+  const e=st.e;let extra="";
+  if(e.id==="wedding"&&CONFIG.SHUTTLE_BACK.length){const nx=CONFIG.SHUTTLE_BACK.find(t=>shuttleTime(t)>n);if(nx)extra=`<div class="live-next">🚌 <b>${tr("nextShuttle")} :</b> <span class="tabnum">${nx}</span> (${tr("inLbl")} ${dur(shuttleTime(nx)-n)})</div>`}
+  if(st.next)extra+=`<div class="live-next"><b>${tr("nextLbl")} :</b> ${esc(pick(st.next.title))}, ${tr("dayWords")[new Date(st.next.start).getUTCDay()]} ${st.next.day} · ${hm(st.next.start)}</div>`;
+  html=`<div class="live-label on"><span class="dot"></span>${tr("nowLbl")}${simTag}</div>
+   <div class="live-title">${esc(pick(e.title))}</div><div class="muted tabnum">${hm(e.start)} – ${hm(e.end)} · ${esc(e.place)}</div>${extra}
+   <div class="live-actions"><a class="btn btn-primary" href="${gmap(e.place+", "+e.addr)}" target="_blank" rel="noopener">${tr("go")}</a>${e.id==="wedding"?`<a class="btn btn-gold" href="#jeux">${tr("tJeux")}</a>`:""}</div>`;
+ }else if(st.mode==="between"){
+  const e=st.e;
+  html=`<div class="live-label"><span class="dot"></span>${tr("nextLbl")}${simTag}</div>
+   <div class="live-title">${esc(pick(e.title))}</div>
+   <div class="muted tabnum">${tr("dayWords")[new Date(e.start).getUTCDay()]} ${e.day} · ${hm(e.start)} · ${esc(e.place)}</div>
+   <div class="live-next tabnum">${tr("inLbl")} <b>${dur(Date.parse(e.start)-n)}</b></div>
+   <div class="live-actions"><a class="btn btn-primary" href="${gmap(e.place+", "+e.addr)}" target="_blank" rel="noopener">${tr("go")}</a>${e.id==="wedding"?`<a class="btn btn-ghost" href="#navettes">${tr("shuttleTitle")}</a>`:""}</div>`;
+ }else{
+  html=`<div class="live-label"><span class="dot"></span>${tr("afterLbl")}${simTag}</div><div class="live-title">Gracias.</div><p class="muted" style="margin:4px 0 0">${tr("afterText")}</p>`;
+ }
+ el.innerHTML=html;
+}
+
+
+/* ----- lexique ----- */
+function renderPhrases(){
+ $("#phrases").innerHTML=PHRASES.map(([es,t],i)=>`<div class="phrase"><div><b lang="es">${es}</b><span>${esc(pick(t))}</span></div><button class="speak" type="button" data-say="${i}" aria-label="Écouter"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 9v6h4l5 4V5L8 9z"/><path d="M16 9a4 4 0 0 1 0 6M19 6a8 8 0 0 1 0 12"/></svg></button></div>`).join("");
+}
+$("#phrases").addEventListener("click",e=>{const b=e.target.closest("[data-say]");if(!b)return;
+ try{const u=new SpeechSynthesisUtterance(PHRASES[+b.dataset.say][0]);u.lang="es-ES";u.rate=.9;speechSynthesis.cancel();speechSynthesis.speak(u)}catch(err){}});
+
+/* copier un code promo */
+document.addEventListener("click",async e=>{const b=e.target.closest("[data-copy]");if(!b)return;
+ try{await navigator.clipboard.writeText(b.dataset.copy);toast(tr("copied"))}catch(err){toast(b.dataset.copy)}});
+
+/* ====================== RSVP ====================== */
+const HOTEL_OPTS=[...HOTELS.map(h=>h.name),"__other"];
+const blankPerson=()=>({name:"",age:"adult",diet:"none",allergy:""});
+let R=store.get("rsvpDraft",null)||{step:0,household:"",email:"",phone:"",coming:null,people:[blankPerson()],events:["welcome","wedding","farewell"],arrive:"2027-05-06",hotel:HOTELS[0].name,busGo:"yes",busBack:"late",song:"",message:""};
+let submitted=store.get("rsvpDone",null);
+const saveDraft=()=>store.set("rsvpDraft",R);
+const STEPS_YES=5,STEPS_NO=2;
+function progress(){const total=R.coming===false?STEPS_NO:STEPS_YES;return `<div class="progress">${Array.from({length:total},(_,i)=>`<i class="${i<=R.step?"on":""}"></i>`).join("")}</div>`}
+function seg(name,val,opts){return `<div class="choice" role="group">${opts.map(([v,l])=>`<button type="button" data-seg="${name}" data-v="${v}" aria-pressed="${val===v}">${esc(l)}</button>`).join("")}</div>`}
+function renderRsvp(){
+ const box=$("#rsvpBox");
+ if(submitted){box.innerHTML=doneView();return}
+ let h=progress()+`<div class="step">`;
+ const s=R.step, no=R.coming===false;
+ if(s===0){
+  h+=`<div class="already">${tr("already")}</div><h3>${tr("s1")}</h3>
+  <div class="field"><label for="f-house">${tr("fName")}</label><input id="f-house" data-f="household" value="${esc(R.household)}" autocomplete="family-name"><span class="hint">${tr("fNameHint")}</span></div>
+  <div class="field"><label for="f-email">${tr("fEmail")}</label><input id="f-email" type="email" data-f="email" value="${esc(R.email)}" autocomplete="email" inputmode="email"><span class="hint">${tr("fEmailHint")}</span></div>
+  ${window.Profile&&Profile.id?`<p class="hint">👤 ${tr("fPinLogged")(esc(Profile.name||""))}</p>`:`<div class="field"><label for="f-pin">${tr("fPin")}</label><input id="f-pin" class="pinin" data-f="pin" value="${esc(R.pin||"")}" inputmode="numeric" maxlength="4" autocomplete="one-time-code" placeholder="••••"><span class="hint">${tr("fPinHint")}</span></div>`}
+  <div class="field"><label for="f-phone">${tr("fPhone")}</label><input id="f-phone" type="tel" data-f="phone" value="${esc(R.phone)}" autocomplete="tel"></div>
+  <div class="field"><span class="lbl">${tr("comeQ")}</span><div class="big-choice">
+   <button type="button" data-come="yes" aria-pressed="${R.coming===true}"><b>${tr("yes")}</b>${tr("yesSub")}</button>
+   <button type="button" data-come="no" aria-pressed="${R.coming===false}"><b>${tr("no")}</b>${tr("noSub")}</button></div></div>`;
+ }else if(no&&s===1){
+  h+=`<h3>${tr("s5")}</h3><div class="field"><label for="f-msg">${tr("msgNo")}</label><textarea id="f-msg" rows="4" data-f="message">${esc(R.message)}</textarea></div>`;
+ }else if(s===1){
+  h+=`<h3>${tr("s2")}</h3>`+R.people.map((p,i)=>`<div class="person"><div class="person-head"><span>${tr("person")} ${i+1}</span>${R.people.length>1?`<button type="button" class="x" data-rm="${i}">${tr("remove")}</button>`:""}</div>
+   <div class="field" style="margin:0"><label for="p-${i}">${tr("pName")}</label><input id="p-${i}" data-p="${i}" data-k="name" value="${esc(p.name)}" autocomplete="off"></div>
+   ${seg("age:"+i,p.age,[["adult",tr("adult")],["child",tr("child")]])}
+   <div><span class="lbl">${tr("diet")}</span><div style="margin-top:6px">${seg("diet:"+i,p.diet,[["none",tr("dietNone")],["vegetarian",tr("veg")],["vegan",tr("vegan")],["gluten-free",tr("gf")],["allergy",tr("allergy")]])}</div></div>
+   ${p.diet==="allergy"?`<div class="field" style="margin:0"><label for="pa-${i}">${tr("allergyQ")}</label><input id="pa-${i}" data-p="${i}" data-k="allergy" value="${esc(p.allergy)}"></div>`:""}
+  </div>`).join("")+`<button type="button" class="btn btn-ghost btn-sm" id="addP">${tr("addP")}</button>`;
+ }else if(s===2){
+  h+=`<h3>${tr("s3")}</h3>`+EVENTS.map(e=>{const on=R.events.includes(e.id);return `<button type="button" class="evt-toggle" data-evt="${e.id}" aria-pressed="${on}"><span class="box">${on?"✓":""}</span><span><b>${esc(pick(e.title))}</b><small>${tr("dayWords")[new Date(e.start).getUTCDay()]} ${e.day} ${tr("mon")} · ${hm(e.start)} · ${esc(e.place)}</small></span></button>`}).join("");
+ }else if(s===3){
+  h+=`<h3>${tr("s4")}</h3>
+  <div class="field"><span class="lbl">${tr("arrive")}</span>${seg("arrive",R.arrive,[["2027-05-05","5/5"],["2027-05-06","6/5"],["2027-05-07","7/5"],["other","…"]])}</div>
+  <div class="field"><label for="f-hotel">${tr("hotel")}</label><select id="f-hotel" data-f="hotel">${HOTEL_OPTS.map(o=>`<option value="${esc(o)}" ${R.hotel===o?"selected":""}>${o==="__other"?tr("other"):esc(o)}</option>`).join("")}</select></div>
+  ${R.events.includes("wedding")?`<div class="field"><span class="lbl">${tr("busGo")}</span>${seg("busGo",R.busGo,[["yes",tr("yesW")],["no",tr("noW")]])}</div>
+  <div class="field"><span class="lbl">${tr("busBack")}</span>${seg("busBack",R.busBack,[["early",tr("early")],["mid",tr("mid")],["late",tr("late")],["taxi",tr("taxi")]])}</div>`:""}`;
+ }else if(s===4){
+  h+=`<h3>${tr("s5")}</h3>
+  <div class="field"><label for="f-msg">${tr("msg")}</label><textarea id="f-msg" rows="3" data-f="message">${esc(R.message)}</textarea></div>`;
+ }
+ const last=(no&&s===1)||s===4;
+ h+=`<div class="err" id="rErr"></div><div class="nav-row">${s>0?`<button type="button" class="btn btn-ghost" id="rBack">${tr("back")}</button>`:"<span></span>"}
+  <button type="button" class="btn ${last?"btn-gold":"btn-primary"}" id="rNext">${last?tr("send"):tr("next")}</button></div>`;
+ if(!CONFIG.RSVP_ENDPOINT&&last)h+=`<div class="demo-note">${tr("demo")}</div>`;
+ box.innerHTML=h+"</div>";
+}
+function validate(){
+ const s=R.step;
+ if(s===0){if(!R.household.trim())return tr("eName");if(!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(R.email.trim()))return tr("eEmail");if(window.Profile&&!Profile.id&&!/^\d{4}$/.test(String(R.pin||"").trim()))return tr("ePin");if(R.coming==null)return tr("comeQ")}
+ if(R.coming&&s===1&&R.people.some(p=>!p.name.trim()))return tr("ePeople");
+ if(R.coming&&s===2&&!R.events.length)return tr("eEvt");
+ return "";
+}
+function payload(){
+ return {submittedAt:new Date().toISOString(),lang,household:R.household.trim(),email:R.email.trim().toLowerCase(),phone:R.phone.trim(),coming:R.coming,
+  people:R.coming?R.people.map(p=>({name:p.name.trim(),age:p.age,diet:p.diet,allergy:p.diet==="allergy"?p.allergy.trim():""})):[],
+  events:R.coming?R.events:[],arrive:R.coming?R.arrive:"",hotel:R.coming?(R.hotel==="__other"?"Autre":R.hotel):"",
+  busGo:R.coming&&R.events.includes("wedding")?R.busGo:"",busBack:R.coming&&R.events.includes("wedding")?R.busBack:"",song:R.coming?R.song.trim():"",message:R.message.trim()};
+}
+async function submit(btn){
+ const data=payload();btn.disabled=true;btn.textContent=tr("sending");
+ // profil : créé (ou retrouvé) avec l'e-mail et le code du RSVP
+ if(window.Profile&&!Profile.id&&R.pin){try{const p0=(R.people[0]&&R.people[0].name||"").trim(),nm=p0?p0.split(/\s+/)[0]:R.household.trim().slice(0,30);const r=await Profile.attach(R.email,String(R.pin).trim(),nm);
+  if(r==="wrong"){$("#rErr").textContent=tr("ePinWrong");btn.disabled=false;btn.textContent=tr("send");return}}catch(e){}}
+ delete R.pin;saveDraft();
+ try{
+  if(CONFIG.RSVP_ENDPOINT){await fetch(CONFIG.RSVP_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(data)})}
+  else{await new Promise(r=>setTimeout(r,500))}
+  submitted=data;store.set("rsvpDone",data);renderRsvp();if(data.coming){window.Extras?Extras.rsvpYes():confetti()}
+ }catch(err){$("#rErr").textContent=tr("eSend");btn.disabled=false;btn.textContent=tr("send")}
+}
+function doneView(){
+ const d=submitted,evN=d.events.map(id=>pick(EVENTS.find(e=>e.id===id).title)).join(", ");
+ return `<div class="done"><h3>${d.coming?tr("doneYes"):tr("doneNo")}</h3>
+  ${CONFIG.RSVP_ENDPOINT?`<p class="muted">${tr("doneText")} <b>${esc(d.email)}</b></p>`:""}
+  ${d.coming?`<div class="summary"><div><span>${tr("sumPeople")}</span><b>${esc(d.people.map(p=>p.name).join(", "))}</b></div><div><span>${tr("sumEvents")}</span><b>${esc(evN)}</b></div><div><span>${tr("sumHotel")}</span><b>${esc(d.hotel)}</b></div></div>`:""}
+  <button type="button" class="btn btn-ghost" id="rEdit">${tr("edit")}</button>
+  ${CONFIG.RSVP_ENDPOINT?"":`<div class="demo-note">${tr("demo")}</div>`}</div>`;
+}
+const box=$("#rsvpBox");
+box.addEventListener("input",e=>{const t=e.target;
+ if(t.dataset.f){R[t.dataset.f]=t.value;saveDraft()}
+ if(t.dataset.p!=null){R.people[+t.dataset.p][t.dataset.k]=t.value;saveDraft()}});
+box.addEventListener("change",e=>{const t=e.target;if(t.dataset.f){R[t.dataset.f]=t.value;saveDraft()}});
+box.addEventListener("click",e=>{
+ const t=e.target.closest("button");if(!t)return;
+ if(t.dataset.come){R.coming=t.dataset.come==="yes";saveDraft();renderRsvp();return}
+ if(t.dataset.seg){const [k,i]=t.dataset.seg.split(":");if(i!=null)R.people[+i][k]=t.dataset.v;else R[k]=t.dataset.v;saveDraft();renderRsvp();return}
+ if(t.dataset.rm){R.people.splice(+t.dataset.rm,1);saveDraft();renderRsvp();return}
+ if(t.id==="addP"){R.people.push(blankPerson());saveDraft();renderRsvp();const ins=box.querySelectorAll("[data-k=name]");ins[ins.length-1]?.focus();return}
+ if(t.dataset.evt){const id=t.dataset.evt;R.events=R.events.includes(id)?R.events.filter(x=>x!==id):[...R.events,id];saveDraft();renderRsvp();return}
+ if(t.id==="rBack"){R.step--;saveDraft();renderRsvp();return}
+ if(t.id==="rNext"){const err=validate();if(err){$("#rErr").textContent=err;return}
+  if(R.step===0&&window.Profile&&!Profile.id&&!t.dataset.ok){t.disabled=true;Profile.check(R.email,String(R.pin).trim()).then(r=>{t.disabled=false;if(r==="wrong"){$("#rErr").textContent=tr("ePinWrong");return}t.dataset.ok="1";t.click();delete t.dataset.ok}).catch(()=>{t.disabled=false;t.dataset.ok="1";t.click();delete t.dataset.ok});return}
+  const last=(R.coming===false&&R.step===1)||R.step===4;
+  if(last){submit(t);return}
+  R.step++;saveDraft();renderRsvp();box.scrollIntoView({block:"start"});return}
+ if(t.id==="rEdit"){submitted=null;store.set("rsvpDone",null);R.step=0;renderRsvp();return}
+});
+
+/* ====================== CONFETTIS ====================== */
+function confetti(){
+ if(matchMedia("(prefers-reduced-motion: reduce)").matches)return;
+ const c=$("#confetti"),x=c.getContext("2d");c.width=innerWidth;c.height=innerHeight;
+ const cols=["#9b2a22","#e2a13c","#5a1712","#faf6ee"];
+ const P=Array.from({length:140},()=>({x:Math.random()*c.width,y:-20-Math.random()*c.height*.5,r:4+Math.random()*5,c:cols[Math.random()*4|0],vy:2+Math.random()*3,vx:-1.5+Math.random()*3,a:Math.random()*6,va:-.2+Math.random()*.4}));
+ let f=0;(function tick(){x.clearRect(0,0,c.width,c.height);P.forEach(p=>{p.y+=p.vy;p.x+=p.vx;p.a+=p.va;x.save();x.translate(p.x,p.y);x.rotate(p.a);x.fillStyle=p.c;x.fillRect(-p.r,-p.r/2,p.r*2,p.r);x.restore()});
+  if(++f<200)requestAnimationFrame(tick);else x.clearRect(0,0,c.width,c.height)})();
+}
+
+/* ====================== SERVEUR (Google Apps Script) ====================== */
+const did=store.get("did",null)||(()=>{const v=Math.random().toString(36).slice(2,10)+Date.now().toString(36).slice(-4);store.set("did",v);return v})();
+const api={
+ on:()=>!!CONFIG.RSVP_ENDPOINT,
+ async get(params){const r=await fetch(CONFIG.RSVP_ENDPOINT+"?"+new URLSearchParams(params));return r.json()},
+ post(d){return fetch(CONFIG.RSVP_ENDPOINT,{method:"POST",mode:"no-cors",headers:{"Content-Type":"text/plain;charset=utf-8"},body:JSON.stringify(d)})}
+};
+const norm=s=>String(s||"").normalize("NFD").replace(/[̀-ͯ]/g,"").toLowerCase().replace(/\s+/g," ").trim();
+
+/* ====================== PLAN DE TABLE ====================== */
+const DEMO_TABLES=["Triana","Santa Cruz","Macarena","Alameda","Arenal","Giralda","Alcázar","Nervión"].map((n,i)=>({name:n,guests:Array.from({length:8},(_,j)=>`${["Lucía","Paul","Inès","Hugo","Marta","Louis","Clara","Jules"][j]} ${["Martin","García","Bernard","López","Durand","Ruiz","Petit","Moreno"][i]}`)}));
+DEMO_TABLES.unshift({name:{fr:"Table des mariés",es:"Mesa de los novios",en:"Top table"},guests:["Agathe","Valentin"],x:50,y:12});
+function getTables(){return CONFIG.TABLES.length?CONFIG.TABLES:(simOffset!=null?DEMO_TABLES:[])}
+const tname=t=>typeof t.name==="object"?pick(t.name):t.name;
+let tSel=null;
+function planSVG(tables,sel){
+ const W=320,H=220,n=tables.length;
+ const pos=tables.map((t,i)=>{if(t.x!=null&&t.y!=null)return[t.x/100*W,t.y/100*H];
+  const free=tables.filter(u=>u.x==null||u.y==null),k=free.indexOf(t);
+  const ang=Math.PI+ (k+.5)/free.length*Math.PI*2;return[W/2+Math.cos(ang)*120,H/2+28+Math.sin(ang)*72]});
+ return `<svg viewBox="0 0 ${W} ${H+20}" role="img" aria-label="${tr("tblYou")}">
+  <rect x="${W/2-46}" y="${H/2+2}" width="92" height="52" fill="none" stroke="var(--albero)" stroke-dasharray="3 3"/>
+  <text x="${W/2}" y="${H/2+32}" text-anchor="middle" font-size="10" letter-spacing="2" fill="var(--ink-soft)" font-family="Jost,sans-serif">${tr("tblFloor").toUpperCase()}</text>
+  ${tables.map((t,i)=>{const[x,y]=pos[i],on=t===sel;return `<g><circle cx="${x}" cy="${y}" r="${on?17:13}" fill="${on?"var(--azul)":"#fff"}" stroke="${on?"var(--azul)":"var(--line)"}" stroke-width="1.5"/>
+   <text x="${x}" y="${y+4}" text-anchor="middle" font-size="${on?11:9}" font-family="Jost,sans-serif" fill="${on?"#fff":"var(--ink-soft)"}">${i+1}</text></g>`}).join("")}
+ </svg>`;
+}
+function renderTable(){
+ const sec=$("#table"),vis=tablesVisible();sec.hidden=!vis;if(!vis){if(sec.classList.contains("on"))go("accueil");return}
+ const tables=getTables();
+ $("#tblDemo").innerHTML=CONFIG.TABLES.length?"":`<span class="demo-tag">${tr("tblDemo")}</span>`;
+ const q=norm($("#tq").value),m=$("#tMatches");
+ if(q.length<2){m.innerHTML="";}
+ else{const hits=[];tables.forEach(t=>t.guests.forEach(g=>{if(norm(g).includes(q))hits.push([g,t])}));
+  m.innerHTML=hits.length?hits.slice(0,8).map(([g],i)=>`<button type="button" data-hit="${i}">${esc(g)}</button>`).join(""):`<span class="muted">${tr("tblNone")}</span>`;
+  m._hits=hits;
+  if(hits.length===1&&!tSel)tSel={g:hits[0][0],t:hits[0][1]};}
+ const r=$("#tResult");
+ if(!tSel||!tables.includes(tSel.t)){r.innerHTML="";return}
+ const i=tables.indexOf(tSel.t);
+ r.innerHTML=`<div class="tresult"><div><span class="eyebrow">${tr("tblYou")} · ${i+1}</span><div class="tname">${esc(tname(tSel.t))}</div></div>
+  <div><span class="lbl">${tr("tblWith")}</span><div class="neigh" style="margin-top:8px">${tSel.t.guests.map(g=>`<span class="${g===tSel.g?"me":""}">${esc(g)}</span>`).join("")}</div></div>
+  <div class="plan">${planSVG(tables,tSel.t)}</div></div>`;
+}
+$("#tq").addEventListener("input",()=>{tSel=null;store.set("tq",$("#tq").value);renderTable()});
+$("#tMatches").addEventListener("click",e=>{const b=e.target.closest("[data-hit]");if(!b)return;const[g,t]=$("#tMatches")._hits[+b.dataset.hit];tSel={g,t};renderTable()});
+$("#tq").value=store.get("tq","");
+
+/* ====================== CARTE À GRATTER ====================== */
+let card=store.get("card",null),scratched=store.get("scratched",false),scrLockedState=null;
+function localDraw(){return Math.floor(Math.random()*CONFIG.SCRATCH_POOL.length)}
+async function ensureCard(){
+ if(card!=null&&CONFIG.SCRATCH_POOL[card])return;
+ card=localDraw();if(simOffset==null)store.set("card",card);
+}
+/* heure de grattage : enregistrée au premier coup de doigt, avec l'heure secrète tirée au passage si besoin */
+const hms=new Intl.DateTimeFormat("fr-FR",{timeZone:"Europe/Madrid",hour:"2-digit",minute:"2-digit",second:"2-digit",hour12:false});
+let scrData=null,scrMineT=store.get("scrT",null);
+const scrKey=()=>Live.test()?Live.did:Live.dev;   // en test, chaque onglet compte comme un invité
+async function recordScratch(){
+ if(!window.Live)return;
+ const G=CONFIG.SCRATCH_GOLDEN,test=Live.test(),a=test?now():Date.parse(G.from),b=test?now()+300000:Date.parse(G.to);
+ try{
+  await Live.hold();const db=Live.db,cur=await db.get("scratch");
+  if(Live.scratchRevealed(cur,now(),Date.parse(CONFIG.SCRATCH_REVEAL))){scrData=cur;return}
+  await db.tx("scratch/golden",g=>g||Math.round(a+Math.random()*(b-a)));
+  const r=await db.tx("scratch/s/"+scrKey(),x=>x?undefined:{n:store.get("nick","")||"?",t:now()});
+  const t=(r.value&&r.value.t)||now();scrMineT=t;if(simOffset==null)store.set("scrT",t);
+ }catch(e){}finally{Live.release();scratchResult(true)}
+}
+async function scratchResult(fetch){
+ const el=$("#scrRes");if(!el)return;
+ if(fetch&&window.Live){try{await Live.hold();scrData=await Live.db.get("scratch")}catch(e){}finally{Live.release()}}
+ const rev=window.Live&&Live.scratchRevealed(scrData,now(),Date.parse(CONFIG.SCRATCH_REVEAL));
+ let h=scrMineT?`<div class="k">${tr("scrMine")(hms.format(scrMineT))}</div>`:"";
+ if(rev){const r=Live.scratchResult(scrData),me=r.winner&&r.winner.dev===scrKey();
+  h+=`<div class="k">${tr("scrSecret")(hms.format(r.golden))}</div>`+(r.winner?(me?`<p class="won">${tr("scrWon")}</p><div class="codebox">AV-${did.slice(-4).toUpperCase()}</div>`:`<p>${tr("scrWinner")(esc(r.winner.n),hms.format(r.winner.t))}</p>`):`<p>${tr("scrNone")}</p>`)+(!scrMineT&&!me?`<p class="muted">${tr("scrClosed")}</p>`:"");
+  if(me&&!scratchResult.cel){scratchResult.cel=1;confetti()}}
+ else if(scrMineT)h+=`<p class="muted">${tr("scrWait")}</p>`;
+ el.innerHTML=h;el.hidden=!h;el.classList.toggle("win",!!(rev&&scrData&&Live.scratchResult(scrData).winner?.dev===scrKey()));
+}
+function prizeHTML(){
+  const p=CONFIG.SCRATCH_POOL[card];if(!p)return"";
+ if(p.type==="photo")return `<div class="prize photo"><img src="${p.img}" alt=""><div class="cap"><div class="k">${esc(pick(p.title))}</div><div class="t">${esc(pick(p.text))}</div></div></div>`;
+ if(p.type==="win")return `<div class="prize win"><div class="k">${tr("scrKicker")}</div><div class="t">${esc(pick(p.title))}</div><div class="d">${esc(pick(p.text))}</div><div class="codebox">AV-${did.slice(-4).toUpperCase()}</div></div>`;
+ return `<div class="prize"><div class="k">${esc(pick(p.title))}</div><div class="t" style="font-size:24px">${esc(pick(p.text))}</div></div>`;
+}
+async function renderScratch(force){
+ const el=$("#scratch"),locked=now()<Date.parse(CONFIG.SCRATCH_AT)&&!(window.Live&&Live.test());
+ if(!force&&locked===scrLockedState&&el.childElementCount)return;
+ scrLockedState=locked;
+ $("#scratchHint").textContent=tr("scrHint");
+ if(locked){el.innerHTML=`<div class="locked"><div class="t">🔒 ${tr("scrLocked")(gameWhen(CONFIG.SCRATCH_AT))}</div><div class="d">${tr("scrAt")()}</div></div>`;return}
+ await ensureCard();
+ el.innerHTML=prizeHTML()+(scratched?"":`<canvas aria-label="${tr("scrGo")}"></canvas>`);
+ if(!scratched)initScratch(el.querySelector("canvas"));
+}
+function initScratch(c){
+ const dpr=Math.min(2,devicePixelRatio||1),r=c.getBoundingClientRect();if(!r.width){c.dataset.pending="1";return}c.width=r.width*dpr;c.height=r.height*dpr;
+ const x=c.getContext("2d");x.scale(dpr,dpr);const W=r.width,H=r.height;
+ const g=x.createLinearGradient(0,0,W,H);g.addColorStop(0,"#e9b357");g.addColorStop(.5,"#d9952c");g.addColorStop(1,"#e9b357");
+ x.fillStyle=g;x.fillRect(0,0,W,H);
+ for(let i=0;i<900;i++){x.fillStyle=`rgba(${Math.random()<.5?"255,240,210":"140,80,20"},${Math.random()*.25})`;x.fillRect(Math.random()*W,Math.random()*H,1.5,1.5)}
+ x.fillStyle="#9b2a22";x.fillRect(0,H-26,W,16);x.fillStyle="#faf6ee";x.fillRect(0,H-27,W,1);x.fillRect(0,H-10,W,1);
+ x.strokeStyle="rgba(90,23,18,.5)";x.strokeRect(8,8,W-16,H-16);
+ x.fillStyle="#5a1712";x.textAlign="center";x.font="italic 400 34px 'Bodoni Moda', Georgia, serif";x.fillText(tr("scrGo"),W/2,H/2-2);
+ x.font="500 10px Jost, sans-serif";x.fillText("AGATHE & VALENTIN · 7.V.2027",W/2,H/2+22);
+ x.globalCompositeOperation="destination-out";
+ let down=false,last=null,moves=0;
+ const pt=e=>{const b=c.getBoundingClientRect();return[e.clientX-b.left,e.clientY-b.top]};
+ const draw=(a,b)=>{x.lineWidth=44;x.lineCap="round";x.beginPath();x.moveTo(...a);x.lineTo(...b);x.stroke()};
+ const check=()=>{const d=x.getImageData(0,0,c.width,c.height).data;let clear=0;for(let i=3;i<d.length;i+=64)if(d[i]===0)clear++;
+  if(clear/(d.length/64)>.5){scratched=true;if(simOffset==null)store.set("scratched",true);c.style.transition="opacity .5s";c.style.opacity=0;setTimeout(()=>c.remove(),500);
+   }};
+ let asked=false;
+ c.addEventListener("pointerdown",e=>{down=true;last=pt(e);try{c.setPointerCapture(e.pointerId)}catch(err){}draw(last,last);
+  if(!asked){asked=true;recordScratch()}});
+ c.addEventListener("pointermove",e=>{if(!down)return;const p=pt(e);draw(last,p);last=p;if(++moves%12===0)check()});
+ c.addEventListener("pointerup",()=>{down=false;check()});
+}
+
+/* ====================== PLAYLIST (logique dans playlist.js, sur la base temps réel) ====================== */
+let songs=[];
+function knownName(){return (window.Profile&&Profile.name)||store.get("nick","")||store.get("photoName","")||(R&&R.people&&R.people[0]&&R.people[0].name)||(R&&R.household)||""}
+function loadSongs(){if(window.PL)PL.load()}
+function plDot(){if(window.PL)PL.dot()}
+function markSeen(){if(window.PL)PL.markSeen()}
+function renderSongs(){if(window.PL)PL.render()}
+
+/* ====================== SIMULATION JOUR J ====================== */
+const SIMS=[["real",null],["6/5 21:00","2027-05-06T21:00:00+02:00"],["7/5 12:00","2027-05-07T12:00:00+02:00"],["7/5 19:30","2027-05-07T19:30:00+02:00"],["8/5 01:00","2027-05-08T01:00:00+02:00"],["8/5 21:00","2027-05-08T21:00:00+02:00"],["10/5","2027-05-10T12:00:00+02:00"]];
+function renderSim(){const th=document.documentElement.dataset.avstyle;$("#simBtns").innerHTML=`<div class="themesw">${["drape","maestranza"].map(k=>`<button type="button" data-theme-set="${k}" aria-pressed="${th===k}">${k==="drape"?"Style Drapé":"Style Maestranza"}</button>`).join("")}</div>`+SIMS.map(([l,t])=>`<button type="button" data-sim="${t||""}" aria-pressed="${t?simOffset!=null&&Math.abs(Date.now()+simOffset-Date.parse(t))<120000:simOffset==null}">${l==="real"?tr("simReal"):l}</button>`).join("")
+ +(window.Live?`<button type="button" class="livetest" data-livetest aria-pressed="${Live.test()}">${tr("liveTest")}</button>`:"")}
+$("#simBtns").addEventListener("click",e=>{const t=e.target.closest("[data-theme-set]");if(t){store.set("theme",t.dataset.themeSet);location.reload();return}});
+$("#simBtns").addEventListener("click",e=>{const b=e.target.closest("[data-livetest]");if(!b)return;e.stopPropagation();Live.setTest(!Live.test());renderSim();if(window.Carrera)Carrera.refresh();toast(Live.test()?tr("liveTestOn"):tr("liveTestOff"));if(Live.test()){showSub("course");go("jeux");setTimeout(()=>{const n=document.getElementById("tonight");n&&n.scrollIntoView({block:"start"})},80)}});
+$("#simBtns").addEventListener("click",e=>{const b=e.target.closest("[data-sim]");if(!b)return;simOffset=b.dataset.sim?Date.parse(b.dataset.sim)-Date.now():null;tSel=null;if(simOffset!=null){card=null;scratched=false}else{card=store.get("card",null);scratched=store.get("scratched",false)}renderAll();if(window.Hunt)Hunt.refresh();go("accueil")});
+
+/* ====================== NAVIGATION ====================== */
+const ICONS={
+ accueil:'<path d="M3 11l9-7 9 7v9a1 1 0 0 1-1 1h-5v-6H9v6H4a1 1 0 0 1-1-1z"/>',
+ programme:'<rect x="3" y="5" width="18" height="16" rx="2"/><path d="M3 10h18M8 3v4M16 3v4"/>',
+ pratique:'<path d="M12 21s-7-6.2-7-11.5A7 7 0 0 1 19 9.5C19 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/>',
+ jeux:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M9 3v18M15 3v18M3 9h18M3 15h18"/>',
+ playlist:'<path d="M9 18V5l11-2v13"/><circle cx="6" cy="18" r="3"/><circle cx="17" cy="16" r="3"/>',
+ rsvp:'<path d="M4 6h16v12H4z"/><path d="M4 7l8 6 8-6"/>',
+ table:'<circle cx="12" cy="12" r="5"/><circle cx="12" cy="3.5" r="1.5"/><circle cx="12" cy="20.5" r="1.5"/><circle cx="3.5" cy="12" r="1.5"/><circle cx="20.5" cy="12" r="1.5"/>'};
+const TLBL={accueil:"tHome",programme:"tProg",pratique:"tPrac",jeux:"tJeux",playlist:"tPlay",rsvp:null,table:"tTable"};
+function partyMode(){const n=now();return n>=Date.parse("2027-05-07T12:00:00+02:00")&&n<Date.parse("2027-05-08T08:00:00+02:00")}
+function tablesVisible(){return getTables().length>0&&now()>=Date.parse(CONFIG.TABLES_VISIBLE_FROM)}
+let tabs=[],secs=[];
+function renderTabs(){
+ const ids=partyMode()?["accueil",tablesVisible()?"table":"programme","jeux","pratique",tablesVisible()?"programme":"rsvp"]:["accueil","programme","pratique","jeux","rsvp"];
+ $("#tabs").innerHTML=ids.map(id=>`<li><a href="#${id}" data-tab="${id}"${id==="rsvp"?' class="cta"':""}><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">${ICONS[id]}</svg><span>${TLBL[id]?tr(TLBL[id]):"RSVP"}</span></a></li>`).join("");
+ tabs=[...document.querySelectorAll("#tabs a")];secs=tabs.map(a=>document.getElementById(a.dataset.tab));
+}
+function onScroll(){const v=document.querySelector(".view.on");tabs.forEach(a=>a.classList.toggle("active",!!v&&a.dataset.tab===v.id))}
+function go(id){
+ const live=/^(manette|duels)(-test)?$/.exec(id||"");
+ if(live&&window.Live&&window.Soiree){if(live[2])Live.setTest(true);Soiree.pick(live[1]==="manette"?"big":"duel");id="soiree"}
+ const mt=/^mur(-test)?$/.exec(id||"");if(mt){if(mt[1]&&window.Live)Live.setTest(true);if(window.Extras)Extras.refresh();id="mur"}
+ const mk=/^maries-(.+)$/.exec(id||"");if(mk){if(decodeURIComponent(mk[1])===CONFIG.MARIES_KEY&&window.Souvenirs){Souvenirs.admin();id="maries"}else id="accueil"}
+ let el=id&&document.getElementById(id),v=el&&el.closest(".view");
+ if(!v||v.hidden){v=$("#accueil");el=v}
+ document.querySelectorAll(".view").forEach(x=>x.classList.toggle("on",x===v));
+ if(v.id!=="jeux"&&window.Carrera)Carrera.pause();
+ if(window.Soiree){if(v.id==="soiree")Soiree.enter();else Soiree.leave()}
+ onScroll();
+ if(v.id==="jeux")showSub(el.dataset&&el.dataset.subp?el.dataset.subp:curSub);
+ if(el.dataset&&el.dataset.subp)el=v;
+ if(el===v)scrollTo(0,0);else requestAnimationFrame(()=>el.scrollIntoView({block:"start"}));
+}
+addEventListener("hashchange",()=>go(location.hash.slice(1)));
+document.addEventListener("click",e=>{const a=e.target.closest('a[href^="#"]');if(!a)return;const id=a.getAttribute("href").slice(1);e.preventDefault();
+ if(location.hash.slice(1)!==id){try{history.pushState(null,"","#"+id)}catch(err){location.hash=id}}go(id)});
+let curSub=store.get("sub","playlist");
+function showSub(k){if(!document.querySelector(`.sub[data-subp="${k}"]`))k="playlist";curSub=k;store.set("sub",k);
+ document.querySelectorAll("#seg button").forEach(b=>b.setAttribute("aria-pressed",b.dataset.sub===k));
+ document.querySelectorAll(".sub").forEach(d=>d.classList.toggle("on",d.dataset.subp===k));
+ if(window.Carrera){if(k==="course"&&$("#jeux").classList.contains("on"))Carrera.show();else Carrera.pause()}
+ if(k==="playlist"&&$("#jeux").classList.contains("on"))markSeen();
+ if(k==="carte"){const c=$("#scratch canvas");if(c&&c.dataset.pending)renderScratch(true);scratchResult(now()>=Date.parse(CONFIG.SCRATCH_GOLDEN.from))}}
+$("#seg").addEventListener("click",e=>{const b=e.target.closest("[data-sub]");if(b)showSub(b.dataset.sub)});
+document.querySelectorAll(".lang button").forEach(b=>b.addEventListener("click",()=>{lang=b.dataset.lang;store.set("lang",lang);renderAll();if(window.Carrera)Carrera.refresh();if(window.Hunt)Hunt.refresh()}));
+
+/* chaque carte reçoit un dessin lié à son contenu (repéré par son titre), sinon un dessin d'ambiance */
+const ACC_RULES=[[/alc[aá]zar/i,"paon+papillons"],[/maestranza|toros/i,"torero+taureau"],[/catedral|giralda/i,"caleche"],[/plaza de espa/i,"barque+pigeons"],
+ [/santa cruz/i,"guitariste+chat"],[/only you/i,"maries"],[/cavalta/i,"cheval"],[/magdalena/i,"naranjo+pigeons"],[/serras/i,"valises+oiseaux"],
+ [/barca|calder/i,"barque+oiseaux"],[/triana/i,"flamenca"],[/tapas|bodega|taberna/i,"guitare"]];
+const ACC_FALLBACK={hotels:["valises","chien","cigogne+papillons"],visits:["cigogne","vespa+papillons","chien"],restoList:["guitariste","chat+papillons","naranjo"],faq:["maries+papillons"],phrases:["flamenca+papillons"]};
+const ACC_DX={taureau:"-40px",caleche:"50px",torero:"-24px",oiseaux:"-60px",chat:"0px",flamenca:"-20px",naranjo:"0px",guitare:"16px",cigogne:"0px",vespa:"70px",chien:"-30px",cheval:"40px",guitariste:"0px",maries:"20px",paon:"0px",barque:"-50px",valises:"20px"};
+function accFor(id,el,i){if(id!=="faq"&&id!=="phrases"){const h=el.querySelector("h3"),n=h?h.textContent:"";for(const[re,a]of ACC_RULES)if(re.test(n))return a}
+ const f=ACC_FALLBACK[id];return f[i%f.length]}
+let accIO=null;
+function decorate(){
+  if(!("IntersectionObserver" in window)){accIO=null}else if(!accIO){accIO=new IntersectionObserver(es=>es.forEach(e=>{e.target.classList.toggle("vu",e.isIntersecting)}),{threshold:.55})}
+  for(const id in ACC_FALLBACK){const box=document.getElementById(id);if(!box)continue;
+    const items=(id==="faq"||id==="phrases")?[box]:[...box.children].filter(c=>!c.classList.contains("soon"));
+    items.forEach((el,i)=>{const a=accFor(id,el,i);el.classList.add("acc");el.dataset.acc=a;el.style.setProperty("--acc",a.split("+").map(n=>`url(img/drape/acc/${n}.svg)`).join(","));el.style.setProperty("--dx",ACC_DX[a.split("+")[0]]||"24px");
+      if(accIO)accIO.observe(el);else el.classList.add("vu")})}
+}
+function renderAll(){applyI18n();renderTabs();renderLive();renderTable();renderDays();renderShuttles();renderHotels();renderFaq();renderRestos();renderVisits();renderScratch(true);renderPhrases();decorate();if(window.Extras)Extras.refresh();if(window.Souvenirs)Souvenirs.refresh();renderSongs();renderRsvp();renderSim();onScroll();showSub(curSub)}
+renderAll();go(location.hash.slice(1)||"accueil");loadSongs();plDot();
+setInterval(()=>{renderLive();renderShuttles()},1000);
+setInterval(()=>{renderDays();renderScratch(false);if(now()>=Date.parse(CONFIG.SCRATCH_GOLDEN.from)&&!document.hidden&&curSub==="carte"&&$("#jeux").classList.contains("on"))scratchResult(true);const pm=partyMode();if(pm!==renderAll._pm){renderAll._pm=pm;renderTabs();renderTable();onScroll()}},30000);
+
+</script>
+<script src="soiree-config.js"></script>
+<script src="live.js"></script>
+<script src="profile.js"></script>
+<script src="playlist.js"></script>
+<script src="game.js"></script>
+<script src="hunt.js"></script>
+<script src="soiree.js"></script>
+<script src="extras.js"></script>
+<script src="souvenirs.js"></script>
+<script>
+/* illustrations des bandeaux statiques selon le thème */
+document.querySelectorAll('[style*="img/jeu-"]').forEach(el=>el.setAttribute("style",el.getAttribute("style").replace(/url\((img\/[^)]+\.svg)\)/g,(m,p)=>`url(${ART(p)})`)));
+</script>
+<script>renderSim()</script>
+</body>
+</html>

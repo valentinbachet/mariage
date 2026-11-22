@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200"><g transform="translate(456,96)" fill="#6b4a2b">
+<path d="M20 48c4-12 20-16 44-14 12 2 24-2 30-12l-4-14 8 8 6-6c4 8 10 20 8 28l-10-4c-4 8-10 14-16 18l2 46h-6l-4-40c-14 2-30 2-42-2l-4 42h-6l-2-46c-6-2-6-6-4-10z"/>
+<path d="M30 60l-4 40h6l4-36zM84 62l6 38h6l-6-40z"/>
+<path d="M96 10c-6 6-10 14-12 24l-4-2c2-10 8-20 14-24z" fill="#2b2a28"/>
+<path d="M20 50c-10 4-14 16-12 30" fill="none" stroke="#2b2a28" stroke-width="5" stroke-linecap="round"><animate attributeName="d" values="M20 50c-10 4-14 16-12 30;M20 50c-12 2-18 12-18 28;M20 50c-10 4-14 16-12 30" dur="3s" repeatCount="indefinite"/></path>
+</g></svg>

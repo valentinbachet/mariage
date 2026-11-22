@@ -1,0 +1,16 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200" preserveAspectRatio="xMidYMid slice">
+<rect width="600" height="200" fill="#f4efe6"/>
+<g transform="translate(450 190)">
+<path d="M0 0L-118-92A150 150 0 0 1 118-92z" fill="#fbf8f2" stroke="#2b2a28" stroke-width="1.2"/>
+<g stroke="#c29a6b" stroke-width="2.4"><path d="M0 0L-118-92M0 0L-92-114M0 0L-62-130M0 0L-31-138M0 0L0-140M0 0L31-138M0 0L62-130M0 0L92-114M0 0L118-92"/></g>
+<path d="M-118-92q8 12 18 4q6 12 18 2q4 12 18 0q2 12 16-2q0 12 14-4q-2 12 14-4q-4 12 14-2q-6 10 16 2q-8 10 18 4" fill="none" stroke="#2b2a28" stroke-width="1.1"/>
+<g fill="#6b7a4b" opacity=".85"><circle cx="-40" cy="-90" r="6"/><circle cx="-24" cy="-98" r="4"/><circle cx="40" cy="-90" r="6"/><circle cx="24" cy="-98" r="4"/><circle cx="0" cy="-104" r="7"/></g>
+<g fill="#b39663"><circle cx="0" cy="-104" r="2.5"/><circle cx="-40" cy="-90" r="2"/><circle cx="40" cy="-90" r="2"/></g>
+<circle r="7" fill="#b39663"/>
+</g>
+<g font-family="Georgia,serif" font-style="italic" font-size="20" fill="#2b2a28">
+<rect x="40" y="40" width="120" height="44" rx="22" fill="#fbf8f2" stroke="#2b2a28" stroke-width="1"/><path d="M70 84l-4 14 16-14z" fill="#fbf8f2" stroke="#2b2a28" stroke-width="1"/><text x="100" y="68" text-anchor="middle">¡Hola!</text>
+<rect x="180" y="96" width="130" height="44" rx="22" fill="#dfe3cc" stroke="#2b2a28" stroke-width="1"/><path d="M280 140l6 14-20-14z" fill="#dfe3cc" stroke="#2b2a28" stroke-width="1"/><text x="245" y="124" text-anchor="middle">Gracias</text>
+<rect x="160" y="22" width="110" height="40" rx="20" fill="#fbf8f2" stroke="#2b2a28" stroke-width="1"/><text x="215" y="48" text-anchor="middle">¡Olé!</text>
+</g>
+</svg>

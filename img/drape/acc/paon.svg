@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200"><g transform="translate(470,96)">
+<g><animateTransform attributeName="transform" type="rotate" values="0 50 90;-3 50 90;2 50 90;0 50 90" dur="5s" repeatCount="indefinite"/>
+<path d="M50 90C10 86 0 50 10 24 24 2 76 2 90 24c10 26 0 62-40 66z" fill="#6b7a4b"/>
+<path d="M50 90C22 84 16 56 22 36 32 18 68 18 78 36c6 20 0 48-28 54z" fill="#5e6b42"/>
+<g fill="#b39663"><circle cx="18" cy="40" r="5"/><circle cx="30" cy="18" r="5"/><circle cx="50" cy="12" r="5"/><circle cx="70" cy="18" r="5"/><circle cx="82" cy="40" r="5"/><circle cx="32" cy="44" r="4"/><circle cx="50" cy="32" r="4"/><circle cx="68" cy="44" r="4"/></g>
+<g fill="#2b2a28"><circle cx="18" cy="40" r="2"/><circle cx="30" cy="18" r="2"/><circle cx="50" cy="12" r="2"/><circle cx="70" cy="18" r="2"/><circle cx="82" cy="40" r="2"/><circle cx="32" cy="44" r="1.6"/><circle cx="50" cy="32" r="1.6"/><circle cx="68" cy="44" r="1.6"/></g></g>
+<path d="M44 92c0-16 2-26 6-30 4 4 6 14 6 30z" fill="#3f5a6b"/>
+<path d="M50 62c-2-8 0-16 4-18" fill="none" stroke="#3f5a6b" stroke-width="5" stroke-linecap="round"/>
+<circle cx="55" cy="44" r="4" fill="#3f5a6b"/><path d="M58 44l5 1-5 2z" fill="#b39663"/><path d="M54 40l-2-6M56 40l1-6M58 41l3-5" stroke="#3f5a6b" stroke-width="1"/>
+<path d="M46 92v10M54 92v10" stroke="#b39663" stroke-width="2"/>
+</g></svg>

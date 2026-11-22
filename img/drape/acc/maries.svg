@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200"><g transform="translate(476,92)">
+<path d="M30 22c-6 10-10 40-24 82h52c-10-40-14-70-20-82z" fill="#fbf8f2" stroke="#b39663" stroke-width="1.2"/>
+<path d="M22 14c8-2 14 2 16 8l20 82H40z" fill="#fbf8f2" opacity=".7"/>
+<circle cx="32" cy="14" r="7" fill="#c29a6b"/><path d="M25 12c2-8 14-8 16 0-4-2-12-2-16 0z" fill="#8a6a45"/>
+<g transform="translate(16,52)"><circle r="5" fill="#fbf8f2" stroke="#6b7a4b" stroke-width="1.2"/><path d="M0 4v12" stroke="#6b7a4b" stroke-width="1.5"/></g>
+<circle cx="74" cy="12" r="7" fill="#c29a6b"/><path d="M67 9c2-6 12-6 14 0z" fill="#2b2a28"/>
+<path d="M64 24h20l2 40H62z" fill="#2b2a28"/><path d="M71 24h6l-3 14z" fill="#fbf8f2"/>
+<path d="M64 64h22l-2 40h-6l-3-30-3 30h-6z" fill="#2b2a28"/><path d="M64 28l-16 22" stroke="#2b2a28" stroke-width="5" stroke-linecap="round"/>
+<path d="M50 -2c-3-4-8-1-5 3l5 5 5-5c3-4-2-7-5-3z" fill="#c4553e" opacity="0"><animate attributeName="opacity" values="0;1;0" dur="3s" repeatCount="indefinite"/><animateTransform attributeName="transform" type="translate" values="0 6;0 -10" dur="3s" repeatCount="indefinite"/></path>
+</g></svg>

@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid slice">
+<rect width="600" height="300" fill="#2a1d18"/>
+<path d="M300 300 L360 40 H580 L640 300z" fill="#e2a13c" opacity=".08"/>
+<rect x="330" y="30" width="250" height="150" fill="#f7d9a8"/>
+<rect x="330" y="30" width="250" height="150" fill="none" stroke="#e2a13c" stroke-width="4"/>
+<rect x="395" y="30" width="120" height="150" fill="#e8b765"/>
+<g stroke="#faf6ee" stroke-width="3" stroke-dasharray="10 8"><path d="M435 30v150M475 30v150"/></g>
+<g fill="#5a1712"><ellipse cx="455" cy="128" rx="13" ry="16"/><rect x="446" y="142" width="18" height="24"/></g>
+<rect x="420" y="70" width="22" height="16" fill="#2a1d18"/><rect x="470" y="96" width="10" height="16" fill="#2a1d18"/>
+<g fill="#5a1712"><circle cx="330" cy="250" r="22"/><circle cx="380" cy="244" r="24"/><circle cx="432" cy="252" r="22"/><circle cx="484" cy="246" r="25"/><circle cx="536" cy="252" r="22"/><circle cx="584" cy="246" r="24"/>
+<rect x="306" y="262" width="300" height="40"/></g>
+<g fill="#9b2a22"><rect x="360" y="196" width="16" height="28" rx="3" transform="rotate(-14 368 210)"/><rect x="470" y="190" width="16" height="28" rx="3" transform="rotate(10 478 204)"/><rect x="560" y="198" width="16" height="28" rx="3" transform="rotate(-6 568 212)"/></g>
+<g fill="#e2a13c"><rect x="363" y="200" width="10" height="16" rx="1" transform="rotate(-14 368 210)"/><rect x="473" y="194" width="10" height="16" rx="1" transform="rotate(10 478 204)"/><rect x="563" y="202" width="10" height="16" rx="1" transform="rotate(-6 568 212)"/></g>
+</svg>

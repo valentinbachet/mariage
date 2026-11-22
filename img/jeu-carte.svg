@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid slice">
+<defs><linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#e9b357"/><stop offset=".5" stop-color="#d9952c"/><stop offset="1" stop-color="#e9b357"/></linearGradient></defs>
+<rect width="600" height="300" fill="#9b2a22"/>
+<g transform="translate(420 60) rotate(-10)"><rect width="170" height="110" fill="#faf6ee"/><rect x="8" y="8" width="154" height="94" fill="none" stroke="#e2a13c"/><text x="85" y="62" font-family="Georgia,serif" font-style="italic" font-size="26" fill="#5a1712" text-anchor="middle">¡Olé!</text></g>
+<g transform="translate(330 120) rotate(6)"><rect width="190" height="124" fill="url(#g)"/><rect x="8" y="8" width="174" height="108" fill="none" stroke="#5a1712" stroke-opacity=".5"/>
+<path d="M30 70 q30-30 60 0 t60 0" fill="none" stroke="#faf6ee" stroke-width="18" stroke-linecap="round"/><path d="M40 90 q30-20 60 0" fill="none" stroke="#faf6ee" stroke-width="14" stroke-linecap="round"/>
+<rect y="98" width="190" height="10" fill="#9b2a22"/></g>
+<g fill="#faf6ee" opacity=".85"><path d="M300 60l4 10 10 4-10 4-4 10-4-10-10-4 10-4z"/><path d="M560 240l3 7 7 3-7 3-3 7-3-7-7-3 7-3z"/><path d="M380 30l2 5 5 2-5 2-2 5-2-5-5-2 5-2z"/></g>
+<g transform="translate(470 250) rotate(20)" fill="#e2a13c"><rect x="-4" y="-30" width="8" height="40" rx="3"/><circle cy="-34" r="7"/></g>
+</svg>

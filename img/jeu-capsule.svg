@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid slice">
+<rect width="600" height="300" fill="#ece5db"/>
+<g transform="translate(380,80) rotate(-6)"><rect width="190" height="124" fill="#fbf8f2" stroke="#b39663" stroke-width="2"/><path d="M0 0l95 70L190 0" fill="none" stroke="#b39663" stroke-width="2"/>
+<circle cx="95" cy="72" r="20" fill="#c4553e"/><circle cx="95" cy="72" r="13" fill="none" stroke="#a8553f" stroke-width="2"/><text x="95" y="77" text-anchor="middle" font-family="Georgia,serif" font-size="14" fill="#fbf8f2">A&amp;V</text></g>
+<g transform="translate(340,210)"><rect width="74" height="64" rx="6" fill="#fbf8f2" stroke="#b39663" stroke-width="2"/><rect width="74" height="18" rx="6" fill="#6b7a4b"/><text x="37" y="50" text-anchor="middle" font-family="Georgia,serif" font-size="24" fill="#2b2a28">7</text><text x="37" y="13" text-anchor="middle" font-family="Georgia,serif" font-size="10" fill="#fbf8f2">MAI 2028</text></g>
+<path d="M330 50l6 12 13 2-9 9 2 13-12-6-12 6 2-13-9-9 13-2z" fill="#f3d27a"/>
+</svg>

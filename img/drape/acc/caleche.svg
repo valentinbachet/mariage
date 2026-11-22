@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 200"><g transform="translate(12,104)">
+<g fill="#2b2a28">
+<path d="M20 34c4-10 14-14 22-12l10-10 4 2-4 12c10 2 30 2 40 0 8-2 12 4 12 12v8c0 6-4 8-8 8l2 30h-5l-4-26c-10 2-24 2-34 0l-4 26h-5l1-28c-6-2-10-8-10-14l-10-4-8 6-4-4z"/>
+<rect x="34" y="56" width="4" height="34"/><rect x="88" y="56" width="4" height="34"/>
+<path d="M108 30c6 2 8 10 6 20l-3-1c1-7 0-14-4-16z"/></g>
+<path d="M104 52h22" stroke="#2b2a28" stroke-width="2"/>
+<path d="M124 22h52c4 0 6 4 6 8v28h-62V30c0-4 2-8 4-8z" fill="#6b7a4b"/>
+<path d="M122 22c10-14 46-14 58 0z" fill="#5e6b42"/>
+<rect x="132" y="30" width="14" height="14" fill="#fbf8f2" opacity=".8"/>
+<circle cx="139" cy="10" r="5" fill="#c29a6b"/><path d="M132 8h14l-3-6h-8z" fill="#2b2a28"/><path d="M134 14h10v8h-10z" fill="#2b2a28"/>
+<g fill="none" stroke="#b39663" stroke-width="2.5"><circle cx="134" cy="76" r="16"/><circle cx="174" cy="80" r="12"/>
+<path d="M134 60v32M118 76h32M123 65l22 22M145 65l-22 22M174 68v24M162 80h24"/></g>
+</g></svg>

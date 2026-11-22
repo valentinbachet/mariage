@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 600 300" preserveAspectRatio="xMidYMid slice">
+<rect width="600" height="300" fill="#f4efe6"/>
+<circle cx="500" cy="70" r="36" fill="#b39663" opacity=".55"/>
+<g fill="#fbf8f2"><rect x="250" y="90" width="90" height="150"/><rect x="345" y="70" width="80" height="170"/><rect x="430" y="110" width="80" height="130"/><rect x="515" y="80" width="85" height="160"/></g>
+<g fill="#b39663"><rect x="250" y="88" width="90" height="5"/><rect x="345" y="68" width="80" height="5"/><rect x="430" y="108" width="80" height="5"/><rect x="515" y="78" width="85" height="5"/></g>
+<g fill="#6b7a4b"><rect x="268" y="110" width="16" height="24"/><rect x="306" y="110" width="16" height="24"/><rect x="362" y="92" width="16" height="24"/><rect x="392" y="92" width="16" height="24"/><rect x="450" y="130" width="16" height="24"/><rect x="532" y="100" width="16" height="24"/><rect x="566" y="100" width="16" height="24"/><rect x="362" y="150" width="16" height="24"/><rect x="268" y="160" width="16" height="24"/></g>
+<g fill="#e9e2d0"><circle cx="276" cy="134" r="4"/><circle cx="370" cy="116" r="4"/><circle cx="540" cy="124" r="4"/></g>
+<g><rect x="472" y="180" width="5" height="60" fill="#a8825a"/><circle cx="474" cy="172" r="20" fill="#6b7a4b"/><g fill="#f3efe4"><circle cx="466" cy="168" r="3"/><circle cx="480" cy="176" r="3"/><circle cx="474" cy="162" r="3"/></g></g>
+<rect y="240" width="600" height="6" fill="#c29a6b"/><rect y="246" width="600" height="54" fill="#ece5db"/>
+<g fill="#ddd3c4"><rect x="270" y="262" width="30" height="3"/><rect x="380" y="276" width="24" height="3"/><rect x="500" y="264" width="30" height="3"/></g>
+<g fill="#5e6b42"><circle cx="420" cy="196" r="10"/><path d="M412 208h16l6 24h-6l-4-14-4 18-8 12h-7l9-16 2-12-8 8-6-4z"/></g>
+<g fill="#2b2a28"><path d="M330 240v-56h6v56z"/><path d="M336 184h40v24h-40z" fill="#fbf8f2"/><g fill="#2b2a28"><rect x="336" y="184" width="10" height="8"/><rect x="356" y="184" width="10" height="8"/><rect x="346" y="192" width="10" height="8"/><rect x="366" y="192" width="10" height="8"/><rect x="336" y="200" width="10" height="8"/><rect x="356" y="200" width="10" height="8"/></g></g>
+</svg>
