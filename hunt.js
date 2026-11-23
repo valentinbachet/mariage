@@ -27,17 +27,17 @@ const T={
  fr:{intro:n=>`Huit lieux emblématiques, huit photos-défis. Vos photos sont envoyées aux mariés, et avec ${n} lieux validés vous gagnez le cocktail spécial du samedi soir.`,
   locked:"En attendant, repérez les lieux.",openT:w=>`Le jeu de piste ouvre le ${w}`,who:"Vos prénoms, pour l'album",whoPh:"Ex. Julie & Thomas",shoot:"Prendre la photo",redo:"Changer",sending:"Envoi…",sent:"Dans l'album",saved:"Photo enregistrée",fail:"L'envoi a échoué. Réessayez avec un peu de réseau.",
   left:n=>`Plus que ${n} lieu${n>1?"x":""} pour gagner le cocktail des mariés.`,count:(a,b)=>`${a}/${b} lieux`,
-  winK:"Gagné",winT:"Votre cocktail vous attend",winD:"Samedi 8 mai, à l'apéritif du Mercado del Barranco : montrez cet écran au bar pour recevoir le cocktail spécial des mariés.",
+  winK:"Gagné",winT:"Votre cocktail vous attend",winD:"Samedi 8 mai, à l'apéritif au Faena River Club : montrez cet écran au bar pour recevoir le cocktail spécial des mariés.",
   hold:"Réservé au bar : maintenir pour valider",served:"Cocktail servi. ¡Salud!",needName:"Indiquez vos prénoms avant la photo.",teaser:"Jeu de piste",teaserD:(a,b)=>`${a}/${b} photos · un cocktail à gagner`,visado:"VISADO"},
  es:{intro:n=>`Ocho lugares emblemáticos, ocho fotos-reto. Vuestras fotos les llegan a los novios, y con ${n} lugares conseguidos ganáis el cóctel especial del sábado por la noche.`,
   locked:"Mientras tanto, localizad los lugares.",openT:w=>`La gincana abre el ${w}`,who:"Vuestros nombres, para el álbum",whoPh:"Ej. Lucía y Pablo",shoot:"Hacer la foto",redo:"Cambiar",sending:"Enviando…",sent:"En el álbum",saved:"Foto guardada",fail:"No se ha podido enviar. Inténtalo con algo de cobertura.",
   left:n=>`Te falta${n>1?"n":""} ${n} lugar${n>1?"es":""} para ganar el cóctel de los novios.`,count:(a,b)=>`${a}/${b} lugares`,
-  winK:"Premio",winT:"Tu cóctel te espera",winD:"Sábado 8 de mayo, en el aperitivo del Mercado del Barranco: enseña esta pantalla en la barra para recibir el cóctel especial de los novios.",
+  winK:"Premio",winT:"Tu cóctel te espera",winD:"Sábado 8 de mayo, en el aperitivo del Faena River Club: enseña esta pantalla en la barra para recibir el cóctel especial de los novios.",
   hold:"Solo para la barra: mantener pulsado para validar",served:"Cóctel servido. ¡Salud!",needName:"Escribe vuestros nombres antes de la foto.",teaser:"Gincana",teaserD:(a,b)=>`${a}/${b} fotos · un cóctel de premio`,visado:"VISADO"},
  en:{intro:n=>`Eight landmarks, eight photo dares. Your photos go straight to the newlyweds, and with ${n} places done you win the special cocktail on Saturday night.`,
   locked:"Until then, scout the places.",openT:w=>`The photo trail opens on ${w}`,who:"Your names, for the album",whoPh:"E.g. Julia & Tom",shoot:"Take the photo",redo:"Change",sending:"Sending…",sent:"In the album",saved:"Photo saved",fail:"Upload failed. Try again with some signal.",
   left:n=>`${n} more place${n>1?"s":""} to win the newlyweds' cocktail.`,count:(a,b)=>`${a}/${b} places`,
-  winK:"You won",winT:"Your cocktail is waiting",winD:"Saturday 8 May, at the Mercado del Barranco aperitif: show this screen at the bar to get the newlyweds' special cocktail.",
+  winK:"You won",winT:"Your cocktail is waiting",winD:"Saturday 8 May, at the Faena River Club aperitif: show this screen at the bar to get the newlyweds' special cocktail.",
   hold:"Bar staff only: press and hold to validate",served:"Cocktail served. ¡Salud!",needName:"Enter your names before the photo.",teaser:"Photo trail",teaserD:(a,b)=>`${a}/${b} photos · win a cocktail`,visado:"VISADO"}
 };
 const t=k=>(T[lang]||T.fr)[k];
