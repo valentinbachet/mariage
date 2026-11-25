@@ -10,7 +10,7 @@ const S={
   souvK:"Pour les mariés",voiceT:"Le livre d'or vocal",voiceD:"Laissez-nous un message de 30 secondes : on les écoutera tous après le mariage.",
   rec:"Enregistrer",stop:"Stop",again:"Recommencer",sendV:"Envoyer mon message",sentV:"Merci ! Votre message est bien arrivé 💛",micNo:"Micro indisponible : autorisez-le dans les réglages du navigateur",
   capT:"La capsule « dans un an »",capD:"Écrivez-nous un mot ou une prédiction (« Dans un an, vous aurez… »). C'est scellé : on l'ouvrira le 7 mai 2028.",
-  capPh:"Dans un an, vous…",seal:"Sceller mon message 🔒",sealed:"Scellé jusqu'au 7 mai 2028 ✉️",capN:n=>`${n} message${n>1?"s":""} déjà scellé${n>1?"s":""}`,
+  capPh:"Dans un an, vous…",seal:"Sceller mon message",sealed:"Scellé jusqu'au 7 mai 2028",capN:n=>`${n} message${n>1?"s":""} déjà scellé${n>1?"s":""}`,
   nameQ:"Votre prénom",nameNeed:"Ajoutez votre prénom",lockT:t=>`S'ouvre le ${t}`,lockD:"Pendant le week-end du mariage.",
   recK:"Le week-end en chiffres",recT:"Merci pour ces trois jours",photos:"photos partagées",voices:"messages vocaux",runs:"points à la Carrera",
   winTeam:t=>`Team ${t} remporte la Carrera`,champ:n=>`${n} remporte le tournoi des duels`,scratchW:n=>`${n} a gratté la carte gagnante`,
@@ -23,7 +23,7 @@ const S={
   souvK:"Para los novios",voiceT:"El libro de firmas de voz",voiceD:"Dejadnos un mensaje de 30 segundos: los escucharemos todos después de la boda.",
   rec:"Grabar",stop:"Parar",again:"Repetir",sendV:"Enviar mi mensaje",sentV:"¡Gracias! Tu mensaje ha llegado 💛",micNo:"Micrófono no disponible: actívalo en los ajustes del navegador",
   capT:"La cápsula «dentro de un año»",capD:"Escribidnos unas palabras o una predicción («Dentro de un año tendréis…»). Queda sellada: la abriremos el 7 de mayo de 2028.",
-  capPh:"Dentro de un año, vosotros…",seal:"Sellar mi mensaje 🔒",sealed:"Sellado hasta el 7 de mayo de 2028 ✉️",capN:n=>`${n} mensaje${n>1?"s":""} ya sellado${n>1?"s":""}`,
+  capPh:"Dentro de un año, vosotros…",seal:"Sellar mi mensaje",sealed:"Sellado hasta el 7 de mayo de 2028",capN:n=>`${n} mensaje${n>1?"s":""} ya sellado${n>1?"s":""}`,
   nameQ:"Tu nombre",nameNeed:"Añade tu nombre",lockT:t=>`Se abre el ${t}`,lockD:"Durante el fin de semana de la boda.",
   recK:"El fin de semana en cifras",recT:"Gracias por estos tres días",photos:"fotos compartidas",voices:"mensajes de voz",runs:"puntos en la Carrera",
   winTeam:t=>`El Team ${t} gana la Carrera`,champ:n=>`${n} gana el torneo de duelos`,scratchW:n=>`${n} rascó la carta ganadora`,
@@ -36,7 +36,7 @@ const S={
   souvK:"For the newlyweds",voiceT:"The voice guestbook",voiceD:"Leave us a 30-second message: we'll listen to them all after the wedding.",
   rec:"Record",stop:"Stop",again:"Start over",sendV:"Send my message",sentV:"Thank you! Your message arrived 💛",micNo:"Microphone unavailable: allow it in your browser settings",
   capT:"The one-year time capsule",capD:"Write us a note or a prediction (\"In a year, you'll have…\"). It's sealed: we'll open it on 7 May 2028.",
-  capPh:"In a year, you'll…",seal:"Seal my message 🔒",sealed:"Sealed until 7 May 2028 ✉️",capN:n=>`${n} message${n>1?"s":""} already sealed`,
+  capPh:"In a year, you'll…",seal:"Seal my message",sealed:"Sealed until 7 May 2028",capN:n=>`${n} message${n>1?"s":""} already sealed`,
   nameQ:"Your first name",nameNeed:"Add your first name",lockT:t=>`Opens on ${t}`,lockD:"During the wedding weekend.",
   recK:"The weekend in numbers",recT:"Thank you for these three days",photos:"photos shared",voices:"voice messages",runs:"points in the Race",
   winTeam:t=>`Team ${t} wins the Race`,champ:n=>`${n} wins the duel tournament`,scratchW:n=>`${n} scratched the winning card`,
@@ -95,7 +95,7 @@ function renderSouv(){
  if(!box){const mur=document.getElementById("mur");if(!mur)return;const sec=document.createElement("section");sec.id="souvenirs";sec.innerHTML=`<div class="wrap" id="souvBox"></div>`;mur.after(sec);box=document.getElementById("souvBox")}
  const open=now()>=SOUV_AT()||isTest(),capClosed=now()>=CAP_OPEN();
  if(capClosed){box.innerHTML="";return}
- if(!open){box.innerHTML=card("img/jeu-capsule.svg",s("souvK"),`🔒 ${s("capT")}`,s("lockT")(whenLabel(new Date(SOUV_AT()).toISOString()))+". "+s("lockD"),"",true);return}
+ if(!open){box.innerHTML=card("img/jeu-capsule.svg",s("souvK"),`${window.ICO?ICO.lock:""} ${s("capT")}`,s("lockT")(whenLabel(new Date(SOUV_AT()).toISOString()))+". "+s("lockD"),"",true);return}
  let vin;
  if(V.sent)vin=`<p class="ok">${s("sentV")}</p><button type="button" class="btn btn-ghost btn-sm" data-v="again">${s("again")}</button>`;
  else if(V.rec)vin=`<div class="vrec"><span class="vdot"></span><b class="tabnum" id="vT">0:00</b> / 0:30<button type="button" class="btn btn-gold btn-sm" data-v="stop">■ ${s("stop")}</button></div>`;

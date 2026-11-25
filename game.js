@@ -150,7 +150,7 @@ const runLocked=()=>CONFIG.RUN_AT&&now()<Date.parse(CONFIG.RUN_AT)&&!(window.Liv
 function showLocked(){
  const d=new Intl.DateTimeFormat({fr:"fr-FR",es:"es-ES",en:"en-GB"}[lang]||"fr-FR",{timeZone:"Europe/Madrid",day:"numeric",month:"long"}).format(new Date(CONFIG.RUN_AT));
  gui(`<div class="gpanel"><div class="pick" style="pointer-events:none"><button type="button" tabindex="-1"><img src="img/head-agathe.png" alt=""><b>Team Agathe</b></button><button type="button" tabindex="-1"><img src="img/head-valentin.png" alt=""><b>Team Valentin</b></button></div>
-  <div class="gtitle">🔒 ${tr("runLockT")(d)}</div><p class="gsmall">${tr("runLockD")}</p></div>`);
+  <div class="gtitle">${window.ICO?ICO.lock:""} ${tr("runLockT")(d)}</div><p class="gsmall">${tr("runLockD")}</p></div>`);
 }
 function idleScreen(){if(runLocked())return showLocked();if(!team)showTeamPick();else if(!nick)showNick();else showReady()}
 

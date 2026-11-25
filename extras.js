@@ -99,7 +99,7 @@ function found(id){
 function renderSecrets(){
  let el=document.getElementById("secrets");
  if(!el){const sig=document.querySelector("footer .sig");if(!sig)return;el=document.createElement("div");el.id="secrets";el.className="secrets";sig.after(el)}
- el.textContent=x("secrets")(store.get("eggs",[]).filter(i=>EGGS.includes(i)).length,EGGS.length);
+ {const nf=store.get("eggs",[]).filter(i=>EGGS.includes(i)).length;el.textContent=x("secrets")(nf,EGGS.length);el.hidden=nf===0}
 }
 // 1. trois tapes sur la photo d'accueil
 let taps=[];
