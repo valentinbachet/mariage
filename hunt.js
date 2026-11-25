@@ -26,7 +26,7 @@ const SPOTS=[
 const T={
  fr:{intro:n=>`Huit lieux emblématiques, huit photos-défis. Vos photos sont envoyées aux mariés, et avec ${n} lieux validés vous gagnez le cocktail spécial du samedi soir.`,
   locked:"En attendant, repérez les lieux.",openT:w=>`Le jeu de piste ouvre le ${w}`,who:"Vos prénoms, pour l'album",whoPh:"Ex. Julie & Thomas",shoot:"Prendre la photo",redo:"Changer",sending:"Envoi…",sent:"Dans l'album",saved:"Photo enregistrée",fail:"L'envoi a échoué. Réessayez avec un peu de réseau.",
-  left:n=>`Plus que ${n} lieu${n>1?"x":""} pour gagner le cocktail des mariés.`,count:(a,b)=>`${a}/${b} lieux`,
+  left:n=>`Encore ${n} lieu${n>1?"x":""} pour gagner le cocktail des mariés.`,count:(a,b)=>`${a}/${b} lieux`,
   winK:"Gagné",winT:"Votre cocktail vous attend",winD:"Samedi 8 mai, à l'apéritif au Faena River Club : montrez cet écran au bar pour recevoir le cocktail spécial des mariés.",
   hold:"Réservé au bar : maintenir pour valider",served:"Cocktail servi. ¡Salud!",needName:"Indiquez vos prénoms avant la photo.",teaser:"Jeu de piste",teaserD:(a,b)=>`${a}/${b} photos · un cocktail à gagner`,visado:"VISADO"},
  es:{intro:n=>`Ocho lugares emblemáticos, ocho fotos-reto. Vuestras fotos les llegan a los novios, y con ${n} lugares conseguidos ganáis el cóctel especial del sábado por la noche.`,

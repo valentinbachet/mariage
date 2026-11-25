@@ -471,17 +471,17 @@ html[data-avstyle="drape"] .hero .hero-img{position:relative}
 .sky .stars{position:absolute;inset:0;opacity:var(--stars,0);transition:opacity 2s}
 .sky .stars i{position:absolute;width:3px;height:3px;border-radius:50%;background:#fff;animation:tw 3s ease-in-out infinite}
 @keyframes tw{50%{opacity:.25}}
-.hero-img .orb{position:absolute;width:44px;height:44px;margin:-22px 0 0 -22px;border:0;padding:0;border-radius:50%;pointer-events:auto;cursor:pointer;z-index:3;-webkit-tap-highlight-color:transparent;
+.hero-img .orb{position:absolute;width:30px;height:30px;margin:-15px 0 0 -15px;border:0;padding:0;border-radius:50%;pointer-events:auto;cursor:pointer;z-index:3;-webkit-tap-highlight-color:transparent;
  background:radial-gradient(circle,#ffffff 0 26%,rgba(255,255,250,.97) 36%,rgba(255,251,230,.7) 50%,rgba(255,244,200,.3) 62%,rgba(255,240,190,0) 71%);
  
  animation:sunglow 3s ease-in-out infinite;transition:left 2s,top 2s}
-.hero-img .orb:not(.moon)::after{content:"";position:absolute;left:50%;top:50%;width:220px;height:220px;margin:-110px 0 0 -110px;z-index:-1;pointer-events:none;border-radius:50%;
+.hero-img .orb:not(.moon)::after{content:"";position:absolute;left:50%;top:50%;width:120px;height:120px;margin:-60px 0 0 -60px;opacity:.6;z-index:-1;pointer-events:none;border-radius:50%;
  background:radial-gradient(circle,rgba(255,253,235,1) 0 10%,rgba(255,244,200,.78) 19%,rgba(255,232,165,.45) 31%,rgba(255,222,150,.2) 46%,rgba(255,220,150,0) 64%),repeating-conic-gradient(from 0deg,rgba(255,250,225,.55) 0deg 1.6deg,rgba(255,250,225,0) 4deg 13deg,rgba(255,244,200,.35) 15deg 16deg,rgba(255,244,200,0) 19deg 26deg);
  -webkit-mask:radial-gradient(circle,#000 0 22%,rgba(0,0,0,.6) 40%,transparent 68%);mask:radial-gradient(circle,#000 0 22%,rgba(0,0,0,.6) 40%,transparent 68%);
  filter:blur(1.2px);animation:sunspin 60s linear infinite}
 @keyframes sunspin{to{transform:rotate(360deg)}}
 @keyframes sunglow{50%{transform:scale(1.08);filter:brightness(1.08)}}
-.hero-img .orb.moon{box-shadow:none!important}
+.hero-img .orb.moon{box-shadow:none!important;width:44px;height:44px;margin:-22px 0 0 -22px}
 @media (prefers-reduced-motion:reduce){.hero-img .orb,.hero-img .orb::after{animation:none}}
 .hero-img .orb.moon{background:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 44 44'%3E%3Cdefs%3E%3CradialGradient id='g' cx='.35' cy='.35' r='.8'%3E%3Cstop offset='0' stop-color='%23fffdf7'/%3E%3Cstop offset='.7' stop-color='%23f1e7cf'/%3E%3Cstop offset='1' stop-color='%23d9c9a3'/%3E%3C/radialGradient%3E%3Cmask id='m'%3E%3Crect width='44' height='44' fill='%23fff'/%3E%3Ccircle cx='30' cy='15' r='14.5' fill='%23000'/%3E%3C/mask%3E%3C/defs%3E%3Cg mask='url(%23m)'%3E%3Ccircle cx='22' cy='22' r='16' fill='url(%23g)'/%3E%3Ccircle cx='13' cy='25' r='2.2' fill='%23e3d5b3' opacity='.7'/%3E%3Ccircle cx='18' cy='32' r='1.4' fill='%23e3d5b3' opacity='.7'/%3E%3Ccircle cx='11' cy='18' r='1' fill='%23e3d5b3' opacity='.6'/%3E%3C/g%3E%3C/svg%3E") center/100% no-repeat;box-shadow:none;border-radius:0;filter:drop-shadow(0 0 10px rgba(255,248,225,.55)) drop-shadow(0 0 3px rgba(255,248,225,.8));animation:none}
 html[data-avstyle="drape"] .hero.is-night .hero-img img{filter:saturate(.55) brightness(.72) hue-rotate(-8deg)}
@@ -1114,6 +1114,7 @@ html[data-avstyle="drape"] .hero .when{font-size:14px;letter-spacing:.3em;color:
 html[data-avstyle="drape"] .locked{background:var(--ivory);color:var(--ink);box-shadow:inset 0 0 0 10px var(--ivory),inset 0 0 0 11px var(--albero)}
 html[data-avstyle="drape"] .locked .t{color:var(--ink)}
 html[data-avstyle="drape"] .locked .d{color:var(--ink-soft);opacity:1}
+html[data-avstyle="drape"] .stamps span{border-color:#9c8a68;color:var(--sage-d,#5d6c41);font-weight:500}
 </style>
 </head>
 <body>
@@ -1674,7 +1675,7 @@ function renderLive(){
  }else if(st.mode==="now"){
   const e=st.e;let extra="";
   if(e.id==="wedding"&&CONFIG.SHUTTLE_BACK.length){const nx=CONFIG.SHUTTLE_BACK.find(t=>shuttleTime(t)>n);if(nx)extra=`<div class="live-next">🚌 <b>${tr("nextShuttle")}${colon()}</b> <span class="tabnum">${nx}</span> (${tr("inLbl")} ${dur(shuttleTime(nx)-n)})</div>`}
-  if(st.next)extra+=`<div class="live-next"><b>${tr("nextLbl")}${colon()}</b> ${esc(pick(st.next.title))}, ${tr("dayWords")[new Date(st.next.start).getUTCDay()]} ${st.next.day} · ${hm(st.next.start)}</div>`;
+  if(st.next)extra+=`<div class="live-next"><b>${tr("nextLbl")}${colon()}</b> ${esc(pick(st.next.title))}, <span style="white-space:nowrap">${tr("dayWords")[new Date(st.next.start).getUTCDay()]} ${st.next.day}${lang==="es"?" de":""} ${tr("mon")} · ${hm(st.next.start)}</span></div>`;
   html=`<div class="live-label on"><span class="dot"></span>${tr("nowLbl")}${simTag}</div>
    <div class="live-title">${esc(pick(e.title))}</div><div class="muted tabnum">${hm(e.start)} – ${hm(e.end)} · ${esc(e.place)}</div>${extra}
    <div class="live-actions"><a class="btn btn-primary" href="${gmap(e.place+", "+e.addr)}" target="_blank" rel="noopener">${tr("go")}</a>${e.id==="wedding"?`<a class="btn btn-gold" href="#jeux">${tr("tJeux")}</a>`:""}</div>`;
