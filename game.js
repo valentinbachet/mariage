@@ -99,7 +99,7 @@ function renderBoard(){
  const top=board.top||[];
  const pod=top.slice(0,3),face=s=>s.f?`<img src="${s.f}" alt="">`:`<img class="hd" src="img/head-${s.team}.png" alt="">`;
  const podium=pod.length?`<div class="podium">${[1,0,2].filter(i=>pod[i]).map(i=>`<div class="pd p${i+1} ${pod[i].team}"><div class="pf">${face(pod[i])}<i>${i+1}</i></div><b>${esc(pod[i].name||"?")}</b><span class="tabnum">${fmt(pod[i].best)}</span></div>`).join("")}</div>`:"";
- $("#lb").innerHTML=`<div class="topline">${tr("runTop")}</div>`+podium+(top.length>3?`<ol class="lb" start="4">${top.slice(3).map((s,i)=>`<li class="${s.team}"><span class="rk">${i+4}</span><span class="nm">${esc(s.name||"?")}<small>Team ${TEAM_NAME[s.team]||""}</small></span><b class="tabnum">${fmt(s.best)}</b></li>`).join("")}</ol>`:top.length?"":`<p class="muted" style="text-align:center">${tr("runNoScore")}</p>`);
+ $("#lb").innerHTML=`<div class="topline">${tr("runTop")}</div>`+podium+(top.length>3?`<ol class="lb" start="4">${top.slice(3).map((s,i)=>`<li class="${s.team}"><span class="rk">${i+4}</span><span class="nm">${esc(s.name||"?")}<small>Team ${TEAM_NAME[s.team]||""}</small></span><b class="tabnum">${fmt(s.best)}</b></li>`).join("")}</ol>`:top.length?"":`<p class="muted" style="text-align:center">${tr(runLocked()?"runNoScoreYet":"runNoScore")}</p>`);
  faceAsk();
 }
 const fmt=n=>Math.round(n).toLocaleString(lang).replace(/ | /g," ");

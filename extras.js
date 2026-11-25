@@ -273,7 +273,7 @@ function paintSky(){
  s.style.setProperty("--top",top);s.style.setProperty("--mid",mid);
  /* course le long de l'arche : du bord gauche (lever) au bord droit (coucher), au plus haut à midi / minuit */
  const orb=hero.querySelector(".hero-img .orb"),hi=hero.querySelector(".hero-img");
- if(orb&&hi){orb.classList.toggle("moon",night);const W=hi.clientWidth,R=Math.max(40,W/2-36),a=Math.PI*(1-Math.min(1,Math.max(0,frac)));
+ if(orb&&hi){orb.classList.toggle("moon",night);const W=hi.clientWidth,R=Math.max(40,W/2-28),a=Math.PI*(1-Math.min(1,Math.max(0,frac)));
   orb.style.left=(W/2+R*Math.cos(a))+"px";orb.style.top=(26+(night?58:30)*(1-Math.sin(a)))+"px"}
  s.style.setProperty("--stars",night?1:Math.max(0,-e*3-0.2));
  hero.classList.toggle("is-night",night);hero.classList.toggle("is-dusk",!night&&e<0.12);
